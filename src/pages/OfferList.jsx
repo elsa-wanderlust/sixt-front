@@ -1,5 +1,7 @@
 // import from react and package(s)
-import { useState } from "react";
+import { useState, useEffect } from "react";
+// import style
+import "../styles/offerList.css";
 // import component(s)
 import OfferSummary from "../components/OfferSummary";
 import CategorySelect from "../components/CategorySelect";
@@ -7,6 +9,23 @@ import SearchFieldSection from "../components/SearchFieldsSection";
 
 const OfferList = ({ offers, setOffers, rentalLength, setRentalLength }) => {
   const [category, setCategory] = useState([]);
+  const [filteredOffers, setFilteredOffers] = useState([]);
+
+  // use effect that allows to store filteredOffers and access the number of results post filters
+  useEffect(() => {
+    const filteredOffers = () => {
+      let filteredOffersCopy = [];
+      for (let i = 0; i < offers.length; i++) {
+        if (category.indexOf(offers[i].carGroupInfo.bodyStyle) !== -1) {
+          filteredOffersCopy.push(offers[i]);
+        }
+      }
+      setFilteredOffers(filteredOffersCopy);
+    };
+    if (category.length > 0) {
+      filteredOffers();
+    }
+  }, [category]);
 
   return (
     <div>
@@ -14,31 +33,37 @@ const OfferList = ({ offers, setOffers, rentalLength, setRentalLength }) => {
         setOffers={setOffers}
         setRentalLength={setRentalLength}
       />
-      <p>This is the offerList page</p>
-      <p>{offers.length} OFFRES</p>
-      <CategorySelect setCategory={setCategory} />
-      {offers.map((elem) => {
-        if (category.length === 0) {
-          return (
-            <OfferSummary
-              key={elem.id}
-              offerDetails={elem}
-              rentalLength={rentalLength}
-            />
-          );
-        } else if (
-          category !== [] &&
-          category.indexOf(elem.carGroupInfo.bodyStyle) !== -1
-        ) {
-          return (
-            <OfferSummary
-              key={elem.id}
-              offerDetails={elem}
-              rentalLength={rentalLength}
-            />
-          );
-        }
-      })}
+      <div className="offerListContainer">
+        <div className="summaryAndFilter">
+          {category.length === 0 ? (
+            <p>{offers.length} OFFRES</p>
+          ) : (
+            <p>
+              {filteredOffers.length} de {offers.length} offres
+            </p>
+          )}
+          <CategorySelect setCategory={setCategory} />
+        </div>
+        {category.length === 0
+          ? offers.map((elem) => {
+              return (
+                <OfferSummary
+                  key={elem.id}
+                  offerDetails={elem}
+                  rentalLength={rentalLength}
+                />
+              );
+            })
+          : filteredOffers.map((elem) => {
+              return (
+                <OfferSummary
+                  key={elem.id}
+                  offerDetails={elem}
+                  rentalLength={rentalLength}
+                />
+              );
+            })}
+      </div>
     </div>
   );
 };

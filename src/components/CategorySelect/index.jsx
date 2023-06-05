@@ -1,6 +1,7 @@
 // import from react and package(s)
 import React from "react";
 import Select from "react-select";
+import { components } from "react-select";
 
 const CategorySelect = ({ setCategory }) => {
   const handleSelect = (selection) => {
@@ -18,7 +19,30 @@ const CategorySelect = ({ setCategory }) => {
     { value: "SUV", label: "SUV" },
     { value: "Pick-up", label: "PICK-UP" },
   ];
-  return <Select options={vehiculeOptions} onChange={handleSelect} isMulti />;
+
+  const Option = (props) => {
+    return (
+      <div>
+        <components.Option {...props}>
+          <input
+            type="checkbox"
+            checked={props.isSelected}
+            onChange={() => null}
+          />
+          <label>{props.label}</label>
+        </components.Option>
+      </div>
+    );
+  };
+
+  return (
+    <Select
+      options={vehiculeOptions}
+      onChange={handleSelect}
+      isMulti
+      components={{ Option }}
+    />
+  );
 };
 
 export default CategorySelect;
