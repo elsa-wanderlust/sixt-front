@@ -4,6 +4,8 @@ import "react-date-range/dist/theme/default.css"; // theme css file
 import { useState } from "react";
 import { Calendar } from "react-date-range";
 import fr from "date-fns/locale/fr";
+// import style
+import "./dateSelect.css";
 // import function(s)
 import calendarDateDisplay from "../../utils/calendarDateDisplay";
 
@@ -16,19 +18,25 @@ const DateSelect = ({ state, setState, minDate, maxDate, shownDate }) => {
   };
 
   return (
-    <>
-      <p onClick={() => setCalendaryDisplay(true)}>{dateDisplay}</p>
-      {calendarDisplay && (
-        <Calendar
-          date={state}
-          onChange={handleSelect}
-          minDate={minDate}
-          locale={fr}
-          shownDate={shownDate}
-          maxDate={maxDate && maxDate}
-        />
+    <div className="calendarContainer">
+      {!calendarDisplay && (
+        <p onClick={() => setCalendaryDisplay(true)} className="dateSelected">
+          {dateDisplay}
+        </p>
       )}
-    </>
+      {calendarDisplay && (
+        <div className="calendar">
+          <Calendar
+            date={state}
+            onChange={handleSelect}
+            minDate={minDate}
+            locale={fr}
+            shownDate={shownDate}
+            maxDate={maxDate && maxDate}
+          />
+        </div>
+      )}
+    </div>
   );
 };
 export default DateSelect;

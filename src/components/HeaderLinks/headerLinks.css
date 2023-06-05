@@ -1,0 +1,18 @@
+.allLinks {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 40%;
+  gap: 20px;
+}
+.linksSelected {
+  color: #ff5f00;
+  text-decoration: underline;
+}
+.linksNotSelected {
+  color: black;
+}
+.SixtPlus {
+  display: flex;
+  flex-direction: row;
+}

@@ -3,6 +3,8 @@ import React from "react";
 import { useState } from "react";
 import axios from "axios";
 import AsyncSelect from "react-select/async";
+// import style
+import "./autoComplete.css";
 
 const AutoComplete = ({ selectedLocation, setSelectedLocation }) => {
   const [inputValue, setInputValue] = useState("");
@@ -43,8 +45,32 @@ const AutoComplete = ({ selectedLocation, setSelectedLocation }) => {
     }
   };
 
+  // function for styling
+  const customStyles = {
+    control: (base, state) => ({
+      ...base,
+      background: "black",
+      borderRadius: state.isFocused ? "3px 3px 0 0" : 3,
+      borderColor: state.isFocused ? "black" : "black",
+      boxShadow: state.isFocused ? null : null,
+      "&:hover": {
+        borderColor: state.isFocused ? "black" : "black",
+      },
+    }),
+    menu: (base) => ({
+      ...base,
+      borderRadius: 0,
+      marginTop: 0,
+    }),
+    menuList: (base) => ({
+      ...base,
+      padding: 0,
+    }),
+  };
+
   return (
     <AsyncSelect
+      styles={customStyles}
       onInputChange={handleInput}
       cacheOptions
       defaultOptions
@@ -53,6 +79,10 @@ const AutoComplete = ({ selectedLocation, setSelectedLocation }) => {
       getOptionValue={(event) => event.id}
       loadOptions={getAgencyList}
       onChange={handleSelect}
+      components={{
+        DropdownIndicator: () => null,
+        IndicatorSeparator: () => null,
+      }}
     />
   );
 };

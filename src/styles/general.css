@@ -1,0 +1,13 @@
+/* GENERAL */
+.container {
+  border: 2px red solid;
+  max-width: 1244px;
+  margin: 0 auto;
+}
+
+/* MISC */
+.worldMapBg {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+}

@@ -1,0 +1,13 @@
+.calendarContainer {
+  z-index: 5;
+  position: absolute;
+}
+.dateSelected {
+  color: white;
+  position: relative;
+  top: 40px;
+}
+.calendar {
+  position: relative;
+  top: 57px;
+}
