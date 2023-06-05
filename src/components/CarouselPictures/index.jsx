@@ -4,7 +4,8 @@ import "react-multi-carousel/lib/styles.css";
 // import style
 import "./carouselPictures.css";
 
-const CarouselPictures = ({ pictures }) => {
+const CarouselPictures = ({ pictures, type }) => {
+  console.log(pictures[0]);
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -18,9 +19,22 @@ const CarouselPictures = ({ pictures }) => {
   };
 
   return (
-    <Carousel responsive={responsive} showDots="true" infinite={true}>
+    <Carousel
+      responsive={responsive}
+      showDots="true"
+      infinite={true}
+      className="carouselAll"
+    >
       {pictures.map((image) => {
-        return <img src={image} key={image} className="carouselOnePic" />;
+        return (
+          <img
+            src={image}
+            key={image}
+            className={
+              type === "modal" ? "carouselOnePicModal" : "carouselOnePic"
+            }
+          />
+        );
       })}
     </Carousel>
   );

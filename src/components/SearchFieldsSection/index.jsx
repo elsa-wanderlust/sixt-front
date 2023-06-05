@@ -13,19 +13,28 @@ import SelectButton from "../SelectButton";
 import dateTimeFormat from "../../utils/dateTimeFormat";
 import rentalLength from "../../utils/rentalLength";
 
-const SearchFieldSection = ({ setOffers, setRentalLength }) => {
-  // declare state(s)
-  const [selectedLocation, setSelectedLocation] = useState();
-  const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState();
-  const [startTime, setStartTime] = useState();
-  const [endTime, setEndTime] = useState();
+const SearchFieldSection = ({
+  setOffers,
+  setRentalLength,
+  page,
+  setPage,
+  selectedLocation,
+  setSelectedLocation,
+  startDate,
+  setStartDate,
+  endDate,
+  setEndDate,
+  startTime,
+  setStartTime,
+  endTime,
+  setEndTime,
+}) => {
   // declare variable(s)
   const navigate = useNavigate(); // rappel
   // declare function(s)
   const handleSubmit = async () => {
-    const pickUpDate = dateTimeFormat(startDate, startTime);
-    const dropOffDate = dateTimeFormat(endDate, endTime);
+    const pickUpDate = dateTimeFormat(startDate, startTime.value);
+    const dropOffDate = dateTimeFormat(endDate, endTime.value);
     const pickUpStation = selectedLocation.id;
     const query = `?pickupStation=${pickUpStation}&pickupDate=${pickUpDate}&returnDate=${dropOffDate}
 `;
@@ -36,7 +45,8 @@ const SearchFieldSection = ({ setOffers, setRentalLength }) => {
       );
       setOffers(response.data);
       setRentalLength(daysOfRental);
-      navigate("/offerList");
+      setPage("offerList");
+      navigate("/offerlist");
     } catch (error) {
       console.log(error);
     }
@@ -77,7 +87,13 @@ const SearchFieldSection = ({ setOffers, setRentalLength }) => {
       <div className="timeSelect">
         <TimeSelect state={endTime} setState={setEndTime} />
       </div>
-      <SelectButton title="Voir les offres" func={handleSubmit} type="orange" />
+      {page === "home" && (
+        <SelectButton
+          title="Voir les offres"
+          func={handleSubmit}
+          type="orange"
+        />
+      )}
     </div>
   );
 };

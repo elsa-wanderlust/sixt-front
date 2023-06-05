@@ -1,0 +1,8 @@
+.NavSelected {
+  color: #ff5f00;
+  text-decoration: none;
+}
+.NavNotSelected {
+  color: grey;
+  text-decoration: none;
+}

@@ -4,7 +4,7 @@ import Select from "react-select";
 
 const TimeSelect = ({ state, setState }) => {
   const handleSelect = (time) => {
-    setState(time.value);
+    setState(time);
   };
 
   const timeOptions = [
@@ -55,6 +55,7 @@ const TimeSelect = ({ state, setState }) => {
   };
   return (
     <Select
+      value={state && state}
       styles={customStyles}
       options={timeOptions}
       onChange={handleSelect}

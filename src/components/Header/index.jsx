@@ -8,13 +8,19 @@ import logo from "../../assets/img/sixt-logo.png";
 import SearchFieldSection from "../SearchFieldsSection";
 import HeaderLinks from "../HeaderLinks";
 import BasicLink from "../BasicLink";
+import NavigationTrack from "../NavigationTrack";
 
-const Header = ({ page }) => {
+const Header = ({ page, setPage }) => {
   return (
     <>
       <div className="headerContainer">
         <img src={logo} alt="sixt logo noir sur fond blanc" className="logo" />
-        <HeaderLinks />
+        {(page === "home" || page === "backOffice") && (
+          <HeaderLinks page={page} setPage={setPage} />
+        )}
+        {page !== "home" && page !== "backOffice" && (
+          <NavigationTrack page={page} setPage={setPage} />
+        )}
         <BasicLink
           title="BACKOFFICE"
           style="linksNotSelected"

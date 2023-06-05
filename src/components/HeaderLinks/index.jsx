@@ -5,7 +5,7 @@ import "./headerLinks.css";
 // import component(s)
 import BasicLink from "../BasicLink";
 
-const HeaderLinks = () => {
+const HeaderLinks = ({ page }) => {
   return (
     <div className="allLinks">
       <BasicLink navigate="/" title="RENT" style="linksSelected" />
