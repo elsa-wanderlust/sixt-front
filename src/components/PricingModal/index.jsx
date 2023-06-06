@@ -12,37 +12,38 @@ const PricingModal = ({
   optionsSelected,
   offerDetails,
   offerVeryDetails,
+  dailyPrice,
+  newTotal,
 }) => {
-  // calc EXTRA FEE - always 'per rental'
-  let totalExtraFee = 0;
-  for (let i = 0; i < offerVeryDetails.extraFees.length; i++) {
-    totalExtraFee += offerVeryDetails.extraFees[i].price.amount;
-  }
-  // calc ADDITIONAL CHARGES - can be 'daily' or 'per rental'
-  let totalAdditionalCharges = 0;
-  for (let i = 0; i < offerVeryDetails.additionalCharges.length; i++) {
-    if (
-      optionsSelected.indexOf(offerVeryDetails.additionalCharges[i].id) !== -1
-    ) {
-      let multiplier = 0;
-      if (
-        offerVeryDetails.additionalCharges[i].price.unit === "jour" ||
-        offerVeryDetails.additionalCharges[i].price.unit === "jour/unité"
-      ) {
-        multiplier = rentalLength;
-      } else {
-        multiplier = 1;
-      }
-      totalAdditionalCharges +=
-        offerVeryDetails.additionalCharges[i].price.amount * multiplier;
-    }
-  }
-  const dailyPrice = Number(
-    ((totalPrice - totalExtraFee) / rentalLength).toFixed(2)
-  );
-  const newTotal =
-    dailyPrice * rentalLength + totalExtraFee + totalAdditionalCharges;
-  console.log(typeof newTotal);
+  // // calc EXTRA FEE - always 'per rental'
+  // let totalExtraFee = 0;
+  // for (let i = 0; i < offerVeryDetails.extraFees.length; i++) {
+  //   totalExtraFee += offerVeryDetails.extraFees[i].price.amount;
+  // }
+  // // calc ADDITIONAL CHARGES - can be 'daily' or 'per rental'
+  // let totalAdditionalCharges = 0;
+  // for (let i = 0; i < offerVeryDetails.additionalCharges.length; i++) {
+  //   if (
+  //     optionsSelected.indexOf(offerVeryDetails.additionalCharges[i].id) !== -1
+  //   ) {
+  //     let multiplier = 0;
+  //     if (
+  //       offerVeryDetails.additionalCharges[i].price.unit === "jour" ||
+  //       offerVeryDetails.additionalCharges[i].price.unit === "jour/unité"
+  //     ) {
+  //       multiplier = rentalLength;
+  //     } else {
+  //       multiplier = 1;
+  //     }
+  //     totalAdditionalCharges +=
+  //       offerVeryDetails.additionalCharges[i].price.amount * multiplier;
+  //   }
+  // }
+  // const dailyPrice = Number(
+  //   ((totalPrice - totalExtraFee) / rentalLength).toFixed(2)
+  // );
+  // const newTotal =
+  //   dailyPrice * rentalLength + totalExtraFee + totalAdditionalCharges;
 
   return (
     <>

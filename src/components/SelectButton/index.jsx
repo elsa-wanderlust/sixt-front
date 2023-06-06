@@ -1,9 +1,9 @@
 // import style
 import "./selectButton.css";
 
-const SelectButton = ({ func, title, type }) => {
+const SelectButton = ({ func, title, type, disabled }) => {
   return (
-    <button onClick={func} className={type}>
+    <button onClick={func} className={type} disabled={disabled}>
       {title}
     </button>
   );

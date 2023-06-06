@@ -39,6 +39,35 @@ const OfferConfig = ({
       return setDisplayOptions(5);
     }
   };
+  // calc EXTRA FEE - always 'per rental'
+  let totalExtraFee = 0;
+  for (let i = 0; i < offerVeryDetails.extraFees.length; i++) {
+    totalExtraFee += offerVeryDetails.extraFees[i].price.amount;
+  }
+  // calc ADDITIONAL CHARGES - can be 'daily' or 'per rental'
+  let totalAdditionalCharges = 0;
+  for (let i = 0; i < offerVeryDetails.additionalCharges.length; i++) {
+    if (
+      optionsSelected.indexOf(offerVeryDetails.additionalCharges[i].id) !== -1
+    ) {
+      let multiplier = 0;
+      if (
+        offerVeryDetails.additionalCharges[i].price.unit === "jour" ||
+        offerVeryDetails.additionalCharges[i].price.unit === "jour/unité"
+      ) {
+        multiplier = rentalLength;
+      } else {
+        multiplier = 1;
+      }
+      totalAdditionalCharges +=
+        offerVeryDetails.additionalCharges[i].price.amount * multiplier;
+    }
+  }
+  const dailyPrice = Number(
+    ((totalPrice - totalExtraFee) / rentalLength).toFixed(2)
+  );
+  const newTotal =
+    dailyPrice * rentalLength + totalExtraFee + totalAdditionalCharges;
 
   return (
     <div>
@@ -108,6 +137,9 @@ const OfferConfig = ({
               dropOffDate,
               optionsSelected,
               offerVeryDetails,
+              dailyPrice,
+              rentalLength,
+              newTotal,
             ]}
             navigate="/personnalDetails"
           />
@@ -120,6 +152,8 @@ const OfferConfig = ({
             optionsSelected={optionsSelected}
             offerDetails={offerDetails}
             offerVeryDetails={offerVeryDetails}
+            dailyPrice={dailyPrice}
+            newTotal={newTotal}
           />
         )}
       </div>

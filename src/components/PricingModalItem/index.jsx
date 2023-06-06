@@ -15,7 +15,7 @@ const PricingModalItem = ({ title, amount, unit, rentalLength }) => {
   return (
     <div className="pricingDetailsItem">
       <p>{title}</p>
-      <p>€ {totalCalc()}</p>
+      {amount && <p>€ {totalCalc()}</p>}
     </div>
   );
 };
