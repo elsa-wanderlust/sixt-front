@@ -5,21 +5,32 @@ import { useLocation } from "react-router-dom";
 import SearchFieldSection from "../components/SearchFieldsSection";
 import ConfigurationCard from "../components/ConfigurationCard";
 import PricingModal from "../components/PricingModal";
+import BasicLink from "../components/BasicLink";
+// import function(s)
+import dateTimeFormat from "./../utils/dateTimeFormat";
+// import dateTimeFormat from "../../utils/dateTimeFormat";
 
-const OfferConfig = (props) => {
+const OfferConfig = ({
+  setPage,
+  selectedLocation,
+  startDate,
+  endDate,
+  startTime,
+  endTime,
+}) => {
   // receive the props from the carDetailsModal
   const location = useLocation();
   const offerDetails = location.state[0];
   const offerVeryDetails = location.state[1];
   const totalPrice = location.state[2];
   const rentalLength = location.state[3];
-  console.log("offerConfig", offerVeryDetails);
-
   // declare States
   const [optionsSelected, setOptionsSelected] = useState([]);
   const [displayOptions, setDisplayOptions] = useState(5);
   const [modalVisible, setModalVisible] = useState(false);
-
+  // declare variables
+  const pickUpDate = dateTimeFormat(startDate, startTime.value);
+  const dropOffDate = dateTimeFormat(endDate, endTime.value);
   // declare functions
   const handleDisplay = () => {
     if (displayOptions === 5) {
@@ -31,7 +42,14 @@ const OfferConfig = (props) => {
 
   return (
     <div>
-      <SearchFieldSection />
+      <SearchFieldSection
+        setPage={setPage}
+        selectedLocation={selectedLocation}
+        startDate={startDate}
+        endDate={endDate}
+        startTime={startTime}
+        endTime={endTime}
+      />
       <div>
         <img
           src={offerVeryDetails.splashImages[0]}
@@ -80,6 +98,19 @@ const OfferConfig = (props) => {
           >
             Details du prix
           </p>
+          <BasicLink
+            title="CONTINUER"
+            type="linksSelected"
+            state={[
+              selectedLocation,
+              offerDetails,
+              pickUpDate,
+              dropOffDate,
+              optionsSelected,
+              offerVeryDetails,
+            ]}
+            navigate="/personnalDetails"
+          />
         </section>
         {modalVisible && (
           <PricingModal

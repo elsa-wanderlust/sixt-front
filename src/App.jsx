@@ -75,9 +75,29 @@ function App() {
           />
           <Route
             path="/offerconfig"
-            element={<OfferConfig setPage={setPage} />}
+            element={
+              <OfferConfig
+                setPage={setPage}
+                selectedLocation={selectedLocation}
+                startDate={startDate}
+                endDate={endDate}
+                startTime={startTime}
+                endTime={endTime}
+              />
+            }
           />
-          <Route path="/personnaldetails" element={<PersonalDetails />} />
+          <Route
+            path="/personnaldetails"
+            element={
+              <PersonalDetails
+                selectedLocation={selectedLocation}
+                startDate={startDate}
+                endDate={endDate}
+                startTime={startTime}
+                endTime={endTime}
+              />
+            }
+          />
           <Route path="/backoffice" element={<BackOffice />} />
         </Routes>
         <Footer />

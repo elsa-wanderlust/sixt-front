@@ -43,10 +43,6 @@ const PricingModal = ({
   const newTotal =
     dailyPrice * rentalLength + totalExtraFee + totalAdditionalCharges;
   console.log(typeof newTotal);
-  // console.log(dailyPrice);
-  // console.log(rentalLength);
-  // console.log(totalExtraFee);
-  // console.log(totalAdditionalCharges);
 
   return (
     <>
