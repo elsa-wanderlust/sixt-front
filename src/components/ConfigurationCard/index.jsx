@@ -75,7 +75,7 @@ const ConfigurationCard = ({
           ? "selected"
           : "notSelected"
       }
-      onClick={optionDetails.price.amount !== 0 && handleSelect}
+      onClick={optionDetails.price.amount !== 0 ? handleSelect : null}
     >
       <div>
         {optionDetails.icon}

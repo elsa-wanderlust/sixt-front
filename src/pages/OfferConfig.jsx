@@ -13,7 +13,16 @@ const OfferConfig = (props) => {
 
   // declare States
   const [optionsSelected, setOptionsSelected] = useState([]);
-  console.log("rerender");
+  const [displayOptions, setDisplayOptions] = useState(5);
+
+  // declare functions
+  const handleDisplay = () => {
+    if (displayOptions === 5) {
+      return setDisplayOptions(100);
+    } else {
+      return setDisplayOptions(5);
+    }
+  };
 
   return (
     <div>
@@ -39,17 +48,21 @@ const OfferConfig = (props) => {
           </div>
           <div>
             <p>CHOISISSEZ VOS OPTIONS</p>
-            {offerVeryDetails.additionalCharges.map((elem) => {
-              return (
-                <ConfigurationCard
-                  key={elem.id}
-                  optionDetails={elem}
-                  optionsSelected={optionsSelected}
-                  setOptionsSelected={setOptionsSelected}
-                />
-              );
+            {offerVeryDetails.additionalCharges.map((elem, index) => {
+              if (index < displayOptions) {
+                return (
+                  <ConfigurationCard
+                    key={elem.id}
+                    optionDetails={elem}
+                    optionsSelected={optionsSelected}
+                    setOptionsSelected={setOptionsSelected}
+                  />
+                );
+              }
             })}
           </div>
+          <p onClick={handleDisplay}>+ VOIR PLUS D'OPTIONS</p>
+          <p onClick={handleDisplay}>- VOIR MOINS D'OPTIONS</p>
         </section>
         <section className="rightColumn"></section>
       </div>
