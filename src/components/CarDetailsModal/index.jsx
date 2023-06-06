@@ -9,7 +9,12 @@ import CarouselPictures from "../CarouselPictures";
 import SelectButton from "../SelectButton";
 import BasicLink from "../BasicLink";
 
-const CarDetailsModal = ({ setModalVisible, totalPrice, offerDetails }) => {
+const CarDetailsModal = ({
+  setModalVisible,
+  offerDetails,
+  rentalLength,
+  totalPrice,
+}) => {
   // declare states and variables
   const [offerVeryDetails, setOfferVeryDetails] = useState("");
   const [isLoading, setIsLoading] = useState(true);
@@ -93,7 +98,12 @@ const CarDetailsModal = ({ setModalVisible, totalPrice, offerDetails }) => {
               <BasicLink
                 title="SELECTIONNER"
                 type="linksSelected"
-                state={[offerDetails, offerVeryDetails]}
+                state={[
+                  offerDetails,
+                  offerVeryDetails,
+                  totalPrice,
+                  rentalLength,
+                ]}
                 navigate="/offerConfig"
               />
             </div>

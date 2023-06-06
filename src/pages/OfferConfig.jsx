@@ -4,16 +4,21 @@ import { useLocation } from "react-router-dom";
 // import component(s)
 import SearchFieldSection from "../components/SearchFieldsSection";
 import ConfigurationCard from "../components/ConfigurationCard";
+import PricingModal from "../components/PricingModal";
 
 const OfferConfig = (props) => {
   // receive the props from the carDetailsModal
   const location = useLocation();
   const offerDetails = location.state[0];
   const offerVeryDetails = location.state[1];
+  const totalPrice = location.state[2];
+  const rentalLength = location.state[3];
+  console.log("offerConfig", offerVeryDetails);
 
   // declare States
   const [optionsSelected, setOptionsSelected] = useState([]);
   const [displayOptions, setDisplayOptions] = useState(5);
+  const [modalVisible, setModalVisible] = useState(false);
 
   // declare functions
   const handleDisplay = () => {
@@ -64,7 +69,28 @@ const OfferConfig = (props) => {
           <p onClick={handleDisplay}>+ VOIR PLUS D'OPTIONS</p>
           <p onClick={handleDisplay}>- VOIR MOINS D'OPTIONS</p>
         </section>
-        <section className="rightColumn"></section>
+        <section className="rightColumn">
+          <p>TOTAL</p>
+          <p>€ {totalPrice}</p>
+          <p>Taxes includes</p>
+          <p
+            onClick={() => {
+              setModalVisible(true);
+            }}
+          >
+            Details du prix
+          </p>
+        </section>
+        {modalVisible && (
+          <PricingModal
+            setModalVisible={setModalVisible}
+            totalPrice={totalPrice}
+            rentalLength={rentalLength}
+            optionsSelected={optionsSelected}
+            offerDetails={offerDetails}
+            offerVeryDetails={offerVeryDetails}
+          />
+        )}
       </div>
     </div>
   );
