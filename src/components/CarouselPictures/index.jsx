@@ -5,7 +5,6 @@ import "react-multi-carousel/lib/styles.css";
 import "./carouselPictures.css";
 
 const CarouselPictures = ({ pictures, type }) => {
-  console.log(pictures[0]);
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.

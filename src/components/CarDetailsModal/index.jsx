@@ -1,23 +1,20 @@
 // import from react and package(s)
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 // import style
 import "./carDetailsModal.css";
 // import component(s)
 import CarouselPictures from "../CarouselPictures";
+import SelectButton from "../SelectButton";
+import BasicLink from "../BasicLink";
 
-const CarDetailsModal = ({
-  id,
-  setModalVisible,
-  description,
-  carGroupInfo,
-  totalPrice,
-}) => {
+const CarDetailsModal = ({ setModalVisible, totalPrice, offerDetails }) => {
   // declare states and variables
-  const [offerDetails, setOfferDetails] = useState("");
+  const [offerVeryDetails, setOfferVeryDetails] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [carouselImages, setcarouselImages] = useState([]);
+  const { id, headlines, images, carGroupInfo, prices } = offerDetails;
   const {
     automatic,
     maxPassengers,
@@ -28,13 +25,13 @@ const CarDetailsModal = ({
   } = carGroupInfo;
   // useEffect
   useEffect(() => {
-    const getOfferDetails = async () => {
+    const getOfferVeryDetails = async () => {
       try {
         const response = await axios.post(
           `http://localhost:3000/agency/offerDetails`,
           { id: id }
         );
-        setOfferDetails(response.data);
+        setOfferVeryDetails(response.data);
         const carouselImagesCopy = [];
         for (let i = 0; i < response.data.splashImages.length; i++) {
           carouselImagesCopy.push(response.data.splashImages[i]);
@@ -45,7 +42,7 @@ const CarDetailsModal = ({
         console.log(error);
       }
     };
-    getOfferDetails();
+    getOfferVeryDetails();
   }, []);
   return (
     <>
@@ -80,7 +77,7 @@ const CarDetailsModal = ({
                   className="carouselContainer"
                 /> */}
               </div>
-              <p className="carouselTitle">{description}</p>
+              <p className="carouselTitle">{headlines.longSubline}</p>
               <div className="carouselText">
                 <p>{maxPassengers} Sièges</p>
                 <p>{doors} Portes</p>
@@ -92,6 +89,13 @@ const CarDetailsModal = ({
             </div>
             <div className="rightSection">
               <p>{totalPrice}</p>
+              {/* <SelectButton title="SELECTIONNER" type="orange" />*/}
+              <BasicLink
+                title="SELECTIONNER"
+                type="linksSelected"
+                state={[offerDetails, offerVeryDetails]}
+                navigate="/offerConfig"
+              />
             </div>
           </div>
         </div>

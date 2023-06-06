@@ -73,7 +73,10 @@ function App() {
               />
             }
           />
-          <Route path="/offerconfig" element={<OfferConfig />} />
+          <Route
+            path="/offerconfig"
+            element={<OfferConfig setPage={setPage} />}
+          />
           <Route path="/personnaldetails" element={<PersonalDetails />} />
           <Route path="/backoffice" element={<BackOffice />} />
         </Routes>

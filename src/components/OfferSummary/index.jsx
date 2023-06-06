@@ -19,10 +19,8 @@ const OfferSummary = ({ offerDetails, rentalLength }) => {
       <p>€ {(prices.dayPrice.amount * rentalLength).toFixed(2)} total</p>
       {modalVisible && (
         <CarDetailsModal
-          id={id}
           setModalVisible={setModalVisible}
-          description={headlines.longSubline}
-          carGroupInfo={carGroupInfo}
+          offerDetails={offerDetails}
           totalPrice={(prices.dayPrice.amount * rentalLength).toFixed(2)}
         />
       )}

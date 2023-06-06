@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 // import styles
 import "./basicLink.css";
 
-const BasicLink = ({ navigate, title, subtitle, style }) => {
+const BasicLink = ({ navigate, title, subtitle, style, state }) => {
   return (
-    <Link to={navigate ? navigate : ""} className={style}>
+    <Link to={navigate ? navigate : ""} state={state} className={style}>
       {title}
       {subtitle && <p>{subtitle}</p>}
     </Link>
