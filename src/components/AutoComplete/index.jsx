@@ -3,8 +3,6 @@ import React from "react";
 import { useState } from "react";
 import axios from "axios";
 import AsyncSelect from "react-select/async";
-// import style
-import "./autoComplete.css";
 
 const AutoComplete = ({ selectedLocation, setSelectedLocation }) => {
   const [inputValue, setInputValue] = useState("");
@@ -13,12 +11,10 @@ const AutoComplete = ({ selectedLocation, setSelectedLocation }) => {
   const handleInput = (input) => {
     setInputValue(input);
   };
-
   // handle selection
   const handleSelect = (event) => {
     setSelectedLocation(event);
   };
-
   // get location option depending on inputValue
   const getAgencyList = async (inputValue) => {
     if (inputValue.length > 2) {
@@ -49,6 +45,8 @@ const AutoComplete = ({ selectedLocation, setSelectedLocation }) => {
   const customStyles = {
     control: (base, state) => ({
       ...base,
+      fontFamily: "RC",
+      color: "white",
       background: "black",
       borderRadius: state.isFocused ? "3px 3px 0 0" : 3,
       borderColor: state.isFocused ? "black" : "black",
@@ -59,12 +57,19 @@ const AutoComplete = ({ selectedLocation, setSelectedLocation }) => {
     }),
     menu: (base) => ({
       ...base,
+      fontFamily: "RC",
+      color: "black",
       borderRadius: 0,
       marginTop: 0,
     }),
     menuList: (base) => ({
       ...base,
+      fontFamily: "RC",
       padding: 0,
+    }),
+    placeholder: (base) => ({
+      ...base,
+      color: "white",
     }),
   };
 
@@ -74,6 +79,7 @@ const AutoComplete = ({ selectedLocation, setSelectedLocation }) => {
       onInputChange={handleInput}
       cacheOptions
       defaultOptions
+      placeholder="..."
       value={selectedLocation}
       getOptionLabel={(event) => event.subtitle}
       getOptionValue={(event) => event.id}

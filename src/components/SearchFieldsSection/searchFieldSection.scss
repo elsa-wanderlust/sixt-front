@@ -1,0 +1,67 @@
+@import "../../styles/general.scss";
+
+.searchFieldSection {
+  width: 100%;
+  height: 120px;
+  padding: 30px 10px 15px 10px;
+  display: flex;
+  flex-direction: row;
+  background-color: $black;
+  gap: 20px;
+}
+
+@mixin eachField {
+  border-bottom: 2px white solid;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.label {
+  color: $orange;
+  font-family: "RC";
+}
+// AGENCY
+.agencySearch {
+  @include eachField;
+  width: 30%;
+  justify-content: space-between;
+}
+.autoComplete {
+  background-color: black;
+  color: white;
+}
+
+// DATE
+.dateSelect {
+  @include eachField;
+  width: 15%;
+  justify-content: space-between;
+}
+.calendarContainer {
+  z-index: 5;
+  position: absolute;
+}
+.dateSelected {
+  color: white;
+  position: relative;
+  top: 45px;
+  font-family: "RC";
+}
+.calendar {
+  position: relative;
+  top: 57px;
+  font-family: "RC";
+}
+
+// TIME
+.timeSelect {
+  @include eachField;
+  width: 5%;
+  justify-content: end;
+}
+// SELECT BUTTON CONTAINER
+.selectButtonContainer {
+  display: flex;
+  flex: 1;
+  align-items: end;
+}

@@ -1,6 +1,6 @@
 // import from react and package(s)
 import { useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 // import style
 import "./carDetailsModal.css";
@@ -8,14 +8,17 @@ import "./carDetailsModal.css";
 import CarouselPictures from "../CarouselPictures";
 import SelectButton from "../SelectButton";
 import BasicLink from "../BasicLink";
+import CarGroupInfo from "../CarGroupInfo";
 
 const CarDetailsModal = ({
   setModalVisible,
   offerDetails,
   rentalLength,
   totalPrice,
+  setPage,
 }) => {
   // declare states and variables
+  const navigate = useNavigate();
   const [offerVeryDetails, setOfferVeryDetails] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [carouselImages, setcarouselImages] = useState([]);
@@ -28,7 +31,7 @@ const CarDetailsModal = ({
     airCondition,
     baggage,
   } = carGroupInfo;
-  // useEffect
+  // useEffect to get details on offer
   useEffect(() => {
     const getOfferVeryDetails = async () => {
       try {
@@ -49,6 +52,13 @@ const CarDetailsModal = ({
     };
     getOfferVeryDetails();
   }, []);
+  const handleNext = () => {
+    setPage("offerConfig");
+    navigate("/offerConfig", {
+      state: { offerDetails, offerVeryDetails, totalPrice, rentalLength },
+    });
+  };
+
   return (
     <>
       {isLoading ? (
@@ -83,6 +93,7 @@ const CarDetailsModal = ({
                 /> */}
               </div>
               <p className="carouselTitle">{headlines.longSubline}</p>
+              <CarGroupInfo carGroupInfo={carGroupInfo} />
               <div className="carouselText">
                 <p>{maxPassengers} Sièges</p>
                 <p>{doors} Portes</p>
@@ -94,18 +105,7 @@ const CarDetailsModal = ({
             </div>
             <div className="rightSection">
               <p>{totalPrice}</p>
-              {/* <SelectButton title="SELECTIONNER" type="orange" />*/}
-              <BasicLink
-                title="SELECTIONNER"
-                type="linksSelected"
-                state={[
-                  offerDetails,
-                  offerVeryDetails,
-                  totalPrice,
-                  rentalLength,
-                ]}
-                navigate="/offerConfig"
-              />
+              <SelectButton func={handleNext} title="SELECTIONNER" />
             </div>
           </div>
         </div>

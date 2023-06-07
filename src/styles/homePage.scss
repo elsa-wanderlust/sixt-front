@@ -1,0 +1,11 @@
+@import "../styles/general.scss";
+
+.worldMapBg {
+  background-color: $black;
+  display: flex;
+  justify-content: center;
+}
+// to avoid small white line btw carousel and map
+.homeBg {
+  background-color: $black;
+}

@@ -16,23 +16,24 @@ const PersonalDetails = () => {
   // receive the props from the carDetailsModal
   const location = useLocation();
   // declare variables for display only
-  const includedCharges = location.state[5].includedCharges;
-  const minAge = location.state[1].carGroupInfo.driverMinAge;
-  const actualDailyPrice = location.state[6];
-  const rentalLength = location.state[7];
-  const newTotal = location.state[8];
+  const includedCharges = location.state.offerVeryDetails.includedCharges;
+  const minAge = location.state.offerDetails.carGroupInfo.driverMinAge;
+  const actualDailyPrice = location.state.dailyPrice;
+  const rentalLength = location.state.rentalLength;
+  const newTotal = location.state.newTotal;
   // declare variables for DB
-  const agency = location.state[0].title;
-  const vehiculeName = location.state[1].headlines.longSubline;
-  const vehiculePicture = location.state[1].images.small;
-  const dayPrice = location.state[1].prices.dayPrice.amount;
-  const currency = location.state[1].prices.currency;
-  const pickUpDate = location.state[2];
-  const dropOffDate = location.state[3];
-  const optionsSelected = location.state[4];
-  const extraFees = location.state[5].extraFees;
+  const agency = location.state.selectedLocation.title; //OK
+  const vehiculeName = location.state.offerDetails.headlines.longSubline;
+  const vehiculePicture = location.state.offerDetails.images.small;
+  const dayPrice = location.state.offerDetails.prices.dayPrice.amount;
+  const currency = location.state.offerDetails.prices.currency;
+  const pickUpDate = location.state.pickUpDate;
+  const dropOffDate = location.state.dropOffDate;
+  const optionsSelected = location.state.optionsSelected;
+  const extraFees = location.state.offerVeryDetails.extraFees;
   // additional charges = the free ones + the one selected
-  const additionalChargesAvail = location.state[5].additionalCharges;
+  const additionalChargesAvail =
+    location.state.offerVeryDetails.additionalCharges;
   let additionalCharges = [];
   for (let i = 0; i < additionalChargesAvail.length; i++) {
     if (additionalChargesAvail[i].price.amount === 0) {

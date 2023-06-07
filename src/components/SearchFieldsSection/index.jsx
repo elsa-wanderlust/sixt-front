@@ -1,9 +1,9 @@
 // import from react and package(s)
-import { useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 // import style
-import "./searchFieldSection.css";
+import "./searchFieldSection.scss";
 // import component(s)
 import AutoComplete from "../AutoComplete";
 import DateSelect from "../DateSelect";
@@ -28,33 +28,42 @@ const SearchFieldSection = ({
   setStartTime,
   endTime,
   setEndTime,
+  setIsLoading,
 }) => {
   // declare variable(s)
-  const navigate = useNavigate(); // rappel
-  // declare function(s)
-  const handleSubmit = async () => {
-    const pickUpDate = dateTimeFormat(startDate, startTime.value);
-    const dropOffDate = dateTimeFormat(endDate, endTime.value);
-    const pickUpStation = selectedLocation.id;
-    const query = `?pickupStation=${pickUpStation}&pickupDate=${pickUpDate}&returnDate=${dropOffDate}
-`;
-    const daysOfRental = calcRentalLength(pickUpDate, dropOffDate);
-    try {
-      const response = await axios.get(
-        `http://localhost:3000/agency/offer${query}`
-      );
-      setOffers(response.data);
-      setRentalLength(daysOfRental);
-      setPage("offerList");
-      navigate("/offerlist");
-    } catch (error) {
-      console.log(error);
-    }
+  const navigate = useNavigate();
+  // declare submit (when on the home page)
+  const handleSubmit = () => {
+    setPage("offerList");
+    navigate("/offerlist");
   };
+  // declare useEffect (when on the offerList page)
+  useEffect(() => {
+    const fetchData = async () => {
+      const pickUpDate = dateTimeFormat(startDate, startTime.value);
+      const dropOffDate = dateTimeFormat(endDate, endTime.value);
+      const pickUpStation = selectedLocation.id;
+      const query = `?pickupStation=${pickUpStation}&pickupDate=${pickUpDate}&returnDate=${dropOffDate}`;
+      const daysOfRental = calcRentalLength(pickUpDate, dropOffDate);
+      try {
+        const response = await axios.get(
+          `http://localhost:3000/agency/offer${query}`
+        );
+        setOffers(response.data);
+        setIsLoading(false);
+        setRentalLength(daysOfRental);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    if (page === "offerList") {
+      fetchData();
+    }
+  }, [selectedLocation, startDate, endDate, startTime, endTime]);
   return (
     <div className="searchFieldSection">
       <div className="agencySearch">
-        <p className="label">Retrait et Retour</p>
+        <p className="label">Retrait et retour</p>
         <div>
           <AutoComplete
             selectedLocation={selectedLocation}
@@ -87,13 +96,15 @@ const SearchFieldSection = ({
       <div className="timeSelect">
         <TimeSelect state={endTime} setState={setEndTime} />
       </div>
-      {page === "home" && (
-        <SelectButton
-          title="Voir les offres"
-          func={handleSubmit}
-          type="orange"
-        />
-      )}
+      <div className="selectButtonContainer">
+        {page === "home" && (
+          <SelectButton
+            title="Voir les offres"
+            func={handleSubmit}
+            type="orange"
+          />
+        )}
+      </div>
     </div>
   );
 };

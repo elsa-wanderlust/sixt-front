@@ -1,20 +1,20 @@
-// import from react and package(s)
-import { Link } from "react-router-dom";
-// import styles
-import "./headerLinks.css";
 // import component(s)
 import BasicLink from "../BasicLink";
 
 const HeaderLinks = ({ page }) => {
   return (
     <div className="allLinks">
-      <BasicLink navigate="/" title="RENT" style="linksSelected" />
-      <BasicLink title="SHARE" style="linksBlackBasic" />
-      <BasicLink title="RIDE" style="linksBlackBasic" />
+      <BasicLink
+        navigate="/"
+        title="RENT"
+        style={page === "home" ? "big_Lk_Or_Selec " : "big_Lk_Bl_notSelec"}
+      />
+      <BasicLink title="SHARE" style="big_Lk_Bl_notSelec" />
+      <BasicLink title="RIDE" style="big_Lk_Bl_notSelec" />
       <BasicLink
         title="SIXT+"
         subtitle="ABONNEMENT AUTO"
-        style="linksBlackBasic SixtPlus"
+        style="big_Lk_Bl_notSelec"
       />
     </div>
   );

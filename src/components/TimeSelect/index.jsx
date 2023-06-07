@@ -1,6 +1,8 @@
 // import from react and package(s)
 import React from "react";
 import Select from "react-select";
+// import style
+import "../../styles/general.scss";
 
 const TimeSelect = ({ state, setState }) => {
   const handleSelect = (time) => {
@@ -35,6 +37,7 @@ const TimeSelect = ({ state, setState }) => {
   const customStyles = {
     control: (base, state) => ({
       ...base,
+      fontFamily: "RC",
       background: "black",
       borderRadius: state.isFocused ? "3px 3px 0 0" : 3,
       borderColor: state.isFocused ? "black" : "black",
@@ -45,12 +48,26 @@ const TimeSelect = ({ state, setState }) => {
     }),
     menu: (base) => ({
       ...base,
+      fontFamily: "RC",
       borderRadius: 0,
       marginTop: 0,
     }),
     menuList: (base) => ({
       ...base,
+      fontFamily: "RC",
       padding: 0,
+    }),
+    input: (base) => ({
+      ...base,
+      color: "white",
+    }),
+    singleValue: (base) => ({
+      ...base,
+      color: "white",
+    }),
+    placeholder: (base) => ({
+      ...base,
+      color: "white",
     }),
   };
   return (

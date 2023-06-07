@@ -1,0 +1,51 @@
+/* GENERAL */
+.container {
+  border: 2px red solid;
+  max-width: 1244px;
+  margin: 0 auto;
+}
+// all colors
+$black: black;
+$white: white;
+$orange: #ff5f00;
+$lgrey: #b2b2b2;
+$dgrey: #191919;
+
+// fonts
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto"), url("../../src/fonts/Roboto-Regular.ttf");
+}
+@font-face {
+  font-family: "RC";
+  src: local("RC"), url("../../src/fonts/RobotoCondensed-Regular.ttf");
+}
+@font-face {
+  font-family: "RCB";
+  src: local("RCB"), url("../../src/fonts/RobotoCondensed-Bold.ttf");
+}
+@font-face {
+  font-family: "Rokkitt";
+  src: local("Rokkitt"), url("../../src/fonts/Rokkitt-Regular.ttf");
+}
+// icons
+@font-face {
+  font-family: "Sixt";
+  src: local("Sixt"), url("../../src/icons/fonts/sixt.ttf");
+}
+.icon {
+  font-family: "Sixt";
+}
+.iconMedium {
+  font-size: 25px;
+}
+.iconSmall {
+  font-size: 12px;
+}
+
+/* remove arrows from input field type number - works for Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

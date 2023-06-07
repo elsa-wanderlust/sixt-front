@@ -1,0 +1,100 @@
+@import "../../styles/general.scss";
+
+.allLinks {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
+  margin-left: 20px;
+}
+// link general
+@mixin allLinks {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: "RCB";
+  gap: 10px;
+}
+// link sizes
+@mixin bigLinks {
+  @include allLinks();
+  font-size: 20px;
+  line-height: 17px;
+}
+@mixin mediumLinks {
+  @include allLinks();
+  font-size: 16px;
+  line-height: 13px;
+}
+@mixin smallLinks {
+  @include allLinks();
+  font-size: 12px;
+  line-height: 10px;
+}
+// link color
+@mixin orange {
+  color: $orange;
+}
+@mixin black {
+  color: $black;
+}
+@mixin lgrey {
+  color: $lgrey;
+}
+@mixin white {
+  color: $white;
+}
+// each type of link
+.big_Lk_Or_Selec {
+  @include bigLinks;
+  @include orange;
+  text-decoration: underline;
+  text-underline-offset: 10px;
+}
+.big_Lk_Or_notSelec {
+  @include bigLinks;
+  @include orange;
+  text-decoration: none;
+}
+.big_Lk_Bl_notSelec {
+  @include bigLinks;
+  @include black;
+  text-decoration: none;
+}
+
+.med_Lk_Bl_notSelec {
+  @include mediumLinks;
+  @include black;
+  text-decoration: none;
+}
+
+.big_Lk_Lg_notSelec {
+  @include bigLinks;
+  @include lgrey;
+  text-decoration: none;
+}
+.sm_Lk_Wh_notSelec {
+  @include smallLinks;
+  @include white;
+  text-decoration: none;
+}
+
+// NUMBER
+@mixin number {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $white;
+}
+.big_Lk_Or_notSelecNum {
+  @include number;
+  background-color: $orange;
+}
+.big_Lk_Lg_notSelecNum {
+  @include number;
+  background-color: $lgrey;
+}

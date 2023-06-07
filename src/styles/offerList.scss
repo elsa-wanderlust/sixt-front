@@ -1,0 +1,29 @@
+@import "../styles/general.scss";
+
+.offerListContainer {
+  width: 100%;
+  height: 100%;
+  background: $orange;
+}
+.summaryAndFilter {
+  height: 80px;
+  border-bottom: 1px solid $black;
+  display: flex;
+  flex-direction: row;
+  font-family: "RCB";
+}
+.summary {
+  width: 20%;
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+.summaryTitle {
+  font-size: 15px;
+}
+.allOffers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}

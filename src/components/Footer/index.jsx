@@ -1,20 +1,20 @@
 // import style
-import "./footer.css";
+import "./footer.scss";
 // import component(s)
 import BasicLink from "../BasicLink/";
 
 const Footer = () => {
   return (
     <div className="footerContainer">
-      <BasicLink title="CONTACTS" style="linksWhiteBasic" />
-      <BasicLink title="FAQ" style="linksWhiteBasic" />
-      <BasicLink title="INFORMATIONS GENERALES" style="linksWhiteBasic" />
-      <BasicLink title="AGENCES DE VOYAGES" style="linksWhiteBasic" />
-      <BasicLink title="SIXT ACTUALITES" style="linksWhiteBasic" />
-      <BasicLink title="SIXT PARTENAIRES" style="linksWhiteBasic" />
-      <BasicLink title="MENTIONS LEGALES" style="linksWhiteBasic" />
-      <BasicLink title="DONNEES PERSONNELLES" style="linksWhiteBasic" />
-      <BasicLink title="CGL" style="linksWhiteBasic" />
+      <BasicLink title="CONTACTS" style="sm_Lk_Wh_notSelec" />
+      <BasicLink title="FAQ" style="sm_Lk_Wh_notSelec" />
+      <BasicLink title="INFORMATIONS GÉNÉRALES" style="sm_Lk_Wh_notSelec" />
+      <BasicLink title="AGENCES DE VOYAGES" style="sm_Lk_Wh_notSelec" />
+      <BasicLink title="SIXT ACTUALITÉS" style="sm_Lk_Wh_notSelec" />
+      <BasicLink title="SIXT PARTENAIRES" style="sm_Lk_Wh_notSelec" />
+      <BasicLink title="MENTIONS LÉGALES" style="sm_Lk_Wh_notSelec" />
+      <BasicLink title="DONNÉES PERSONNELLES" style="sm_Lk_Wh_notSelec" />
+      <BasicLink title="CGL" style="sm_Lk_Wh_notSelec" />
     </div>
   );
 };

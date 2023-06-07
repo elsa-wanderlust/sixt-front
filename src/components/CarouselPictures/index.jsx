@@ -2,12 +2,11 @@
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 // import style
-import "./carouselPictures.css";
+import "./carouselPictures.scss";
 
 const CarouselPictures = ({ pictures, type }) => {
   const responsive = {
     superLargeDesktop: {
-      // the naming can be any, depends on you.
       breakpoint: { max: 4000, min: 3000 },
       items: 1,
     },
@@ -20,9 +19,10 @@ const CarouselPictures = ({ pictures, type }) => {
   return (
     <Carousel
       responsive={responsive}
-      showDots="true"
+      showDots={true}
       infinite={true}
       className="carouselAll"
+      renderDotsOutside={true}
     >
       {pictures.map((image) => {
         return (

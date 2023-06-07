@@ -23,7 +23,7 @@ const Connect = ({ setisConnected }) => {
       <p>CONNECTION AU BACKOFFICE</p>
       <InputField
         type="password"
-        placeholder={!Cookies.get("password") && "mot de passe"}
+        placeholder={!Cookies.get("password") ? "mot de passe" : ""}
         state={password}
         setState={setPassword}
       />

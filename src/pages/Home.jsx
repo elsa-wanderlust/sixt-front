@@ -1,8 +1,12 @@
+// import from react and package(s)
+import { useEffect } from "react";
 // import component(s)
 import SearchFieldSection from "../components/SearchFieldsSection";
 import CarouselPictures from "../components/CarouselPictures";
+import MediaConnect from "../components/MediaConnect";
 // import style
-import "../styles/general.css";
+import "../styles/homePage.scss";
+
 // import images
 import carouselHome1 from "../assets/img/carousel/cfc9edb1-3e28-4ecd-8de5-21425d7d29ce.jpeg";
 import carouselHome2 from "../assets/img/carousel/391cd6c1-8042-4ada-bfbf-6da86c8e5527.jpeg";
@@ -27,7 +31,7 @@ const Home = ({
 }) => {
   const carouselImages = [carouselHome1, carouselHome2, carouselHome3];
   return (
-    <div>
+    <div className="homeBg">
       <SearchFieldSection
         setOffers={setOffers}
         setRentalLength={setRentalLength}
@@ -44,10 +48,13 @@ const Home = ({
         endTime={endTime}
         setEndTime={setEndTime}
       />
-      <CarouselPictures pictures={carouselImages} />
+      <div className="carouselContainer">
+        <CarouselPictures pictures={carouselImages} />
+      </div>
       <div className="worldMapBg">
         <img src={worldMap} alt="carte mondiale des agences Sixt" />
       </div>
+      <MediaConnect />
     </div>
   );
 };

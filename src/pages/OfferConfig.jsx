@@ -1,11 +1,12 @@
 // import from react and package(s)
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 // import component(s)
 import SearchFieldSection from "../components/SearchFieldsSection";
 import ConfigurationCard from "../components/ConfigurationCard";
 import PricingModal from "../components/PricingModal";
 import BasicLink from "../components/BasicLink";
+import SelectButton from "../components/SelectButton";
 // import function(s)
 import dateTimeFormat from "./../utils/dateTimeFormat";
 import calcExtraFee from "../utils/calcExtraFee";
@@ -23,15 +24,16 @@ const OfferConfig = ({
 }) => {
   // receive the props from the carDetailsModal
   const location = useLocation();
-  const offerDetails = location.state[0];
-  const offerVeryDetails = location.state[1];
-  const totalPrice = location.state[2];
-  const rentalLength = location.state[3];
+  const offerDetails = location.state.offerDetails;
+  const offerVeryDetails = location.state.offerVeryDetails;
+  const totalPrice = location.state.totalPrice;
+  const rentalLength = location.state.rentalLength;
   // declare States
   const [optionsSelected, setOptionsSelected] = useState([]);
   const [displayOptions, setDisplayOptions] = useState(5);
   const [modalVisible, setModalVisible] = useState(false);
   // declare variables
+  const navigate = useNavigate();
   const pickUpDate = dateTimeFormat(startDate, startTime.value);
   const dropOffDate = dateTimeFormat(endDate, endTime.value);
   // declare functions
@@ -60,6 +62,23 @@ const OfferConfig = ({
     totalExtraFee,
     totalAdditionalCharges
   );
+  const handleNext = () => {
+    setPage("personnalDetails");
+    navigate("/personnalDetails", {
+      state: {
+        selectedLocation,
+        offerDetails,
+        pickUpDate,
+        dropOffDate,
+        optionsSelected,
+        offerVeryDetails,
+        dailyPrice,
+        rentalLength,
+        newTotal,
+      },
+    });
+  };
+
   return (
     <div>
       <SearchFieldSection
@@ -134,6 +153,7 @@ const OfferConfig = ({
             ]}
             navigate="/personnalDetails"
           />
+          <SelectButton func={handleNext} title="CONTINUER" />
         </section>
         {modalVisible && (
           <PricingModal

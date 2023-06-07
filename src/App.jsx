@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import "./App.css";
-import "../src/styles/general.css";
+// import "./App.css";
+import "../src/styles/general.scss";
+// import font
+import "../src/fonts/RobotoCondensed-Regular.ttf";
 
 // import pages
 import Home from "./pages/Home";
@@ -23,8 +25,14 @@ function App() {
   const [selectedLocation, setSelectedLocation] = useState();
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState();
-  const [startTime, setStartTime] = useState();
-  const [endTime, setEndTime] = useState();
+  const [startTime, setStartTime] = useState({
+    value: "T10:30:00",
+    label: "10:30",
+  });
+  const [endTime, setEndTime] = useState({
+    value: "...",
+    label: "...",
+  });
   return (
     <Router>
       <div className="container">
@@ -34,10 +42,10 @@ function App() {
             path="/"
             element={
               <Home
-                setOffers={setOffers}
-                setRentalLength={setRentalLength}
                 page={page}
                 setPage={setPage}
+                setOffers={setOffers}
+                setRentalLength={setRentalLength}
                 selectedLocation={selectedLocation}
                 setSelectedLocation={setSelectedLocation}
                 startDate={startDate}
@@ -55,11 +63,12 @@ function App() {
             path="/offerlist"
             element={
               <OfferList
+                page={page}
+                setPage={setPage}
                 offers={offers}
                 setOffers={setOffers}
                 rentalLength={rentalLength}
                 setRentalLength={setRentalLength}
-                setPage={setPage}
                 selectedLocation={selectedLocation}
                 setSelectedLocation={setSelectedLocation}
                 startDate={startDate}
@@ -98,7 +107,10 @@ function App() {
               />
             }
           />
-          <Route path="/backoffice" element={<BackOffice />} />
+          <Route
+            path="/backoffice"
+            element={<BackOffice setPage={setPage} />}
+          />
         </Routes>
         <Footer />
       </div>

@@ -4,7 +4,6 @@ import axios from "axios";
 // import style
 import "./BookingSummary.css";
 // import components
-import BookingDetailsModal from "../BookingDetailsModal";
 import PricingModal from "../PricingModal";
 // import functions
 import calcRentalLength from "../../utils/calcRentalLength";

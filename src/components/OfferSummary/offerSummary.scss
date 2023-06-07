@@ -1,0 +1,31 @@
+@import "../../styles/general.scss";
+
+.oneOffer {
+  border: gold 2px solid;
+  margin-bottom: 15px;
+  width: calc((100% - 75px) / 4);
+}
+.offerTitle {
+  font-size: 25px;
+  font-family: "RCB";
+  color: $orange;
+  background: $black;
+  width: fit-content;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.offerSubtitle {
+  font-family: "RC";
+  font-size: 15px;
+}
+.offerCarPic {
+  // width: 50%;
+  height: 50%;
+  object-fit: contain;
+}
+.mileage {
+  font-size: 18px;
+  display: flex;
+  gap: 8px;
+}

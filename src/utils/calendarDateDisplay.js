@@ -9,7 +9,7 @@ const calendarDateDisplay = (date) => {
       month: "short",
     });
   } else {
-    dateDisplay = "-----";
+    dateDisplay = "...";
   }
   return dateDisplay;
 };
