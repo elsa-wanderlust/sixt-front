@@ -1,11 +1,13 @@
 // import from react and package(s)
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
+import axios from "axios";
 // import components
 import InputField from "../components/InputField";
 import PersonalDetailsSelect from "../components/PersonalDetailsSelect";
 import SelectButton from "../components/SelectButton";
 import PricingModalItem from "../components/PricingModalItem";
+import ConfirmationModal from "../components/ConfirmationModal";
 // import function
 import validatePersonalDetails from "../utils/validatePersonalDetails";
 import dateForDisplay from "../utils/dateforDisplay";
@@ -76,6 +78,34 @@ const PersonalDetails = () => {
     monthDOB,
     dayDOB
   );
+
+  // declare states for booking request
+  const [confCode, setConfCode] = useState("");
+  const [modalVisible, setModalVisible] = useState(false);
+  const handleSubmit = async () => {
+    try {
+      const response = await axios.post(
+        "http://localhost:3000/booking/create",
+        {
+          firstName,
+          lastName,
+          agency,
+          vehiculeName,
+          vehiculePicture,
+          pickUpDate,
+          dropOffDate,
+          dayPrice,
+          currency,
+          extraFees,
+          additionalCharges,
+        }
+      );
+      setConfCode(response.data);
+      setModalVisible(true);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div>
@@ -230,7 +260,17 @@ const PersonalDetails = () => {
         <p>TOTAL</p>
         <p>{newTotal}</p>
       </div>
-      <SelectButton title="RESERVER" disabled={!isValidated} />
+      <SelectButton
+        title="RESERVER"
+        disabled={!isValidated}
+        func={handleSubmit}
+      />
+      {modalVisible && (
+        <ConfirmationModal
+          confCode={confCode}
+          setModalVisible={setModalVisible}
+        />
+      )}
     </div>
   );
 };

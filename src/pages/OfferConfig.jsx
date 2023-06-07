@@ -8,7 +8,10 @@ import PricingModal from "../components/PricingModal";
 import BasicLink from "../components/BasicLink";
 // import function(s)
 import dateTimeFormat from "./../utils/dateTimeFormat";
-// import dateTimeFormat from "../../utils/dateTimeFormat";
+import calcExtraFee from "../utils/calcExtraFee";
+import calcAdditionalCharges from "../utils/calcAdditionalCharges";
+import calcDailyPrice from "../utils/calcDailyPrice";
+import calcTotal from "../utils/calcTotal";
 
 const OfferConfig = ({
   setPage,
@@ -39,36 +42,24 @@ const OfferConfig = ({
       return setDisplayOptions(5);
     }
   };
-  // calc EXTRA FEE - always 'per rental'
-  let totalExtraFee = 0;
-  for (let i = 0; i < offerVeryDetails.extraFees.length; i++) {
-    totalExtraFee += offerVeryDetails.extraFees[i].price.amount;
-  }
-  // calc ADDITIONAL CHARGES - can be 'daily' or 'per rental'
-  let totalAdditionalCharges = 0;
-  for (let i = 0; i < offerVeryDetails.additionalCharges.length; i++) {
-    if (
-      optionsSelected.indexOf(offerVeryDetails.additionalCharges[i].id) !== -1
-    ) {
-      let multiplier = 0;
-      if (
-        offerVeryDetails.additionalCharges[i].price.unit === "jour" ||
-        offerVeryDetails.additionalCharges[i].price.unit === "jour/unité"
-      ) {
-        multiplier = rentalLength;
-      } else {
-        multiplier = 1;
-      }
-      totalAdditionalCharges +=
-        offerVeryDetails.additionalCharges[i].price.amount * multiplier;
-    }
-  }
-  const dailyPrice = Number(
-    ((totalPrice - totalExtraFee) / rentalLength).toFixed(2)
+  const totalExtraFee = calcExtraFee(offerVeryDetails);
+  const totalAdditionalCharges = calcAdditionalCharges(
+    offerVeryDetails,
+    rentalLength,
+    optionsSelected
   );
-  const newTotal =
-    dailyPrice * rentalLength + totalExtraFee + totalAdditionalCharges;
-
+  const dailyPrice = calcDailyPrice({
+    origin: "offerConfig",
+    totalPrice,
+    totalExtraFee,
+    rentalLength,
+  });
+  const newTotal = calcTotal(
+    dailyPrice,
+    rentalLength,
+    totalExtraFee,
+    totalAdditionalCharges
+  );
   return (
     <div>
       <SearchFieldSection
@@ -146,14 +137,13 @@ const OfferConfig = ({
         </section>
         {modalVisible && (
           <PricingModal
+            origin="offerConfig"
             setModalVisible={setModalVisible}
-            totalPrice={totalPrice}
             rentalLength={rentalLength}
             optionsSelected={optionsSelected}
-            offerDetails={offerDetails}
-            offerVeryDetails={offerVeryDetails}
+            pricingDetails={offerVeryDetails}
             dailyPrice={dailyPrice}
-            newTotal={newTotal}
+            total={newTotal}
           />
         )}
       </div>

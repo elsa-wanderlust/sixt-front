@@ -11,7 +11,7 @@ import TimeSelect from "../TimeSelect";
 import SelectButton from "../SelectButton";
 // import function(s)
 import dateTimeFormat from "../../utils/dateTimeFormat";
-import rentalLength from "../../utils/rentalLength";
+import calcRentalLength from "../../utils/calcRentalLength";
 
 const SearchFieldSection = ({
   setOffers,
@@ -38,7 +38,7 @@ const SearchFieldSection = ({
     const pickUpStation = selectedLocation.id;
     const query = `?pickupStation=${pickUpStation}&pickupDate=${pickUpDate}&returnDate=${dropOffDate}
 `;
-    const daysOfRental = rentalLength(pickUpDate, dropOffDate);
+    const daysOfRental = calcRentalLength(pickUpDate, dropOffDate);
     try {
       const response = await axios.get(
         `http://localhost:3000/agency/offer${query}`
