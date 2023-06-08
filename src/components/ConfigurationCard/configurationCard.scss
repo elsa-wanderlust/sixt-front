@@ -1,0 +1,57 @@
+@import "../../styles/general.scss";
+
+@mixin configurationCard {
+  width: 350px;
+  height: 150px;
+  margin-bottom: 30px;
+  padding: 10px;
+}
+
+.notSelected {
+  @include configurationCard;
+  background-color: black;
+  color: white;
+}
+.selected {
+  @include configurationCard;
+  background-color: white;
+  color: black;
+}
+.moreOptions {
+  @include configurationCard;
+  background-color: $orange;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  gap: 5px;
+}
+
+.iconOptionTitle {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-family: "RCB";
+  margin-bottom: 15px;
+  line-height: 20px;
+}
+
+.optionDescription {
+  margin-left: 35px;
+  font-size: 15px;
+}
+.configCardPricing {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  margin: 10px 0 0 15px;
+}
+.configCardPrice {
+  display: flex;
+  align-items: baseline;
+}
+.configCardPricingBig {
+  font-size: 25px;
+}

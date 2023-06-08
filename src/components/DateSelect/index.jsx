@@ -7,7 +7,7 @@ import fr from "date-fns/locale/fr";
 // import function(s)
 import calendarDateDisplay from "../../utils/calendarDateDisplay";
 
-const DateSelect = ({ state, setState, minDate, maxDate, shownDate }) => {
+const DateSelect = ({ state, setState, minDate, maxDate, shownDate, page }) => {
   const [calendarDisplay, setCalendaryDisplay] = useState(false); // if the calendar is showing or not
   let dateDisplay = calendarDateDisplay(state); // date - always on display
 
@@ -16,10 +16,16 @@ const DateSelect = ({ state, setState, minDate, maxDate, shownDate }) => {
     setCalendaryDisplay(false);
   };
 
+  const handleClick = () => {
+    if (page !== "offerConfig") {
+      setCalendaryDisplay(true);
+    }
+  };
+
   return (
     <div className="calendarContainer">
       {!calendarDisplay && (
-        <p onClick={() => setCalendaryDisplay(true)} className="dateSelected">
+        <p onClick={handleClick} className="dateSelected">
           {dateDisplay && dateDisplay}
         </p>
       )}

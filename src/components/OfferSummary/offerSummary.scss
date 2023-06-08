@@ -1,9 +1,11 @@
 @import "../../styles/general.scss";
 
 .oneOffer {
-  border: gold 2px solid;
-  margin-bottom: 15px;
-  width: calc((100% - 75px) / 4);
+  // border: gold 2px solid;
+  margin-bottom: 65px;
+  // width: calc((100% - 75px) / 4);
+  width: 290px;
+  font-family: "Roboto";
 }
 .offerTitle {
   font-size: 25px;
@@ -20,12 +22,35 @@
   font-size: 15px;
 }
 .offerCarPic {
-  // width: 50%;
+  width: 80%;
   height: 50%;
   object-fit: contain;
 }
 .mileage {
   font-size: 18px;
   display: flex;
-  gap: 8px;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.offerPricing {
+  font-size: 12px;
+  color: $white;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 5px;
+  align-items: baseline;
+}
+
+.offerPricingBig {
+  font-size: 22px;
+}
+
+.black {
+  margin-top: 5px;
+  color: $black;
+}
+
+.dayPriceFormatted {
+  display: flex;
+  align-items: baseline;
 }

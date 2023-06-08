@@ -4,7 +4,7 @@ import { useState } from "react";
 import axios from "axios";
 import AsyncSelect from "react-select/async";
 
-const AutoComplete = ({ selectedLocation, setSelectedLocation }) => {
+const AutoComplete = ({ selectedLocation, setSelectedLocation, page }) => {
   const [inputValue, setInputValue] = useState("");
 
   // handle inputValue change
@@ -89,6 +89,7 @@ const AutoComplete = ({ selectedLocation, setSelectedLocation }) => {
         DropdownIndicator: () => null,
         IndicatorSeparator: () => null,
       }}
+      isDisabled={page === "offerConfig" && true}
     />
   );
 };

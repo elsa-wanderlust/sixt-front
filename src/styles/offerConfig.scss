@@ -1,0 +1,77 @@
+@import "../styles/general.scss";
+
+.offerConfigContainer {
+  width: 100%;
+  height: 100%;
+  background: $orange;
+  font-family: "RC";
+}
+
+.offerCongigPicContainer {
+  // border: red 2px solid;
+  width: 100%;
+  height: 40%;
+  position: relative;
+  background-color: $black;
+}
+.offerCongigPic {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.carTitle {
+  position: absolute;
+  background-color: $black;
+  color: $orange;
+  top: 40px;
+  z-index: 3;
+  padding: 5px;
+  margin-left: 10px;
+  font-weight: bold;
+  font-size: 35px;
+  font-family: "RCB";
+}
+.blackBand {
+  height: 40px;
+  background-color: $black;
+  color: $white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  > p {
+    font-family: "RCB";
+    font-size: 18px;
+  }
+}
+.offerConfigBottomSection {
+  display: flex;
+  padding: 20px 0;
+  h2 {
+    font-size: 35px;
+    font-family: "RCB";
+    margin-bottom: 25px;
+  }
+  h3 {
+    font-size: 20px;
+    font-family: "RCB";
+    margin: 15px 0;
+  }
+}
+.offerConfigContainer .leftColumn {
+  width: 65%;
+  // background-color: pink;
+  padding: 0 15px;
+}
+
+.offerConfigContainer .rightColumn {
+  width: 35%;
+  // background-color: cyan;
+  padding: 0 15px;
+}
+.allConfigCard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}

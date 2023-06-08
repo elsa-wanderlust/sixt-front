@@ -1,4 +1,7 @@
-const CarGroupInfo = (carGroupInfo) => {
+// import style
+import "./carGroupInfo.scss";
+
+const CarGroupInfo = ({ carGroupInfo, type }) => {
   const {
     automatic,
     maxPassengers,
@@ -7,9 +10,9 @@ const CarGroupInfo = (carGroupInfo) => {
     airCondition,
     baggage,
   } = carGroupInfo;
-
+  console.log(type);
   return (
-    <div className="allGroupInfos">
+    <div className={`allGroupInfo ${type}`}>
       <div className="oneGroupInfo">
         <p className="icon iconSmall"></p>
         <p>{maxPassengers} Sièges</p>
@@ -20,11 +23,13 @@ const CarGroupInfo = (carGroupInfo) => {
       </div>
       <div className="oneGroupInfo">
         <p className="icon iconSmall"></p>
-        <p>{automatic ? "automatique" : "manuelle"}</p>
+        <p>{automatic ? "Automatique" : "Manuelle"}</p>
       </div>
       <div className="oneGroupInfo">
         <p className="icon iconSmall"></p>
-        <p>{baggage} Bagages</p>
+        <p>
+          {baggage} Bagage{baggage > 1 && "s"}
+        </p>
       </div>
       {airCondition && (
         <div className="oneGroupInfo">

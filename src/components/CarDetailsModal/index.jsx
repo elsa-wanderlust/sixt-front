@@ -3,11 +3,10 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 // import style
-import "./carDetailsModal.css";
+import "./carDetailsModal.scss";
 // import component(s)
 import CarouselPictures from "../CarouselPictures";
 import SelectButton from "../SelectButton";
-import BasicLink from "../BasicLink";
 import CarGroupInfo from "../CarGroupInfo";
 
 const CarDetailsModal = ({
@@ -58,6 +57,9 @@ const CarDetailsModal = ({
       state: { offerDetails, offerVeryDetails, totalPrice, rentalLength },
     });
   };
+  // handle price display
+  const totalPriceInt = totalPrice.split(",")[0];
+  const totalPriceDec = totalPrice.split(",")[1];
 
   return (
     <>
@@ -76,36 +78,38 @@ const CarDetailsModal = ({
               event.stopPropagation();
             }}
           >
-            {/* <button
-              className="closing-button"
-              onClick={() => {
-                setModalVisible(false);
-              }}
-            >
-              X
-            </button> */}
             <div className="leftSection">
               <div className="carouselModal">
-                {/* <CarouselPictures
-                  pictures={carouselImages}
-                  type="modal"
-                  className="carouselContainer"
-                /> */}
+                <CarouselPictures pictures={carouselImages} type="modal" />
               </div>
               <p className="carouselTitle">{headlines.longSubline}</p>
-              <CarGroupInfo carGroupInfo={carGroupInfo} />
-              <div className="carouselText">
-                <p>{maxPassengers} Sièges</p>
-                <p>{doors} Portes</p>
-                <p>{automatic ? "automatique" : "manuelle"}</p>
-                <p>{baggage} Bagages</p>
-                {airCondition && <p>Climatisation</p>}
-                <p>{driverMinAge} ans </p>
-              </div>
+              <CarGroupInfo carGroupInfo={carGroupInfo} type="groupInfoModal" />
             </div>
             <div className="rightSection">
-              <p>{totalPrice}</p>
-              <SelectButton func={handleNext} title="SELECTIONNER" />
+              <button
+                className="closing-button"
+                onClick={() => {
+                  setModalVisible(false);
+                }}
+              >
+                <p className="icon"></p>
+              </button>
+              <div className="pricingSection">
+                <p className="total">TOTAL</p>
+                <div className="currAndTotal">
+                  <p>€</p>
+                  <div className="pricing">
+                    <p className="pricingBig">{totalPriceInt}</p>
+                    <p>{`,${totalPriceDec}`}</p>
+                  </div>
+                </div>
+              </div>
+              <p className="taxInfo">Taxes incluses</p>
+              <SelectButton
+                func={handleNext}
+                title="SELECTIONNER"
+                type="orangeSize2"
+              />
             </div>
           </div>
         </div>

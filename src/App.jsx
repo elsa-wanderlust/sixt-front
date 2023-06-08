@@ -86,6 +86,7 @@ function App() {
             path="/offerconfig"
             element={
               <OfferConfig
+                page={page}
                 setPage={setPage}
                 selectedLocation={selectedLocation}
                 startDate={startDate}

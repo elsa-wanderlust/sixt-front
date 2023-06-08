@@ -1,0 +1,32 @@
+@import "../../styles/general.scss";
+
+// general
+.allGroupInfo {
+  z-index: 15;
+  display: flex;
+  gap: 14px;
+  padding-left: 15px;
+  .modal {
+    border: red 40px solid;
+  }
+}
+.oneGroupInfo {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+// in the modal (from offerList page)
+.allGroupInfo.groupInfoModal {
+  position: absolute;
+  top: 40px;
+}
+// .modal p:nth-child(2) {
+//   font-size: 10px;
+// }
+// in offerConfig Page
+.offerConfig .oneGroupInfo {
+  p:nth-child(2) {
+    font-size: 10px;
+  }
+}

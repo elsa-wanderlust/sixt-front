@@ -1,12 +1,12 @@
-// import from react and package(s)
-import { useState, useEffect } from "react";
 // import style
-import "./configurationCard.css";
+import "./configurationCard.scss";
 
 const ConfigurationCard = ({
   optionDetails,
   optionsSelected,
   setOptionsSelected,
+  type,
+  setDisplayOptions,
 }) => {
   // declare variables for the Sixt Connect options - mutually exclusive
   const SixtConnectId = "I3";
@@ -66,28 +66,63 @@ const ConfigurationCard = ({
       }
     }
   };
+  // handle icons
+  const iconName = !type && optionDetails.icon.split("-")[1];
+  const iconList = {
+    carshield: "",
+    charges: "",
+    wifi: "",
+    satnav: "",
+    refill: "",
+    mailinvoice: "",
+    childseat: "",
+  };
+  // handle price display
+  const totalPriceInt =
+    !type && optionDetails.price.amount.toString().split(".")[0];
+  const totalPriceDec =
+    !type && optionDetails.price.amount.toString().split(".")[1];
+  // function to display more options
 
   return (
-    <div
-      className={
-        optionsSelected.indexOf(optionDetails.id) !== -1 ||
-        optionDetails.price.amount === 0
-          ? "selected"
-          : "notSelected"
-      }
-      onClick={optionDetails.price.amount !== 0 ? handleSelect : null}
-    >
-      <div>
-        {optionDetails.icon}
-        <p>{optionDetails.title.toUpperCase()}</p>
-        <p>{optionDetails.description}</p>
-        <p>
-          {optionDetails.price.amount !== 0 &&
-            `€ ${optionDetails.price.amount} ${optionDetails.price.unit}`}
-        </p>
-      </div>
-      <p>-----------------------</p>
-    </div>
+    <>
+      {!type ? (
+        <div
+          className={
+            optionsSelected.indexOf(optionDetails.id) !== -1 ||
+            optionDetails.price.amount === 0
+              ? "selected"
+              : "notSelected"
+          }
+          onClick={optionDetails.price.amount !== 0 ? handleSelect : null}
+        >
+          <div>
+            <div className="iconOptionTitle">
+              <p className="icon iconOrangeLarge">{iconList[iconName]}</p>
+              <p>{optionDetails.title.toUpperCase()}</p>
+            </div>
+            <p className="optionDescription">{optionDetails.description}</p>
+            <div className="configCardPricing">
+              {optionDetails.price.amount !== 0 && (
+                <div className="configCardPricing">
+                  <p>€</p>
+                  <div className="configCardPrice">
+                    <p className="configCardPricingBig">{totalPriceInt}</p>
+                    <p>{`,${totalPriceDec}`}</p>
+                  </div>
+                  <p>{optionDetails.price.unit}</p>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div className="moreOptions" onClick={setDisplayOptions(100)}>
+          <p> + </p>
+          <p> VOIR PLUS D'OPTIONS</p>
+        </div>
+      )}
+    </>
   );
 };
 

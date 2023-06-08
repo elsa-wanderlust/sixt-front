@@ -37,6 +37,16 @@ const SearchFieldSection = ({
     setPage("offerList");
     navigate("/offerlist");
   };
+  // function to check if See Offer buttons is enabled (Home Page)
+  const isNotValid = () => {
+    if (!selectedLocation || !startDate || !startTime || !endDate) {
+      return true;
+    } else if (endTime.value === "...") {
+      return true;
+    } else if (startDate > setEndTime) {
+      return true;
+    } else return false;
+  };
   // declare useEffect (when on the offerList page)
   useEffect(() => {
     const fetchData = async () => {
@@ -68,6 +78,7 @@ const SearchFieldSection = ({
           <AutoComplete
             selectedLocation={selectedLocation}
             setSelectedLocation={setSelectedLocation}
+            page={page}
           />
         </div>
       </div>
@@ -79,10 +90,11 @@ const SearchFieldSection = ({
           minDate={new Date()}
           maxDate={endDate}
           shownDate={startDate}
+          page={page}
         />
       </div>
       <div className="timeSelect">
-        <TimeSelect state={startTime} setState={setStartTime} />
+        <TimeSelect state={startTime} setState={setStartTime} page={page} />
       </div>
       <div className="dateSelect">
         <p className="label">Date de retour</p>
@@ -91,10 +103,11 @@ const SearchFieldSection = ({
           setState={setEndDate}
           minDate={startDate}
           shownDate={startDate}
+          page={page}
         />
       </div>
       <div className="timeSelect">
-        <TimeSelect state={endTime} setState={setEndTime} />
+        <TimeSelect state={endTime} setState={setEndTime} page={page} />
       </div>
       <div className="selectButtonContainer">
         {page === "home" && (
@@ -102,6 +115,7 @@ const SearchFieldSection = ({
             title="Voir les offres"
             func={handleSubmit}
             type="orange"
+            disabled={isNotValid()}
           />
         )}
       </div>

@@ -68,18 +68,19 @@ const OfferList = ({
       ) : (
         <div>
           <div className="summaryAndFilter">
-            <div className="summary">
+            <div className="summaryContainer">
               {category.length === 0 ? (
-                <p>
-                  {offers.length}
+                <div className="summary">
+                  <p>{offers.length}</p>
                   <span className="summaryTitle"> OFFRES</span>
-                </p>
+                </div>
               ) : (
-                <p>
-                  {filteredOffers.length}
-                  <span className="summaryTitle"> DE</span> {offers.length}
+                <div className="summary">
+                  <p>{filteredOffers.length}</p>
+                  <span className="summaryTitle"> DE</span>
+                  <p>{offers.length}</p>
                   <span className="summaryTitle"> OFFRES</span>
-                </p>
+                </div>
               )}
             </div>
             <CategorySelect setCategory={setCategory} />

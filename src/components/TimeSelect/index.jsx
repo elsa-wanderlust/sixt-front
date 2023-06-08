@@ -4,7 +4,7 @@ import Select from "react-select";
 // import style
 import "../../styles/general.scss";
 
-const TimeSelect = ({ state, setState }) => {
+const TimeSelect = ({ state, setState, page }) => {
   const handleSelect = (time) => {
     setState(time);
   };
@@ -80,6 +80,7 @@ const TimeSelect = ({ state, setState }) => {
         DropdownIndicator: () => null,
         IndicatorSeparator: () => null,
       }}
+      isDisabled={page === "offerConfig" && true}
     />
   );
 };

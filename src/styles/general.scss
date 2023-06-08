@@ -1,6 +1,6 @@
 /* GENERAL */
 .container {
-  border: 2px red solid;
+  // border: 2px red solid;
   max-width: 1244px;
   margin: 0 auto;
 }
@@ -40,7 +40,11 @@ $dgrey: #191919;
   font-size: 25px;
 }
 .iconSmall {
-  font-size: 12px;
+  font-size: 18px;
+}
+.iconOrangeLarge {
+  font-size: 25px;
+  color: $orange;
 }
 
 /* remove arrows from input field type number - works for Chrome, Safari, Edge, Opera */

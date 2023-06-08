@@ -1,12 +1,15 @@
 // import from react and package(s)
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+// import style
+import "../styles/offerConfig.scss";
 // import component(s)
 import SearchFieldSection from "../components/SearchFieldsSection";
 import ConfigurationCard from "../components/ConfigurationCard";
 import PricingModal from "../components/PricingModal";
 import BasicLink from "../components/BasicLink";
 import SelectButton from "../components/SelectButton";
+import CarGroupInfo from "../components/CarGroupInfo";
 // import function(s)
 import dateTimeFormat from "./../utils/dateTimeFormat";
 import calcExtraFee from "../utils/calcExtraFee";
@@ -15,6 +18,7 @@ import calcDailyPrice from "../utils/calcDailyPrice";
 import calcTotal from "../utils/calcTotal";
 
 const OfferConfig = ({
+  page,
   setPage,
   selectedLocation,
   startDate,
@@ -80,8 +84,9 @@ const OfferConfig = ({
   };
 
   return (
-    <div>
+    <div className="offerConfigContainer">
       <SearchFieldSection
+        page={page}
         setPage={setPage}
         selectedLocation={selectedLocation}
         startDate={startDate}
@@ -89,42 +94,75 @@ const OfferConfig = ({
         startTime={startTime}
         endTime={endTime}
       />
-      <div>
+      <div className="offerCongigPicContainer">
         <img
+          className="offerCongigPic"
           src={offerVeryDetails.splashImages[0]}
           alt={`image of a ${offerDetails.headlines.description}`}
         />
-        <p>{offerDetails.headlines.description}</p>
-        <p>{offerDetails.headlines.longSubline}</p>
+        <p className="carTitle">
+          {offerDetails.headlines.description.toUpperCase()}
+        </p>
       </div>
-      <div>
+      <div className="blackBand">
+        <p>{offerDetails.headlines.longSubline.toUpperCase()}</p>
+        <CarGroupInfo
+          carGroupInfo={offerDetails.carGroupInfo}
+          type="offerConfig"
+        />
+      </div>
+      <div className="offerConfigBottomSection">
         <section className="leftColumn">
           <div>
-            <p>CHOISISSEZ VOTRE PROTECTION ET VOS OPTIONS</p>
+            <h2>CHOISISSEZ VOTRE PROTECTION ET VOS OPTIONS</h2>
           </div>
           <div>
-            <p>VOTRE OFFRE INCLUT</p>
+            <h3>VOTRE OFFRE INCLUT</h3>
             {offerVeryDetails.includedCharges.map((elem) => {
-              return <p key={elem.title}>{elem.title}</p>;
+              return (
+                <div className="mileage">
+                  <p className="icon iconSmall"></p>
+                  <p key={elem.title}>{elem.title}</p>
+                </div>
+              );
             })}
-          </div>
-          <div>
-            <p>CHOISISSEZ VOS OPTIONS</p>
-            {offerVeryDetails.additionalCharges.map((elem, index) => {
-              if (index < displayOptions) {
+            {offerVeryDetails.additionalCharges.map((elem) => {
+              if (optionsSelected.indexOf(elem.id) !== -1) {
                 return (
-                  <ConfigurationCard
-                    key={elem.id}
-                    optionDetails={elem}
-                    optionsSelected={optionsSelected}
-                    setOptionsSelected={setOptionsSelected}
-                  />
+                  <div className="mileage">
+                    <p className="icon iconSmall"></p>
+                    <p key={elem.title}>{elem.title}</p>
+                  </div>
                 );
               }
             })}
           </div>
-          <p onClick={handleDisplay}>+ VOIR PLUS D'OPTIONS</p>
-          <p onClick={handleDisplay}>- VOIR MOINS D'OPTIONS</p>
+          <div>
+            <h3>CHOISISSEZ VOS OPTIONS</h3>
+            <div className="allConfigCard">
+              {offerVeryDetails.additionalCharges.map((elem, index) => {
+                if (index < displayOptions) {
+                  return (
+                    <ConfigurationCard
+                      key={elem.id}
+                      optionDetails={elem}
+                      optionsSelected={optionsSelected}
+                      setOptionsSelected={setOptionsSelected}
+                    />
+                  );
+                }
+              })}
+              {displayOptions === 5 && (
+                <ConfigurationCard
+                  type="optionsNum"
+                  setDisplayOptions={setDisplayOptions}
+                />
+              )}
+            </div>
+          </div>
+          {displayOptions === 100 && (
+            <p onClick={setDisplayOptions(5)}>- VOIR MOINS D'OPTIONS</p>
+          )}
         </section>
         <section className="rightColumn">
           <p>TOTAL</p>
