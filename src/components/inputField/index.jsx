@@ -1,7 +1,7 @@
 // import from react and package(s)
 import { useState } from "react";
 // import style
-import "./inputField.css";
+import "./inputField.scss";
 
 const InputField = ({
   type,
@@ -46,17 +46,19 @@ const InputField = ({
   };
 
   return (
-    <div>
+    <>
       {!label ? (
-        <input
-          className={error ? "errorInput" : "inputField"}
-          type={type}
-          placeholder={placeholder}
-          onChange={handleChange}
-          value={state}
-          onBlur={validity && handleOnBlur}
-          onFocus={validity && handleOnFocus}
-        />
+        <div className="inputFields">
+          <input
+            className={error ? "errorInput" : "inputField"}
+            type={type}
+            placeholder={placeholder}
+            onChange={handleChange}
+            value={state}
+            onBlur={validity && handleOnBlur}
+            onFocus={validity && handleOnFocus}
+          />
+        </div>
       ) : (
         <>
           <label>
@@ -70,7 +72,7 @@ const InputField = ({
           </label>
         </>
       )}
-    </div>
+    </>
   );
 };
 export default InputField;

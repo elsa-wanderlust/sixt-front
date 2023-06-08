@@ -1,0 +1,30 @@
+@import "../styles/general.scss";
+
+.personalDetailsPage {
+  margin: 30px;
+  font-family: "RC";
+  h1 {
+    font-size: 25px;
+    font-family: "RCB";
+    width: 100%;
+    padding: 30px 0 15px 0;
+    border-bottom: 2px solid black;
+  }
+}
+.MrMrs {
+  display: flex;
+  justify-content: left;
+  margin: 20px 0 40px 0;
+}
+.personalDetailsLine {
+  display: flex;
+  width: 100%;
+  margin-bottom: 15px;
+  gap: 30px;
+  height: 38px;
+}
+.personalDetailsColumn {
+  width: calc((100% - 30px) / 2);
+  display: flex;
+  gap: 15px;
+}

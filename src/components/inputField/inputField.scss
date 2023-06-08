@@ -1,0 +1,27 @@
+@import "../../../src/styles/general.scss";
+
+.inputFields {
+  height: 100%;
+  width: 100%;
+}
+@mixin allFields {
+  width: 100%;
+  height: 100%;
+  border: none;
+  font-family: "Roboto";
+  font-size: 15px;
+  outline: none;
+  color: $orange;
+}
+::placeholder {
+  color: $lgrey;
+}
+.errorInput {
+  @include allFields;
+  border: red 1px solid;
+  color: red;
+}
+.inputField {
+  @include allFields;
+  border-bottom: 1px solid $lgrey;
+}

@@ -83,7 +83,9 @@ const ConfigurationCard = ({
   const totalPriceDec =
     !type && optionDetails.price.amount.toString().split(".")[1];
   // function to display more options
-
+  const handleDisplay = () => {
+    setDisplayOptions(100);
+  };
   return (
     <>
       {!type ? (
@@ -117,7 +119,7 @@ const ConfigurationCard = ({
           </div>
         </div>
       ) : (
-        <div className="moreOptions" onClick={setDisplayOptions(100)}>
+        <div className="moreOptions" onClick={handleDisplay}>
           <p> + </p>
           <p> VOIR PLUS D'OPTIONS</p>
         </div>

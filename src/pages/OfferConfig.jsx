@@ -30,7 +30,7 @@ const OfferConfig = ({
   const location = useLocation();
   const offerDetails = location.state.offerDetails;
   const offerVeryDetails = location.state.offerVeryDetails;
-  const totalPrice = location.state.totalPrice;
+  const oldTotal = location.state.totalPrice;
   const rentalLength = location.state.rentalLength;
   // declare States
   const [optionsSelected, setOptionsSelected] = useState([]);
@@ -42,11 +42,7 @@ const OfferConfig = ({
   const dropOffDate = dateTimeFormat(endDate, endTime.value);
   // declare functions
   const handleDisplay = () => {
-    if (displayOptions === 5) {
-      return setDisplayOptions(100);
-    } else {
-      return setDisplayOptions(5);
-    }
+    setDisplayOptions(5);
   };
   const totalExtraFee = calcExtraFee(offerVeryDetails);
   const totalAdditionalCharges = calcAdditionalCharges(
@@ -56,16 +52,20 @@ const OfferConfig = ({
   );
   const dailyPrice = calcDailyPrice({
     origin: "offerConfig",
-    totalPrice,
+    oldTotal,
     totalExtraFee,
     rentalLength,
   });
+
   const newTotal = calcTotal(
     dailyPrice,
     rentalLength,
     totalExtraFee,
     totalAdditionalCharges
   );
+  // handle price display
+  const totalPriceInt = newTotal.toString().split(".")[0];
+  const totalPriceDec = newTotal.toFixed(2).toString().split(".")[1];
   const handleNext = () => {
     setPage("personnalDetails");
     navigate("/personnalDetails", {
@@ -161,37 +161,37 @@ const OfferConfig = ({
             </div>
           </div>
           {displayOptions === 100 && (
-            <p onClick={setDisplayOptions(5)}>- VOIR MOINS D'OPTIONS</p>
+            <p onClick={handleDisplay} className="lessOptions">
+              - VOIR MOINS D'OPTIONS
+            </p>
           )}
         </section>
         <section className="rightColumn">
-          <p>TOTAL</p>
-          <p>€ {totalPrice}</p>
-          <p>Taxes includes</p>
-          <p
-            onClick={() => {
-              setModalVisible(true);
-            }}
-          >
-            Details du prix
-          </p>
-          <BasicLink
-            title="CONTINUER"
-            type="linksSelected"
-            state={[
-              selectedLocation,
-              offerDetails,
-              pickUpDate,
-              dropOffDate,
-              optionsSelected,
-              offerVeryDetails,
-              dailyPrice,
-              rentalLength,
-              newTotal,
-            ]}
-            navigate="/personnalDetails"
-          />
-          <SelectButton func={handleNext} title="CONTINUER" />
+          <div>
+            <h3>TOTAL</h3>
+            <div className="currAndTotal">
+              <p>€</p>
+              <div className="pricing">
+                <p className="pricingBig">{totalPriceInt}</p>
+                <p>{`,${totalPriceDec}`}</p>
+              </div>
+            </div>
+          </div>
+          <div className="moreDetailsTaxes">
+            <div>
+              <p className="icon"> </p>
+              <p
+                onClick={() => {
+                  setModalVisible(true);
+                }}
+              >
+                Details du prix
+              </p>
+            </div>
+            <p>Taxes includes</p>
+          </div>
+
+          <SelectButton func={handleNext} title="CONTINUER" type="whiteSize3" />
         </section>
         {modalVisible && (
           <PricingModal

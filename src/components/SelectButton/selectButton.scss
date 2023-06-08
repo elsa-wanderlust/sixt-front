@@ -1,20 +1,24 @@
 @import "../../styles/general.scss";
 
-.orange {
-  background-color: $orange;
+@mixin allButtons {
+  :hover {
+    cursor: pointer;
+  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
   box-shadow: none;
   border: none;
+}
+// type of buttons
+.orange {
+  @include allButtons;
+  background-color: $orange;
   flex: 1;
   height: 50%;
   font-family: "RC";
   font-size: 16px;
 }
-
-.bl_border {
-  border: 2px solid black;
-  border-radius: 5px;
-}
-
 .medium {
   height: 40px;
   width: 200px;
@@ -28,7 +32,19 @@
   font-size: 16px;
   font-weight: bold;
   color: $white;
-  // :hover {
-  //   cursor: pointer;
-  // }
+}
+.whiteSize3 {
+  @include allButtons;
+  background-color: $white;
+  color: $orange;
+  height: 50px;
+  width: 100%;
+  font-family: "RCB";
+  font-size: 16px;
+}
+
+// border
+.bl_border {
+  border: 2px solid black;
+  border-radius: 5px;
 }

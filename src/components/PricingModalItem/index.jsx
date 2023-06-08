@@ -1,21 +1,24 @@
 // import style
-import "./pricingModalItem.css";
+import "./pricingModalItem.scss";
 
 const PricingModalItem = ({ title, amount, unit, rentalLength }) => {
+  console.log(title, amount);
   const totalCalc = () => {
     let total = 0;
-    if (unit === "jour" || unit === "jour/unité") {
-      total = amount * rentalLength;
-    } else {
-      total = amount;
+    if (amount) {
+      console.log(title);
+      if (unit === "jour" || unit === "jour/unité") {
+        total = amount * rentalLength;
+      } else {
+        total = amount;
+      }
     }
-    return total.toFixed(2).replace(".", ",");
+    return total.toFixed(2).toString().replace(".", ",");
   };
-
   return (
     <div className="pricingDetailsItem">
       <p>{title}</p>
-      {amount && <p>€ {totalCalc()}</p>}
+      <p>€ {totalCalc()}</p>
     </div>
   );
 };

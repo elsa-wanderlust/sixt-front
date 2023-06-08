@@ -11,6 +11,8 @@ import ConfirmationModal from "../components/ConfirmationModal";
 // import function
 import validatePersonalDetails from "../utils/validatePersonalDetails";
 import dateForDisplay from "../utils/dateforDisplay";
+// import style
+import "../styles/personnalDetails.scss";
 
 const PersonalDetails = () => {
   // receive the props from the carDetailsModal
@@ -22,7 +24,7 @@ const PersonalDetails = () => {
   const rentalLength = location.state.rentalLength;
   const newTotal = location.state.newTotal;
   // declare variables for DB
-  const agency = location.state.selectedLocation.title; //OK
+  const agency = location.state.selectedLocation.title;
   const vehiculeName = location.state.offerDetails.headlines.longSubline;
   const vehiculePicture = location.state.offerDetails.images.small;
   const dayPrice = location.state.offerDetails.prices.dayPrice.amount;
@@ -109,10 +111,10 @@ const PersonalDetails = () => {
   };
 
   return (
-    <div>
+    <div className="personalDetailsPage">
       <div>
-        <p>This is the personal details</p>
-        <div>
+        <h1>INFORMATIONS PERSONNELS</h1>
+        <div className="MrMrs">
           <InputField
             type="radio"
             state={title}
@@ -123,98 +125,133 @@ const PersonalDetails = () => {
             type="radio"
             state={title}
             setState={setTitle}
-            label="Mme."
+            label="Mme"
           />
         </div>
-        <InputField
-          type="text"
-          placeholder="Société"
-          state={company}
-          setState={setCompany}
-        />
-        <InputField
-          type="text"
-          validity={[1]}
-          placeholder="Prénom *"
-          state={firstName}
-          setState={setFirstName}
-        />
-        <InputField
-          type="text"
-          validity={[1]}
-          placeholder="Nom de famille * "
-          state={lastName}
-          setState={setLastName}
-        />
-        <InputField
-          type="text"
-          validity="email"
-          placeholder="Adresse email *"
-          state={email}
-          setState={setEmail}
-        />
-        <InputField
-          type="text"
-          validity={[1]}
-          placeholder="Rue *"
-          state={street}
-          setState={setStreet}
-        />
-        <PersonalDetailsSelect
-          type="country"
-          state={country}
-          setState={setCountry}
-        />
-        <PersonalDetailsSelect
-          type="countryCode"
-          state={countryCode}
-          setState={setCountryCode}
-        />
-        <InputField
-          type="text"
-          validity={[1]}
-          placeholder="Ville *"
-          state={city}
-          setState={setCity}
-        />
-        <InputField
-          type="number"
-          validity={[100000000, 9999999999]}
-          placeholder="Numéro de téléphone *"
-          state={phoneNum}
-          setState={setPhoneNum}
-        />
-        <InputField
-          type="number"
-          validity={[10000, 99999]}
-          placeholder="Code Postal *"
-          state={zipCode}
-          setState={setZipCode}
-        />
-        <InputField
-          type="number"
-          validity={[1, 31]}
-          placeholder="JJ *"
-          state={dayDOB}
-          setState={setDayDOB}
-        />
-        <InputField
-          type="number"
-          validity={[1, 12]}
-          placeholder="MM *"
-          state={monthDOB}
-          setState={setMonthDOB}
-        />
-        <InputField
-          type="number"
-          validity={[1920, 2005]}
-          placeholder="AAAA *"
-          state={yearDOB}
-          setState={setYearDOB}
-        />
+        <div className="personalDetailsLine">
+          <div className="personalDetailsColumn">
+            <InputField
+              type="text"
+              placeholder="Société"
+              state={company}
+              setState={setCompany}
+            />
+          </div>
+        </div>
+        <div className="personalDetailsLine">
+          <div className="personalDetailsColumn">
+            <InputField
+              type="text"
+              validity={[1]}
+              placeholder="Prénom *"
+              state={firstName}
+              setState={setFirstName}
+            />
+          </div>
+          <div className="personalDetailsColumn">
+            <InputField
+              type="text"
+              validity={[1]}
+              placeholder="Nom de famille * "
+              state={lastName}
+              setState={setLastName}
+            />
+          </div>
+        </div>
+        <div className="personalDetailsLine">
+          <div className="personalDetailsColumn">
+            <InputField
+              type="text"
+              validity="email"
+              placeholder="Adresse email *"
+              state={email}
+              setState={setEmail}
+            />
+          </div>
+          <div className="personalDetailsColumn">
+            <PersonalDetailsSelect
+              type="countryCode"
+              state={countryCode}
+              setState={setCountryCode}
+            />
+            <InputField
+              type="number"
+              validity={[100000000, 9999999999]}
+              placeholder="Numéro de téléphone *"
+              state={phoneNum}
+              setState={setPhoneNum}
+            />
+          </div>
+        </div>
+        <div className="personalDetailsLine">
+          <div className="personalDetailsColumn">
+            <InputField
+              type="text"
+              validity={[1]}
+              placeholder="Rue *"
+              state={street}
+              setState={setStreet}
+            />
+          </div>
+          <div className="personalDetailsColumn">
+            <InputField
+              type="number"
+              validity={[10000, 99999]}
+              placeholder="Code Postal *"
+              state={zipCode}
+              setState={setZipCode}
+            />
+            <InputField
+              type="text"
+              validity={[1]}
+              placeholder="Ville *"
+              state={city}
+              setState={setCity}
+            />
+          </div>
+        </div>
+        <div className="personalDetailsLine">
+          <div className="personalDetailsColumn">
+            <PersonalDetailsSelect
+              type="country"
+              state={country}
+              setState={setCountry}
+            />
+          </div>
+        </div>
+        <div className="personalDetailsLine">
+          <div className="personalDetailsColumn">
+            <p>DATE DE NAISSANCE</p>
+          </div>
+        </div>
+        <div className="personalDetailsLine">
+          <div className="personalDetailsColumn">
+            <InputField
+              type="number"
+              validity={[1, 31]}
+              placeholder="JJ *"
+              state={dayDOB}
+              setState={setDayDOB}
+            />
+            <InputField
+              type="number"
+              validity={[1, 12]}
+              placeholder="MM *"
+              state={monthDOB}
+              setState={setMonthDOB}
+            />
+            <InputField
+              type="number"
+              validity={[1920, 2005]}
+              placeholder="AAAA *"
+              state={yearDOB}
+              setState={setYearDOB}
+            />
+          </div>
+        </div>
       </div>
       <div>
-        <p>VERIFIER ET RESERVER</p>
+        <h1>VERIFIER ET RESERVER</h1>
         <p>{vehiculeName}</p>
         <img src={vehiculePicture} alt={`picture of a ${vehiculeName}`} />
         <p>{agency}</p>

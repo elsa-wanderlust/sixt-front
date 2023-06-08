@@ -10,7 +10,6 @@ const CarGroupInfo = ({ carGroupInfo, type }) => {
     airCondition,
     baggage,
   } = carGroupInfo;
-  console.log(type);
   return (
     <div className={`allGroupInfo ${type}`}>
       <div className="oneGroupInfo">

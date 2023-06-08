@@ -1,7 +1,5 @@
-// import from react and package(s)
-import { useState } from "react";
 // import style
-import "./pricingModal.css";
+import "./pricingModal.scss";
 // import components
 import PricingModalItem from "../PricingModalItem";
 
@@ -42,21 +40,32 @@ const PricingModal = ({
               <p>{agency}</p>
             </div>
           )}
-          <p>DETAILS DU PRIX</p>
-          <p>PERIODE DE LOCATION</p>
+          {/* {origin !== "backOffice" && ( */}
+          <button
+            className="closing-button"
+            onClick={() => {
+              setModalVisible(false);
+            }}
+          >
+            <p className="icon"></p>
+          </button>
+          {/* )} */}
+          <h1>DÉTAILS DU PRIX</h1>
+          <h3>PÉRIODE DE LOCATION</h3>
           <PricingModalItem
             title={`Durée de location (${rentalLength} jours x ${dailyPrice})`}
             amount={dailyPrice}
             unit="jour"
             rentalLength={rentalLength}
           />
-          <p>PROTECTION ET OPTIONS</p>
-          {/* if coming from Offer Config => displays if options have been selected cost is at 0*/}
+          <h3>PROTECTION ET OPTIONS</h3>
+          {/* if coming from Offer Config => displays if options have been selected OR if cost is at 0*/}
           {pricingDetails.additionalCharges.map((elem) => {
             if (
               (origin === "offerConfig" &&
                 (optionsSelected.indexOf(elem.id) !== -1 ||
                   elem.price.amount === 0)) ||
+              // if coming from backOffice => displays them all
               origin === "backOffice"
             ) {
               return (
@@ -71,7 +80,7 @@ const PricingModal = ({
             }
           })}
 
-          <p>FRAIS</p>
+          <h3>FRAIS</h3>
           {pricingDetails.extraFees.map((elem) => {
             return (
               <PricingModalItem
@@ -83,9 +92,17 @@ const PricingModal = ({
               />
             );
           })}
-          <div>
-            <p>TOTAL</p>
-            <p>{total}</p>
+          <div className="totalSection">
+            <div>
+              <div>
+                <h3>TOTAL</h3>
+              </div>
+              <div>
+                <p>€</p>
+                <h2>{total.toString().replace(".", ",")}</h2>
+              </div>
+            </div>
+            <p className="tax">Taxes incluses</p>
           </div>
         </div>
       </div>
