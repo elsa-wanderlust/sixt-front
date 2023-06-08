@@ -10,14 +10,19 @@ import logo from "../../assets/img/sixt-logo.png";
 import HeaderLinks from "../HeaderLinks";
 import BasicLink from "../BasicLink";
 import NavigationTrack from "../NavigationTrack";
+import SelectButton from "../SelectButton";
 
 const Header = ({ page, setPage }) => {
   const navigate = useNavigate();
   const disconnect = () => {
     Cookies.remove("password");
+    setPage("home");
     navigate("/");
   };
-
+  const navHome = () => {
+    setPage("home");
+    navigate("/");
+  };
   return (
     <>
       <div className="headerContainer">
@@ -26,23 +31,38 @@ const Header = ({ page, setPage }) => {
             src={logo}
             alt="sixt logo noir sur fond blanc"
             className="logo"
+            onClick={navHome}
           />
           {(page === "home" || page === "backOffice") && (
             <HeaderLinks page={page} setPage={setPage} />
           )}
           {page !== "home" && page !== "backOffice" && (
-            <NavigationTrack page={page} setPage={setPage} />
+            <NavigationTrack page={page} />
           )}
         </div>
         <div className="headerRightSection">
-          <BasicLink
-            title="BACKOFFICE"
-            style="med_Lk_Bl_notSelec"
-            navigate="/backoffice"
-            icon="world"
-          />
-          {Cookies.get("password") && (
-            <button onClick={disconnect}>se déconnecter</button>
+          {page !== "backOffice" && (
+            <BasicLink
+              title="BACKOFFICE"
+              style="med_Lk_Bl_notSelec"
+              navigate="/backoffice"
+              icon="world"
+            />
+          )}
+          {page === "backOffice" && Cookies.get("password") && (
+            <SelectButton
+              func={disconnect}
+              title="Se déconnecter"
+              type="medium bl_border"
+            />
+          )}
+          {page === "backOffice" && !Cookies.get("password") && (
+            <BasicLink
+              title="BACKOFFICE"
+              style="med_Lk_Bl_notSelec"
+              navigate="/backoffice"
+              icon="world"
+            />
           )}
         </div>
       </div>

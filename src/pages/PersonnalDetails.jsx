@@ -22,7 +22,7 @@ const PersonalDetails = () => {
   const minAge = location.state.offerDetails.carGroupInfo.driverMinAge;
   const actualDailyPrice = location.state.dailyPrice;
   const rentalLength = location.state.rentalLength;
-  const newTotal = location.state.newTotal;
+  const newTotal = location.state.newTotal.toFixed(2);
   // declare variables for DB
   const agency = location.state.selectedLocation.title;
   const vehiculeName = location.state.offerDetails.headlines.longSubline;
@@ -81,7 +81,7 @@ const PersonalDetails = () => {
     monthDOB,
     dayDOB
   );
-
+  console.log(isValidated);
   // declare states for booking request
   const [confCode, setConfCode] = useState("");
   const [modalVisible, setModalVisible] = useState(false);
@@ -250,28 +250,32 @@ const PersonalDetails = () => {
           </div>
         </div>
       </div>
-      <div>
-        <h1>VERIFIER ET RESERVER</h1>
-        <p>{vehiculeName}</p>
-        <img src={vehiculePicture} alt={`picture of a ${vehiculeName}`} />
-        <p>{agency}</p>
-        <p>
-          {dateForDisplay(pickUpDate)} - {dateForDisplay(dropOffDate)}
-        </p>
-        <p>VOTRE OFFER INCLUT</p>
+      <h1>VERIFIER ET RESERVER</h1>
+      <div className="bookingCheck">
+        <section>
+          <div>
+            <h3>{vehiculeName.toUpperCase()}</h3>
+            <p>{agency}</p>
+            {dateForDisplay(pickUpDate)} - {dateForDisplay(dropOffDate)}
+          </div>
+          <div>
+            <img src={vehiculePicture} alt={`picture of a ${vehiculeName}`} />
+          </div>
+        </section>
+        <h2>VOTRE OFFER INCLUT</h2>
         {includedCharges.map((elem) => {
           return <PricingModalItem key={elem.title} title={elem.title} />;
         })}
-        <p>EXIGENCE POUR LES CONDUCTEURS</p>
+        <h2>EXIGENCE POUR LES CONDUCTEURS</h2>
         <p>Conducteur d'âgé au minimum {minAge} ans</p>
-        <p>PERIODE DE LOCATION</p>
+        <h2>PERIODE DE LOCATION</h2>
         <PricingModalItem
           title={`Durée de location (${rentalLength} jours x ${actualDailyPrice})`}
           amount={actualDailyPrice}
           unit="jour"
           rentalLength={rentalLength}
         />
-        <p>PROTECTION ET OPTIONS</p>
+        <h2>PROTECTION ET OPTIONS</h2>
         {additionalCharges.map((elem) => {
           return (
             <PricingModalItem
@@ -283,7 +287,7 @@ const PersonalDetails = () => {
             />
           );
         })}
-        <p>FRAIS</p>
+        <h2>FRAIS</h2>
         {extraFees.map((elem) => {
           return (
             <PricingModalItem
@@ -295,20 +299,35 @@ const PersonalDetails = () => {
             />
           );
         })}
-        <p>TOTAL</p>
-        <p>{newTotal}</p>
+        <div className="total">
+          <h4>TOTAL</h4>
+          <div>
+            <p>€</p>
+            <h4>{newTotal.toString().replace(".", ",")}</h4>
+          </div>
+        </div>
+        <p className="taxes">Taxes incluses</p>
       </div>
-      <SelectButton
-        title="RESERVER"
-        disabled={!isValidated}
-        func={handleSubmit}
-      />
-      {modalVisible && (
-        <ConfirmationModal
-          confCode={confCode}
-          setModalVisible={setModalVisible}
+      <div className="bottomSection">
+        <p>
+          En cliquand sur le bouton, je confirme avec lu et accepté les{" "}
+          <span>informations de location</span> et les{" "}
+          <span>termes et conditions</span>.
+        </p>
+
+        <SelectButton
+          title="RESERVER"
+          disabled={!isValidated}
+          func={handleSubmit}
+          type={!isValidated ? "orangeType3 disabled" : "orangeType3"}
         />
-      )}
+        {modalVisible && (
+          <ConfirmationModal
+            confCode={confCode}
+            setModalVisible={setModalVisible}
+          />
+        )}
+      </div>
     </div>
   );
 };

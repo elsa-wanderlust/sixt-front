@@ -13,7 +13,7 @@ const BasicLink = ({
   number,
 }) => {
   return (
-    <Link to={navigate ? navigate : ""} state={state} className={style}>
+    <Link to={navigate && navigate} state={state} className={style}>
       {icon === "world" && <p className="icon"> </p>}
       {number && <p className={`${style}Num`}>{number}</p>}
       {title}

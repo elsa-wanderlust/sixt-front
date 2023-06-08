@@ -10,6 +10,7 @@ const InputField = ({
   setState,
   label,
   validity,
+  connect,
 }) => {
   const [error, setError] = useState(false);
   // declare function to handle change
@@ -48,7 +49,7 @@ const InputField = ({
   return (
     <>
       {!label ? (
-        <div className="inputFields">
+        <div className={{ connect } ? "connect" : "inputFields"}>
           <input
             className={error ? "errorInput" : "inputField"}
             type={type}

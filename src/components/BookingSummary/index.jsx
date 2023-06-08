@@ -1,8 +1,9 @@
 // import from react and package(s)
 import { useState } from "react";
 import axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import style
-import "./BookingSummary.css";
+import "./BookingSummary.scss";
 // import components
 import PricingModal from "../PricingModal";
 // import functions
@@ -66,17 +67,24 @@ const BookingSummary = ({ bookingDetails, setRefresh }) => {
 
   return (
     <div className="bookingSummary">
-      <div onClick={displayModal} className="bookingSummary">
-        <p>{handleDDMMYYY(dateOfBooking)}</p>
-        <p>{confirmationCode}</p>
-        <p>{vehicule.name}</p>
-        <p>{pickUpDateDisplay}</p>
-        <p>{dropOffDateDisplay}</p>
-        <p>{client.lastName.toUpperCase()}</p>
-        <p>{client.firstName}</p>
-        <p>{total}</p>
+      <div onClick={displayModal} className="clickableArea">
+        <p className="date">{handleDDMMYYY(dateOfBooking)}</p>
+        <p className="code">{confirmationCode}</p>
+        <p className="vehicule">{vehicule.name}</p>
+        <div className="dates">
+          <p>{pickUpDateDisplay} -</p>
+          <p>{dropOffDateDisplay}</p>
+        </div>
+        <div className="client">
+          <p>{client.lastName.toUpperCase()}</p>
+          <p>{` ${client.firstName}`}</p>
+        </div>
+        <p className="total">€{total.toFixed(2)}</p>
       </div>
-      <p onClick={handleDelete}>delete</p>
+      <div onClick={handleDelete} className="delete">
+        <FontAwesomeIcon icon="fa-solid fa-trash-can" />
+      </div>
+
       {modalVisible && (
         <PricingModal
           origin="backOffice"

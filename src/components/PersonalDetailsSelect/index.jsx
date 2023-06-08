@@ -24,7 +24,6 @@ const PersonalDetailsSelect = ({ type, state, setState }) => {
       ...base,
       fontFamily: "Roboto",
       background: "white",
-      // height: 20,
       borderRadius: state.isFocused ? "3px 3px 0 0" : 3,
       borderColor: state.isFocused ? "white" : "white",
       borderBottomColor: state.isFocused ? "#b2b2b2" : "#b2b2b2",
@@ -56,10 +55,12 @@ const PersonalDetailsSelect = ({ type, state, setState }) => {
     placeholder: (base) => ({
       ...base,
       color: "#b2b2b2",
+      // position: "absolute",
+      // left: 67,
+      marginLeft: 0,
     }),
     dropdownIndicator: (style) => ({
       ...style,
-
       paddingTop: 7,
       paddingBottom: 7,
     }),

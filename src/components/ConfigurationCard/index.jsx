@@ -81,7 +81,7 @@ const ConfigurationCard = ({
   const totalPriceInt =
     !type && optionDetails.price.amount.toString().split(".")[0];
   const totalPriceDec =
-    !type && optionDetails.price.amount.toString().split(".")[1];
+    !type && optionDetails.price.amount.toFixed(2).toString().split(".")[1];
   // function to display more options
   const handleDisplay = () => {
     setDisplayOptions(100);

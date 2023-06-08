@@ -20,6 +20,7 @@
   font-size: 16px;
 }
 .medium {
+  @include allButtons;
   height: 40px;
   width: 200px;
 }
@@ -32,6 +33,19 @@
   font-size: 16px;
   font-weight: bold;
   color: $white;
+}
+
+.orangeType3 {
+  @include allButtons;
+  background-color: $orange;
+  color: $white;
+  height: 50px;
+  width: 25%;
+  font-family: "RCB";
+  font-size: 16px;
+}
+.disabled {
+  color: $lgrey;
 }
 .whiteSize3 {
   @include allButtons;

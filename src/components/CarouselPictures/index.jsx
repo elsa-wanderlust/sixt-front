@@ -19,7 +19,7 @@ const CarouselPictures = ({ pictures, type }) => {
   return (
     <Carousel
       responsive={responsive}
-      showDots={true}
+      showDots={type !== "modal" ? true : false}
       infinite={true}
       className="carouselAll"
       renderDotsOutside={true}

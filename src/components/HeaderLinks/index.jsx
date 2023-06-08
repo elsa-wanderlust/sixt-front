@@ -5,7 +5,6 @@ const HeaderLinks = ({ page }) => {
   return (
     <div className="allLinks">
       <BasicLink
-        navigate="/"
         title="RENT"
         style={page === "home" ? "big_Lk_Or_Selec " : "big_Lk_Bl_notSelec"}
       />

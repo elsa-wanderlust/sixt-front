@@ -99,7 +99,7 @@ const PricingModal = ({
               </div>
               <div>
                 <p>€</p>
-                <h2>{total.toString().replace(".", ",")}</h2>
+                <h2>{total.toFixed(2).toString().replace(".", ",")}</h2>
               </div>
             </div>
             <p className="tax">Taxes incluses</p>

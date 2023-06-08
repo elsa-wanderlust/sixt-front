@@ -5,6 +5,8 @@ import Cookies from "js-cookie";
 // import components
 import BookingSummary from "../components/BookingSummary";
 import Connect from "../components/Connect";
+// import components
+import "../styles/backOfficePage.scss";
 
 const BackOffice = ({ setPage }) => {
   // declare states
@@ -27,7 +29,7 @@ const BackOffice = ({ setPage }) => {
   }, [refresh, isConnected]);
 
   return (
-    <div>
+    <div className="backOfficeContainer">
       {!isConnected ? (
         <div>
           <Connect setisConnected={setisConnected} />
@@ -39,13 +41,14 @@ const BackOffice = ({ setPage }) => {
           ) : (
             <div>
               {data.length ? (
-                <p>
+                <h1>
                   Vous avez {data.length} réservation{data.length > 1 && "s"}!
-                </p>
+                </h1>
               ) : (
-                <p>
-                  Vous n'avez même une réservation et risquez de faire faillite!
-                </p>
+                <h1>
+                  Vous n'avez même pas une réservation et risquez de faire
+                  faillite!
+                </h1>
               )}
               {data.map((elem) => {
                 return (

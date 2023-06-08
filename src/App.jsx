@@ -4,6 +4,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "../src/styles/general.scss";
 // import font
 import "../src/fonts/RobotoCondensed-Regular.ttf";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
+library.add(faTrashCan);
 
 // import pages
 import Home from "./pages/Home";

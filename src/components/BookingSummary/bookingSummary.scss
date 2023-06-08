@@ -1,0 +1,50 @@
+@import "../../styles/general.scss";
+
+.bookingSummary {
+  display: flex;
+  gap: 20px;
+  font-size: 20px;
+  width: 90vw;
+  .clickableArea {
+    display: flex;
+    width: 100%;
+    :hover {
+      cursor: pointer;
+    }
+  }
+  .date {
+    color: $orange;
+    flex: 1;
+  }
+  .code {
+    flex: 1;
+  }
+  .vehicule {
+    flex: 2;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .dates {
+    text-decoration: wavy;
+    flex: 2;
+    display: flex;
+    gap: 5px;
+  }
+  .client {
+    text-decoration: wavy;
+    flex: 2;
+    display: flex;
+    gap: 5px;
+  }
+  .total {
+    color: $orange;
+    flex: 1;
+  }
+  .delete {
+    width: 30px;
+    :hover {
+      cursor: pointer;
+    }
+  }
+}

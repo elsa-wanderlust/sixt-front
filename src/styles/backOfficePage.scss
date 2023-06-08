@@ -1,0 +1,12 @@
+@import "../styles/general.scss";
+
+.backOfficeContainer {
+  width: 100%;
+  padding: 30px 5px;
+  display: flex;
+  h1 {
+    font-size: 25px;
+    font-family: "RBC";
+    margin-bottom: 20px;
+  }
+}
