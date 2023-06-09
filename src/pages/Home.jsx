@@ -14,6 +14,8 @@ import carouselHome3 from "../assets/img/carousel/49dbc80f-3566-46f9-b294-b2fddb
 import worldMap from "../assets/img/sixt-in-the-world.png";
 
 const Home = ({
+  errorMessage,
+  setErrorMessage,
   setOffers,
   setRentalLength,
   page,
@@ -33,6 +35,8 @@ const Home = ({
   return (
     <div className="homeBg">
       <SearchFieldSection
+        errorMessage={errorMessage}
+        setErrorMessage={setErrorMessage}
         setOffers={setOffers}
         setRentalLength={setRentalLength}
         page={page}

@@ -1,4 +1,4 @@
-// styling function used for the category filter
+// styling function used for the category filter (offerList page)
 
 const customStyleTwo = () => {
   // function for styling

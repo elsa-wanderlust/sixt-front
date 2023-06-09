@@ -22,14 +22,6 @@ const CarDetailsModal = ({
   const [isLoading, setIsLoading] = useState(true);
   const [carouselImages, setcarouselImages] = useState([]);
   const { id, headlines, images, carGroupInfo, prices } = offerDetails;
-  const {
-    automatic,
-    maxPassengers,
-    doors,
-    driverMinAge,
-    airCondition,
-    baggage,
-  } = carGroupInfo;
   // useEffect to get details on offer
   useEffect(() => {
     const getOfferVeryDetails = async () => {
@@ -46,11 +38,13 @@ const CarDetailsModal = ({
         setcarouselImages(carouselImagesCopy);
         setIsLoading(false);
       } catch (error) {
-        console.log(error);
+        console.log(error.response.data.message);
       }
     };
     getOfferVeryDetails();
   }, []);
+
+  // next button
   const handleNext = () => {
     setPage("offerConfig");
     navigate("/offerConfig", {
@@ -108,7 +102,7 @@ const CarDetailsModal = ({
               <SelectButton
                 func={handleNext}
                 title="SELECTIONNER"
-                type="orangeSize2"
+                type="orangeWhiteVeryLong"
               />
             </div>
           </div>

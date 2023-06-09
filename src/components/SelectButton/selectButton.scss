@@ -21,61 +21,49 @@
   width: 400px;
   height: 50px;
 }
+@mixin veryLong {
+  width: 100%;
+  height: 50px;
+}
 
-// type of buttons
+// type of buttons - by default, size is medium and font color is black
+// orange background
 .orange {
   @include allButtons;
   @include medium;
   background-color: $orange;
 }
-
 .orangeLong {
   @include allButtons;
   @include long;
   background-color: $orange;
 }
-
-// needs fixing
-.medium {
+.orangeWhiteVeryLong {
   @include allButtons;
-  height: 40px;
-  width: 200px;
-}
-.orangeSize2 {
-  background-color: $orange;
-  box-shadow: none;
-  border: none;
-  height: 30px;
-  font-family: "Roboto";
-  font-size: 16px;
-  font-weight: bold;
-  color: $white;
-}
-
-.orangeType3 {
-  @include allButtons;
+  @include veryLong;
   background-color: $orange;
   color: $white;
-  height: 50px;
-  width: 25%;
-  font-family: "RCB";
-  font-size: 16px;
 }
-.disabled {
-  color: $lgrey;
-}
-.whiteSize3 {
+// white background
+.whiteLong {
   @include allButtons;
+  @include medium;
   background-color: $white;
   color: $orange;
-  height: 50px;
-  width: 100%;
-  font-family: "RCB";
-  font-size: 16px;
+  border: $orange 1px solid;
+}
+.whiteVeryLong {
+  @include allButtons;
+  @include veryLong;
+  background-color: $white;
+  color: $orange;
 }
 
-// border
-.bl_border {
+// misc
+.appDownloadButton {
+  @include allButtons;
+  @include medium;
+  background-color: $orange;
   border: 2px solid black;
   border-radius: 5px;
 }

@@ -17,7 +17,6 @@ import BackOffice from "./pages/BackOffice";
 // import component(s)
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Modal from "./components/Modal";
 
 function App() {
   // declare state(s)
@@ -25,6 +24,7 @@ function App() {
   const [offers, setOffers] = useState(); // offers available
   const [rentalLength, setRentalLength] = useState(); // how many days is the rental
   // for the search fields
+  const [errorMessage, setErrorMessage] = useState("");
   const [selectedLocation, setSelectedLocation] = useState();
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState();
@@ -45,6 +45,8 @@ function App() {
             path="/"
             element={
               <Home
+                errorMessage={errorMessage}
+                setErrorMessage={setErrorMessage}
                 page={page}
                 setPage={setPage}
                 setOffers={setOffers}
@@ -66,6 +68,8 @@ function App() {
             path="/offerlist"
             element={
               <OfferList
+                errorMessage={errorMessage}
+                setErrorMessage={setErrorMessage}
                 page={page}
                 setPage={setPage}
                 offers={offers}

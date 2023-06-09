@@ -1,5 +1,5 @@
 // import from react and package(s)
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 // import style
@@ -12,8 +12,11 @@ import SelectButton from "../SelectButton";
 // import function(s)
 import dateTimeFormat from "../../utils/dateTimeFormat";
 import calcRentalLength from "../../utils/calcRentalLength";
+import compareStartEndDate from "../../utils/compareStartEndDate";
 
 const SearchFieldSection = ({
+  errorMessage,
+  setErrorMessage,
   setOffers,
   setRentalLength,
   page,
@@ -30,23 +33,31 @@ const SearchFieldSection = ({
   setEndTime,
   setIsLoading,
 }) => {
-  // declare variable(s)
+  // declare state and variable
+  // const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
   // declare submit (when on the home page)
   const handleSubmit = () => {
     setPage("offerList");
     navigate("/offerlist");
   };
-  // function to check if See Offer buttons is enabled (Home Page)
+  // functions to check all the fields are filled, and correctly (Home Page)
   const isNotValid = () => {
-    if (!selectedLocation || !startDate || !startTime || !endDate) {
+    if (
+      !selectedLocation ||
+      !startDate ||
+      !startTime ||
+      !endDate ||
+      endTime.value === "..."
+    ) {
       return true;
-    } else if (endTime.value === "...") {
+    } else if (compareStartEndDate(startDate, endDate) === false) {
       return true;
-    } else if (startDate > setEndTime) {
-      return true;
-    } else return false;
+    } else {
+      return false;
+    }
   };
+
   // declare useEffect (when on the offerList page)
   useEffect(() => {
     const fetchData = async () => {
@@ -59,11 +70,14 @@ const SearchFieldSection = ({
         const response = await axios.get(
           `http://localhost:3000/agency/offer${query}`
         );
+        setErrorMessage("");
         setOffers(response.data);
         setIsLoading(false);
         setRentalLength(daysOfRental);
       } catch (error) {
-        console.log(error);
+        setErrorMessage(error.response.data.message);
+        setPage("home");
+        navigate("/");
       }
     };
     if (page === "offerList") {
@@ -71,53 +85,58 @@ const SearchFieldSection = ({
     }
   }, [selectedLocation, startDate, endDate, startTime, endTime]);
   return (
-    <div className="searchFieldSection">
-      <div className="agencySearch">
-        <p className="label">Retrait et retour</p>
-        <div>
-          <AutoComplete
-            selectedLocation={selectedLocation}
-            setSelectedLocation={setSelectedLocation}
+    <div>
+      <div>
+        <>{errorMessage && <p className="errorMessage">{errorMessage}</p>}</>
+      </div>
+      <div className="searchFieldSection">
+        <div className="agencySearch">
+          <p className="label">Retrait et retour</p>
+          <div>
+            <AutoComplete
+              selectedLocation={selectedLocation}
+              setSelectedLocation={setSelectedLocation}
+              page={page}
+            />
+          </div>
+        </div>
+        <div className="dateSelect">
+          <p className="label">Date de départ</p>
+          <DateSelect
+            state={startDate}
+            setState={setStartDate}
+            minDate={new Date()}
+            maxDate={endDate}
+            shownDate={startDate}
             page={page}
           />
         </div>
-      </div>
-      <div className="dateSelect">
-        <p className="label">Date de départ</p>
-        <DateSelect
-          state={startDate}
-          setState={setStartDate}
-          minDate={new Date()}
-          maxDate={endDate}
-          shownDate={startDate}
-          page={page}
-        />
-      </div>
-      <div className="timeSelect">
-        <TimeSelect state={startTime} setState={setStartTime} page={page} />
-      </div>
-      <div className="dateSelect">
-        <p className="label">Date de retour</p>
-        <DateSelect
-          state={endDate}
-          setState={setEndDate}
-          minDate={startDate}
-          shownDate={startDate}
-          page={page}
-        />
-      </div>
-      <div className="timeSelect">
-        <TimeSelect state={endTime} setState={setEndTime} page={page} />
-      </div>
-      <div className="selectButtonContainer">
-        {page === "home" && (
-          <SelectButton
-            title="Voir les offres"
-            func={handleSubmit}
-            type="orange"
-            disabled={isNotValid()}
+        <div className="timeSelect">
+          <TimeSelect state={startTime} setState={setStartTime} page={page} />
+        </div>
+        <div className="dateSelect">
+          <p className="label">Date de retour</p>
+          <DateSelect
+            state={endDate}
+            setState={setEndDate}
+            minDate={startDate}
+            shownDate={startDate}
+            page={page}
           />
-        )}
+        </div>
+        <div className="timeSelect">
+          <TimeSelect state={endTime} setState={setEndTime} page={page} />
+        </div>
+        <div className="selectButtonContainer">
+          {page === "home" && (
+            <SelectButton
+              title="Voir les offres"
+              func={handleSubmit}
+              type="orange"
+              disabled={isNotValid()}
+            />
+          )}
+        </div>
       </div>
     </div>
   );

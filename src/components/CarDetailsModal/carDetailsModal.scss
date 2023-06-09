@@ -7,11 +7,12 @@
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto; // for not scrolling?!?!
+  overflow-y: hidden; // for not scrolling?!?!
   background-color: rgba(0, 0, 0, 0.9);
 }
 
 .modal-container .modal {
+  overflow-y: hidden; // for not scrolling?!?!
   background-color: $dgrey;
   width: 100%;
   height: 50%;
@@ -19,7 +20,6 @@
   top: 20%;
   z-index: 10;
   display: flex;
-  // gap: 40px;
   border-radius: 5px;
   color: white;
   font-family: "Roboto";

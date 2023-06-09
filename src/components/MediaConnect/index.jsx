@@ -9,8 +9,8 @@ const MediaConnect = () => {
       <div className="appDownload">
         <p>TÉLÉCHARGER L'APP SIXT</p>
         <div className="appButtons">
-          <SelectButton icon="appStore" type="orange bl_border medium" />
-          <SelectButton icon="googleStore" type="orange bl_border medium" />
+          <SelectButton icon="appStore" type="appDownloadButton" />
+          <SelectButton icon="googleStore" type="appDownloadButton" />
         </div>
       </div>
       <div className="socialMedia">

@@ -53,7 +53,7 @@ const Header = ({ page, setPage }) => {
             <SelectButton
               func={disconnect}
               title="Se déconnecter"
-              type="medium bl_border"
+              type="whiteLong"
             />
           )}
           {page === "backOffice" && !Cookies.get("password") && (

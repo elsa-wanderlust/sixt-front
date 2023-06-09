@@ -22,24 +22,24 @@ const BackOffice = ({ setPage }) => {
         setData(response.data);
         setIsLoading(false);
       } catch (error) {
-        console.log(error.response.data);
+        console.log(error.response.data.message);
       }
     };
     isConnected && fetchData();
   }, [refresh, isConnected]);
 
   return (
-    <div className="backOfficeContainer">
+    <div>
       {!isConnected ? (
-        <div>
+        <div className="backOfficeContainer">
           <Connect setisConnected={setisConnected} />
         </div>
       ) : (
-        <div>
+        <div className="backOfficeContainer">
           {isLoading ? (
             <p>chargement...</p>
           ) : (
-            <div>
+            <div className="allBookings">
               {data.length ? (
                 <h1>
                   Vous avez {data.length} réservation{data.length > 1 && "s"}!

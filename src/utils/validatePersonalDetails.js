@@ -1,3 +1,7 @@
+// validate if personal details are correct before enabling button
+// NB - at this stage, only checks if driver is born between the years 1000 and 3000
+// (specific age requirements is checked with "validateDriverAge" function, called in handleSubmit function
+
 const validatePersonalDetails = (
   firstName,
   lastName,
@@ -20,7 +24,7 @@ const validatePersonalDetails = (
     return false;
   } else if (zipCode < 10000 || zipCode > 99999) {
     return false;
-  } else if (yearDOB < 1920 || yearDOB > 2005) {
+  } else if (yearDOB < 1000 || yearDOB > 3000) {
     return false;
   } else if (monthDOB < 1 || monthDOB > 12) {
     return false;

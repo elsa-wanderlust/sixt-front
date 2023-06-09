@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import style
 import "./BookingSummary.scss";
 // import components
-import PricingModal from "../PricingModal";
+import AllModals from "../AllModals";
 // import functions
 import calcRentalLength from "../../utils/calcRentalLength";
 import dateForDisplay from "../../utils/dateforDisplay";
@@ -61,7 +61,7 @@ const BookingSummary = ({ bookingDetails, setRefresh }) => {
       );
       setRefresh((current) => !current);
     } catch (error) {
-      console.log(error.response.data);
+      console.log(error.response.data.message);
     }
   };
 
@@ -86,14 +86,16 @@ const BookingSummary = ({ bookingDetails, setRefresh }) => {
       </div>
 
       {modalVisible && (
-        <PricingModal
-          origin="backOffice"
+        <AllModals
+          page="backOffice"
           setModalVisible={setModalVisible}
           rentalLength={rentalLength}
-          pricingDetails={cost}
+          extraFees={cost.extraFees}
+          additionalCharges={cost.additionalCharges}
           dailyPrice={dailyPrice}
           total={total}
-          vehicule={vehicule}
+          vehiculeName={vehicule.name}
+          vehiculePicture={vehicule.picture}
           agency={agency}
           pickUpDateDisplay={pickUpDateDisplay}
           dropOffDateDisplay={dropOffDateDisplay}

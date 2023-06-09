@@ -47,10 +47,22 @@ $dgrey: #191919;
   @include icon;
   font-size: 18px;
 }
+.iconVerySmall {
+  @include icon;
+  font-size: 12px;
+}
 .iconOrangeLarge {
   @include icon;
   font-size: 25px;
   color: $orange;
+}
+
+// errorMessage
+.errorMessage {
+  font-size: 25px;
+  font-family: "RCB";
+  color: red;
+  padding: 10px;
 }
 
 /* remove arrows from input field type number - works for Chrome, Safari, Edge, Opera */

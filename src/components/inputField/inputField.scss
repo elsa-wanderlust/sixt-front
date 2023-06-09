@@ -23,8 +23,7 @@
 
 .errorInput {
   @include allFields;
-  border: red 1px solid;
-  color: red;
+  border: red 3px solid;
 }
 .inputField {
   @include allFields;

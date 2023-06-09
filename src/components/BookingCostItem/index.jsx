@@ -1,12 +1,10 @@
 // import style
-import "./pricingModalItem.scss";
+import "./bookingCostItem.scss";
 
-const PricingModalItem = ({ title, amount, unit, rentalLength }) => {
-  console.log(title, amount);
+const BookingCostItem = ({ title, amount, unit, rentalLength }) => {
   const totalCalc = () => {
     let total = 0;
     if (amount) {
-      console.log(title);
       if (unit === "jour" || unit === "jour/unité") {
         total = amount * rentalLength;
       } else {
@@ -23,4 +21,4 @@ const PricingModalItem = ({ title, amount, unit, rentalLength }) => {
   );
 };
 
-export default PricingModalItem;
+export default BookingCostItem;

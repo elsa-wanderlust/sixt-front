@@ -34,7 +34,8 @@ const Connect = ({ setisConnected }) => {
       <SelectButton
         func={handleConnect}
         title="SE CONNECTER"
-        type="orangeType3"
+        type="orangeLong"
+        disabled={!password ? true : false}
       />
       {errorMessage && <p>{errorMessage}</p>}
     </div>

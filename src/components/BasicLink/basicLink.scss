@@ -18,17 +18,17 @@
 }
 // link sizes
 @mixin bigLinks {
-  @include allLinks();
+  @include allLinks;
   font-size: 20px;
   line-height: 17px;
 }
 @mixin mediumLinks {
-  @include allLinks();
+  @include allLinks;
   font-size: 16px;
   line-height: 13px;
 }
 @mixin smallLinks {
-  @include allLinks();
+  @include allLinks;
   font-size: 12px;
   line-height: 10px;
 }
@@ -46,6 +46,7 @@
   color: $white;
 }
 // each type of link
+// orange
 .big_Lk_Or_Selec {
   @include bigLinks;
   @include orange;
@@ -57,23 +58,27 @@
   @include orange;
   text-decoration: none;
 }
+
+// black
 .big_Lk_Bl_notSelec {
   @include bigLinks;
   @include black;
   text-decoration: none;
 }
-
 .med_Lk_Bl_notSelec {
   @include mediumLinks;
   @include black;
   text-decoration: none;
 }
 
+// light grey
 .big_Lk_Lg_notSelec {
   @include bigLinks;
   @include lgrey;
   text-decoration: none;
 }
+
+// white
 .sm_Lk_Wh_notSelec {
   @include smallLinks;
   @include white;

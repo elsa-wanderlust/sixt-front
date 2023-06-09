@@ -6,8 +6,7 @@ import "../styles/offerConfig.scss";
 // import component(s)
 import SearchFieldSection from "../components/SearchFieldsSection";
 import ConfigurationCard from "../components/ConfigurationCard";
-import PricingModal from "../components/PricingModal";
-import BasicLink from "../components/BasicLink";
+import AllModals from "../components/AllModals";
 import SelectButton from "../components/SelectButton";
 import CarGroupInfo from "../components/CarGroupInfo";
 // import function(s)
@@ -120,18 +119,18 @@ const OfferConfig = ({
             <h3>VOTRE OFFRE INCLUT</h3>
             {offerVeryDetails.includedCharges.map((elem) => {
               return (
-                <div className="mileage">
+                <div key={elem.title} className="mileage">
                   <p className="icon iconSmall"></p>
-                  <p key={elem.title}>{elem.title}</p>
+                  <p>{elem.title}</p>
                 </div>
               );
             })}
             {offerVeryDetails.additionalCharges.map((elem) => {
               if (optionsSelected.indexOf(elem.id) !== -1) {
                 return (
-                  <div className="mileage">
+                  <div key={elem.title} className="mileage">
                     <p className="icon iconSmall"></p>
-                    <p key={elem.title}>{elem.title}</p>
+                    <p>{elem.title}</p>
                   </div>
                 );
               }
@@ -179,7 +178,7 @@ const OfferConfig = ({
           </div>
           <div className="moreDetailsTaxes">
             <div>
-              <p className="icon"> </p>
+              <p className="iconVerySmall"> </p>
               <p
                 onClick={() => {
                   setModalVisible(true);
@@ -191,15 +190,20 @@ const OfferConfig = ({
             <p>Taxes includes</p>
           </div>
 
-          <SelectButton func={handleNext} title="CONTINUER" type="whiteSize3" />
+          <SelectButton
+            func={handleNext}
+            title="CONTINUER"
+            type="whiteVeryLong"
+          />
         </section>
         {modalVisible && (
-          <PricingModal
-            origin="offerConfig"
+          <AllModals
+            page="offerConfig"
             setModalVisible={setModalVisible}
             rentalLength={rentalLength}
             optionsSelected={optionsSelected}
-            pricingDetails={offerVeryDetails}
+            extraFees={offerVeryDetails.extraFees}
+            additionalCharges={offerVeryDetails.additionalCharges}
             dailyPrice={dailyPrice}
             total={newTotal}
           />

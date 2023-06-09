@@ -6,11 +6,12 @@ import axios from "axios";
 import InputField from "../components/InputField";
 import PersonalDetailsSelect from "../components/PersonalDetailsSelect";
 import SelectButton from "../components/SelectButton";
-import PricingModalItem from "../components/PricingModalItem";
-import ConfirmationModal from "../components/ConfirmationModal";
+import BookingAllDetails from "../components/BookingAllDetails.js";
+import AllModals from "../components/AllModals";
 // import function
 import validatePersonalDetails from "../utils/validatePersonalDetails";
 import dateForDisplay from "../utils/dateforDisplay";
+import validateDriverAge from "../utils/validateDriverAge";
 // import style
 import "../styles/personnalDetails.scss";
 
@@ -22,7 +23,7 @@ const PersonalDetails = () => {
   const minAge = location.state.offerDetails.carGroupInfo.driverMinAge;
   const actualDailyPrice = location.state.dailyPrice;
   const rentalLength = location.state.rentalLength;
-  const newTotal = location.state.newTotal.toFixed(2);
+  const newTotal = location.state.newTotal;
   // declare variables for DB
   const agency = location.state.selectedLocation.title;
   const vehiculeName = location.state.offerDetails.headlines.longSubline;
@@ -68,6 +69,8 @@ const PersonalDetails = () => {
   const [phoneNum, setPhoneNum] = useState("");
   const [zipCode, setZipCode] = useState("");
   const [city, setCity] = useState("");
+  // declare states to store message if age does not request booking requirement
+  const [wrongAge, setWrongAge] = useState("");
 
   const isValidated = validatePersonalDetails(
     firstName,
@@ -79,34 +82,43 @@ const PersonalDetails = () => {
     phoneNum,
     yearDOB,
     monthDOB,
-    dayDOB
+    dayDOB,
+    minAge
   );
-  console.log(isValidated);
+
   // declare states for booking request
   const [confCode, setConfCode] = useState("");
   const [modalVisible, setModalVisible] = useState(false);
+
+  // handle BOOKING SUBMIT function
   const handleSubmit = async () => {
-    try {
-      const response = await axios.post(
-        "http://localhost:3000/booking/create",
-        {
-          firstName,
-          lastName,
-          agency,
-          vehiculeName,
-          vehiculePicture,
-          pickUpDate,
-          dropOffDate,
-          dayPrice,
-          currency,
-          extraFees,
-          additionalCharges,
-        }
-      );
-      setConfCode(response.data);
-      setModalVisible(true);
-    } catch (error) {
-      console.log(error);
+    setWrongAge("");
+    const isAgeOk = validateDriverAge(dayDOB, monthDOB, yearDOB, minAge);
+    if (isAgeOk) {
+      setWrongAge(isAgeOk);
+    } else {
+      try {
+        const response = await axios.post(
+          "http://localhost:3000/booking/create",
+          {
+            firstName,
+            lastName,
+            agency,
+            vehiculeName,
+            vehiculePicture,
+            pickUpDate,
+            dropOffDate,
+            dayPrice,
+            currency,
+            extraFees,
+            additionalCharges,
+          }
+        );
+        setConfCode(response.data);
+        setModalVisible(true);
+      } catch (error) {
+        console.log(error.response.data.message);
+      }
     }
   };
 
@@ -242,7 +254,7 @@ const PersonalDetails = () => {
             />
             <InputField
               type="number"
-              validity={[1920, 2005]}
+              validity={[1000, 3000]}
               placeholder="AAAA *"
               state={yearDOB}
               setState={setYearDOB}
@@ -252,61 +264,22 @@ const PersonalDetails = () => {
       </div>
       <h1>VERIFIER ET RESERVER</h1>
       <div className="bookingCheck">
-        <section>
-          <div>
-            <h3>{vehiculeName.toUpperCase()}</h3>
-            <p>{agency}</p>
-            {dateForDisplay(pickUpDate)} - {dateForDisplay(dropOffDate)}
-          </div>
-          <div>
-            <img src={vehiculePicture} alt={`picture of a ${vehiculeName}`} />
-          </div>
-        </section>
-        <h2>VOTRE OFFER INCLUT</h2>
-        {includedCharges.map((elem) => {
-          return <PricingModalItem key={elem.title} title={elem.title} />;
-        })}
-        <h2>EXIGENCE POUR LES CONDUCTEURS</h2>
-        <p>Conducteur d'âgé au minimum {minAge} ans</p>
-        <h2>PERIODE DE LOCATION</h2>
-        <PricingModalItem
-          title={`Durée de location (${rentalLength} jours x ${actualDailyPrice})`}
-          amount={actualDailyPrice}
-          unit="jour"
+        <BookingAllDetails
+          page="personalDetails"
           rentalLength={rentalLength}
+          optionsSelected={optionsSelected}
+          extraFees={extraFees}
+          additionalCharges={additionalCharges}
+          dailyPrice={actualDailyPrice}
+          total={newTotal}
+          vehiculeName={vehiculeName}
+          vehiculePicture={vehiculePicture}
+          agency={agency}
+          pickUpDateDisplay={dateForDisplay(pickUpDate)}
+          dropOffDateDisplay={dateForDisplay(dropOffDate)}
+          includedCharges={includedCharges}
+          minAge={minAge}
         />
-        <h2>PROTECTION ET OPTIONS</h2>
-        {additionalCharges.map((elem) => {
-          return (
-            <PricingModalItem
-              key={elem.title}
-              title={elem.title}
-              amount={elem.price.amount}
-              unit={elem.price.unit}
-              rentalLength={rentalLength}
-            />
-          );
-        })}
-        <h2>FRAIS</h2>
-        {extraFees.map((elem) => {
-          return (
-            <PricingModalItem
-              key={elem.title}
-              title={elem.title}
-              amount={elem.price.amount}
-              unit={elem.price.unit}
-              rentalLength={rentalLength}
-            />
-          );
-        })}
-        <div className="total">
-          <h4>TOTAL</h4>
-          <div>
-            <p>€</p>
-            <h4>{newTotal.toString().replace(".", ",")}</h4>
-          </div>
-        </div>
-        <p className="taxes">Taxes incluses</p>
       </div>
       <div className="bottomSection">
         <p>
@@ -314,7 +287,7 @@ const PersonalDetails = () => {
           <span>informations de location</span> et les{" "}
           <span>termes et conditions</span>.
         </p>
-
+        {wrongAge && <p className="errorMessage">{wrongAge}</p>}
         <SelectButton
           title="RESERVER"
           disabled={!isValidated}
@@ -322,8 +295,9 @@ const PersonalDetails = () => {
           type="orangeLong"
         />
         {modalVisible && (
-          <ConfirmationModal
+          <AllModals
             confCode={confCode}
+            page="personalDetails"
             setModalVisible={setModalVisible}
           />
         )}

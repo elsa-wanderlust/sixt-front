@@ -8,6 +8,9 @@
   background-color: $black;
   gap: 20px;
 }
+.allSearchFields {
+  display: flex;
+}
 
 @mixin eachField {
   border-bottom: 2px white solid;

@@ -8,6 +8,8 @@ import CategorySelect from "../components/CategorySelect";
 import SearchFieldSection from "../components/SearchFieldsSection";
 
 const OfferList = ({
+  errorMessage,
+  setErrorMessage,
   offers,
   setOffers,
   rentalLength,
@@ -47,9 +49,12 @@ const OfferList = ({
   return (
     <div className="offerListContainer">
       <SearchFieldSection
+        errorMessage={errorMessage}
+        setErrorMessage={setErrorMessage}
         setOffers={setOffers}
         setRentalLength={setRentalLength}
         page={page}
+        setPage={setPage}
         selectedLocation={selectedLocation}
         setSelectedLocation={setSelectedLocation}
         startDate={startDate}
