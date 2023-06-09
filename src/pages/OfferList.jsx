@@ -28,7 +28,7 @@ const OfferList = ({
   const [category, setCategory] = useState([]);
   const [filteredOffers, setFilteredOffers] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  // use effect that allows to store filteredOffers and access the number of results post filters
+  // use effect to store filteredOffers and access the number of results post filters
   useEffect(() => {
     const filteredOffers = () => {
       let filteredOffersCopy = [];
@@ -50,7 +50,6 @@ const OfferList = ({
         setOffers={setOffers}
         setRentalLength={setRentalLength}
         page={page}
-        setPage={setPage}
         selectedLocation={selectedLocation}
         setSelectedLocation={setSelectedLocation}
         startDate={startDate}

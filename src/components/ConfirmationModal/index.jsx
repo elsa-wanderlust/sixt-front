@@ -22,7 +22,7 @@ const ConfirmationModal = ({ confCode, setModalVisible }) => {
               setModalVisible(false);
             }}
           >
-            <p className="icon"></p>
+            <p className="iconMedium"></p>
           </button>
           <p>RÉSERVATION CONFIRMÉE</p>
           <p>Voici la référence de votre réservation : {confCode}</p>

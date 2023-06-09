@@ -33,17 +33,22 @@ $dgrey: #191919;
   font-family: "Sixt";
   src: local("Sixt"), url("../../src/icons/fonts/sixt.ttf");
 }
-.icon {
+
+@mixin icon {
   font-family: "Sixt";
   margin-right: 5px;
 }
+
 .iconMedium {
+  @include icon;
   font-size: 25px;
 }
 .iconSmall {
+  @include icon;
   font-size: 18px;
 }
 .iconOrangeLarge {
+  @include icon;
   font-size: 25px;
   color: $orange;
 }

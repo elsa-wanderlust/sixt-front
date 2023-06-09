@@ -5,7 +5,6 @@
   height: 120px;
   padding: 30px 10px 15px 10px;
   display: flex;
-  flex-direction: row;
   background-color: $black;
   gap: 20px;
 }
@@ -23,7 +22,7 @@
 // AGENCY
 .agencySearch {
   @include eachField;
-  width: 30%;
+  flex: 5;
   justify-content: space-between;
 }
 .autoComplete {
@@ -34,7 +33,7 @@
 // DATE
 .dateSelect {
   @include eachField;
-  width: 15%;
+  flex: 3;
   justify-content: space-between;
 }
 .calendarContainer {
@@ -56,7 +55,7 @@
 // TIME
 .timeSelect {
   @include eachField;
-  width: 5%;
+  flex: 1;
   justify-content: end;
 }
 // SELECT BUTTON CONTAINER

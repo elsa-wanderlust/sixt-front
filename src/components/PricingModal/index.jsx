@@ -47,7 +47,7 @@ const PricingModal = ({
               setModalVisible(false);
             }}
           >
-            <p className="icon"></p>
+            <p className="iconMedium"></p>
           </button>
           {/* )} */}
           <h1>DÉTAILS DU PRIX</h1>

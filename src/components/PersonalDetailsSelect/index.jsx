@@ -8,7 +8,7 @@ const PersonalDetailsSelect = ({ type, state, setState }) => {
   const handleSelect = (selection) => {
     setState(selection);
   };
-
+  // drop down menu options
   const country = [
     { value: "France", label: "France" },
     { value: "Other", label: "Le reste du monde" },
@@ -55,8 +55,6 @@ const PersonalDetailsSelect = ({ type, state, setState }) => {
     placeholder: (base) => ({
       ...base,
       color: "#b2b2b2",
-      // position: "absolute",
-      // left: 67,
       marginLeft: 0,
     }),
     dropdownIndicator: (style) => ({

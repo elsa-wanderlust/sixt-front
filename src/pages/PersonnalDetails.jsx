@@ -319,7 +319,7 @@ const PersonalDetails = () => {
           title="RESERVER"
           disabled={!isValidated}
           func={handleSubmit}
-          type={!isValidated ? "orangeType3 disabled" : "orangeType3"}
+          type="orangeLong"
         />
         {modalVisible && (
           <ConfirmationModal

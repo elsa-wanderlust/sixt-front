@@ -92,7 +92,7 @@ const CarDetailsModal = ({
                   setModalVisible(false);
                 }}
               >
-                <p className="icon"></p>
+                <p className="iconMedium"></p>
               </button>
               <div className="pricingSection">
                 <p className="total">TOTAL</p>

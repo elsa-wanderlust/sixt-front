@@ -3,6 +3,8 @@ import React from "react";
 import Select from "react-select";
 // import style
 import "../../styles/general.scss";
+// import function
+import customStyleOne from "../../utils/selectCustomStyle_One";
 
 const TimeSelect = ({ state, setState, page }) => {
   const handleSelect = (time) => {
@@ -32,48 +34,11 @@ const TimeSelect = ({ state, setState, page }) => {
     { value: "T17:30:00", label: "17:30" },
     { value: "T18:00:00", label: "18:00" },
   ];
-
-  // function for styling
-  const customStyles = {
-    control: (base, state) => ({
-      ...base,
-      fontFamily: "RC",
-      background: "black",
-      borderRadius: state.isFocused ? "3px 3px 0 0" : 3,
-      borderColor: state.isFocused ? "black" : "black",
-      boxShadow: state.isFocused ? null : null,
-      "&:hover": {
-        borderColor: state.isFocused ? "black" : "black",
-      },
-    }),
-    menu: (base) => ({
-      ...base,
-      fontFamily: "RC",
-      borderRadius: 0,
-      marginTop: 0,
-    }),
-    menuList: (base) => ({
-      ...base,
-      fontFamily: "RC",
-      padding: 0,
-    }),
-    input: (base) => ({
-      ...base,
-      color: "white",
-    }),
-    singleValue: (base) => ({
-      ...base,
-      color: "white",
-    }),
-    placeholder: (base) => ({
-      ...base,
-      color: "white",
-    }),
-  };
+  const style = customStyleOne();
   return (
     <Select
       value={state && state}
-      styles={customStyles}
+      styles={style}
       options={timeOptions}
       onChange={handleSelect}
       components={{

@@ -3,6 +3,8 @@ import React from "react";
 import { useState } from "react";
 import axios from "axios";
 import AsyncSelect from "react-select/async";
+// import function
+import customStyleOne from "../../utils/selectCustomStyle_One";
 
 const AutoComplete = ({ selectedLocation, setSelectedLocation, page }) => {
   const [inputValue, setInputValue] = useState("");
@@ -41,41 +43,13 @@ const AutoComplete = ({ selectedLocation, setSelectedLocation, page }) => {
     }
   };
 
-  // function for styling
-  const customStyles = {
-    control: (base, state) => ({
-      ...base,
-      fontFamily: "RC",
-      color: "white",
-      background: "black",
-      borderRadius: state.isFocused ? "3px 3px 0 0" : 3,
-      borderColor: state.isFocused ? "black" : "black",
-      boxShadow: state.isFocused ? null : null,
-      "&:hover": {
-        borderColor: state.isFocused ? "black" : "black",
-      },
-    }),
-    menu: (base) => ({
-      ...base,
-      fontFamily: "RC",
-      color: "black",
-      borderRadius: 0,
-      marginTop: 0,
-    }),
-    menuList: (base) => ({
-      ...base,
-      fontFamily: "RC",
-      padding: 0,
-    }),
-    placeholder: (base) => ({
-      ...base,
-      color: "white",
-    }),
-  };
+  const style = customStyleOne();
 
   return (
     <AsyncSelect
-      styles={customStyles}
+      noOptionsMessage={() => "merci de rentrer votre destination"}
+      loadingMessage={() => "chargement..."}
+      styles={style}
       onInputChange={handleInput}
       cacheOptions
       defaultOptions

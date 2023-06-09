@@ -18,7 +18,9 @@
 }
 ::placeholder {
   color: $lgrey;
+  padding-left: 7px;
 }
+
 .errorInput {
   @include allFields;
   border: red 1px solid;
@@ -27,4 +29,5 @@
 .inputField {
   @include allFields;
   border-bottom: 1px solid $lgrey;
+  padding-left: 7px;
 }

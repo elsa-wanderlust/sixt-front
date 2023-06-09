@@ -14,7 +14,7 @@ const BasicLink = ({
 }) => {
   return (
     <Link to={navigate && navigate} state={state} className={style}>
-      {icon === "world" && <p className="icon"> </p>}
+      {icon === "world" && <p className="iconMedium"> </p>}
       {number && <p className={`${style}Num`}>{number}</p>}
       {title}
       {subtitle && <p className="med_Lk_Bl_notSelec">{subtitle}</p>}

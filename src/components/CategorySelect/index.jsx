@@ -1,7 +1,11 @@
 // import from react and package(s)
 import React from "react";
 import Select from "react-select";
-import { components } from "react-select";
+// import { components } from "react-select";
+// import from style
+import "./categorySelect.scss";
+// import function
+import customStyleTwo from "../../utils/selectCustomStyle_Two";
 
 const CategorySelect = ({ setCategory }) => {
   const handleSelect = (selection) => {
@@ -13,35 +17,53 @@ const CategorySelect = ({ setCategory }) => {
   };
 
   const vehiculeOptions = [
-    { value: "Cabriolet", label: "CABRIOLET" },
-    { value: "Coupé", label: "COUPÉ" },
-    { value: "Berline", label: "BERLINE" },
-    { value: "SUV", label: "SUV" },
-    { value: "Pick-up", label: "PICK-UP" },
+    { value: "Cabriolet", label: "CABRIOLET", icon: "" },
+    { value: "Coupé", label: "COUPÉ", icon: "" },
+    { value: "Berline", label: "BERLINE", icon: "" },
+    { value: "SUV", label: "SUV", icon: "" },
+    { value: "Pick-up", label: "PICK-UP", icon: "" },
   ];
 
-  const Option = (props) => {
-    return (
-      <div>
-        <components.Option {...props}>
-          <input
-            type="checkbox"
-            checked={props.isSelected}
-            onChange={() => null}
-          />
-          <label>{props.label}</label>
-        </components.Option>
-      </div>
-    );
-  };
+  const style = customStyleTwo();
+
+  // const Option = (props) => {
+  //   return (
+  //     <div>
+  //       <components.Option {...props}>
+  //         <input
+  //           type="checkbox"
+  //           checked={props.isSelected}
+  //           onChange={() => null}
+  //         />
+  //         <label>
+  //           {props.label} <p className="icon">{props.icon}</p>
+  //         </label>
+  //       </components.Option>
+  //     </div>
+  //   );
+  // };
 
   return (
-    <Select
-      options={vehiculeOptions}
-      onChange={handleSelect}
-      isMulti
-      components={{ Option }}
-    />
+    <div className="categorySelect">
+      <Select
+        options={vehiculeOptions}
+        placeholder="Catégories de véhicules"
+        onChange={handleSelect}
+        isMulti
+        styles={style}
+        // components={{ Option }}
+        ClearIndicator="supp"
+        components={{
+          IndicatorSeparator: () => null,
+        }}
+        getOptionLabel={(e) => (
+          <div className="categoryOptions">
+            {e.label}
+            <span className="iconMedium">{e.icon}</span>
+          </div>
+        )}
+      />
+    </div>
   );
 };
 
