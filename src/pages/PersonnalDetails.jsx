@@ -15,7 +15,7 @@ import validateDriverAge from "../utils/validateDriverAge";
 // import style
 import "../styles/personnalDetails.scss";
 
-const PersonalDetails = () => {
+const PersonalDetails = ({ setPage }) => {
   // receive the props from the carDetailsModal
   const location = useLocation();
   // declare variables for display only
@@ -299,6 +299,7 @@ const PersonalDetails = () => {
             confCode={confCode}
             page="personalDetails"
             setModalVisible={setModalVisible}
+            setPage={setPage}
           />
         )}
       </div>

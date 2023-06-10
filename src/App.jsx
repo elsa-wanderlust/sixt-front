@@ -112,6 +112,7 @@ function App() {
                 endDate={endDate}
                 startTime={startTime}
                 endTime={endTime}
+                setPage={setPage}
               />
             }
           />

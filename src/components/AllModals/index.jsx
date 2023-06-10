@@ -8,6 +8,7 @@ import BookingAllDetails from "../BookingAllDetails.js";
 // COMPONENT USAGE
 // container for most modals (bookings details (offerConfig & backOffice pages) + confirmation code (personalDetails page))
 const AllModals = ({
+  setPage,
   page,
   setModalVisible,
   rentalLength,
@@ -28,6 +29,7 @@ const AllModals = ({
   const handleCloseModal = () => {
     if (page === "personalDetails") {
       setModalVisible(false);
+      setPage("home");
       navigate("/");
     } else {
       setModalVisible(false);

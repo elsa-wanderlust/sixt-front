@@ -104,11 +104,15 @@ const OfferConfig = ({
         </p>
       </div>
       <div className="blackBand">
-        <p>{offerDetails.headlines.longSubline.toUpperCase()}</p>
-        <CarGroupInfo
-          carGroupInfo={offerDetails.carGroupInfo}
-          type="offerConfig"
-        />
+        <div>
+          <p>{offerDetails.headlines.longSubline.toUpperCase()}</p>
+        </div>
+        <div>
+          <CarGroupInfo
+            carGroupInfo={offerDetails.carGroupInfo}
+            type="offerConfig"
+          />
+        </div>
       </div>
       <div className="offerConfigBottomSection">
         <section className="leftColumn">

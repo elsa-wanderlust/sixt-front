@@ -2,13 +2,13 @@
 
 .bookingSummary {
   display: flex;
-  gap: 20px;
   font-size: 20px;
-  width: 100%;
+  max-width: 100%;
   margin-bottom: 15px;
   .clickableArea {
     display: flex;
     width: 100%;
+    gap: 10px;
     :hover {
       cursor: pointer;
     }
