@@ -23,6 +23,10 @@ const Header = ({ page, setPage }) => {
     setPage("home");
     navigate("/");
   };
+  const navBackOffice = () => {
+    setPage("backOffice");
+    navigate("/backoffice");
+  };
   return (
     <>
       <div className="headerContainer">
@@ -53,14 +57,20 @@ const Header = ({ page, setPage }) => {
             <SelectButton
               func={disconnect}
               title="Se déconnecter"
-              type="whiteLong"
+              type="whiteLongBorder"
             />
           )}
           {page === "backOffice" && !Cookies.get("password") && (
-            <BasicLink
+            // <BasicLink
+            //   title="BACKOFFICE"
+            //   style="med_Lk_Bl_notSelec"
+            //   navigate="/backoffice"
+            //   icon="world"
+            // />
+            <SelectButton
+              func={navBackOffice}
               title="BACKOFFICE"
-              style="med_Lk_Bl_notSelec"
-              navigate="/backoffice"
+              type="whiteLong"
               icon="world"
             />
           )}

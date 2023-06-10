@@ -48,6 +48,14 @@
 .whiteLong {
   @include allButtons;
   @include medium;
+  font-family: "RCB";
+  font-size: 25px;
+  background-color: $white;
+  color: $black;
+}
+.whiteLongBorder {
+  @include allButtons;
+  @include medium;
   background-color: $white;
   color: $orange;
   border: $orange 1px solid;

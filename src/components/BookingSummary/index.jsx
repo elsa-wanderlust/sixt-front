@@ -16,6 +16,7 @@ import calcDailyPrice from "../../utils/calcDailyPrice";
 import calcTotal from "../../utils/calcTotal";
 
 const BookingSummary = ({ bookingDetails, setRefresh }) => {
+  console.log(bookingDetails);
   // declare variables for booking details
   const {
     client,

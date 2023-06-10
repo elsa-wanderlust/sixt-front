@@ -87,7 +87,11 @@ const SearchFieldSection = ({
   return (
     <div>
       <div>
-        <>{errorMessage && <p className="errorMessage">{errorMessage}</p>}</>
+        <>
+          {errorMessage && page === "home" && (
+            <p className="errorMessage">{errorMessage}</p>
+          )}
+        </>
       </div>
       <div className="searchFieldSection">
         <div className="agencySearch">

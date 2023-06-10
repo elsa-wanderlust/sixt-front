@@ -26,23 +26,6 @@ const CategorySelect = ({ setCategory }) => {
 
   const style = customStyleTwo();
 
-  // const Option = (props) => {
-  //   return (
-  //     <div>
-  //       <components.Option {...props}>
-  //         <input
-  //           type="checkbox"
-  //           checked={props.isSelected}
-  //           onChange={() => null}
-  //         />
-  //         <label>
-  //           {props.label} <p className="icon">{props.icon}</p>
-  //         </label>
-  //       </components.Option>
-  //     </div>
-  //   );
-  // };
-
   return (
     <div className="categorySelect">
       <Select
