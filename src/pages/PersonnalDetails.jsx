@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 // import components
-// import InputField from "../../src/components/InputField/index.jsx";
+import InputComponent from "../components/InputComponent";
 import PersonalDetailsSelect from "../components/PersonalDetailsSelect";
 import SelectButton from "../components/SelectButton";
 import BookingAllDetails from "../components/BookingAllDetails.js";
@@ -127,58 +127,58 @@ const PersonalDetails = () => {
       <div>
         <h1>INFORMATIONS PERSONNELS</h1>
         <div className="MrMrs">
-          {/* <InputField
+          <InputComponent
             type="radio"
             state={title}
             setState={setTitle}
             label="M."
           />
-          <InputField
+          <InputComponent
             type="radio"
             state={title}
             setState={setTitle}
             label="Mme"
-          /> */}
+          />
         </div>
         <div className="personalDetailsLine">
           <div className="personalDetailsColumn">
-            {/* <InputField
+            <InputComponent
               type="text"
               placeholder="Société"
               state={company}
               setState={setCompany}
-            /> */}
+            />
           </div>
         </div>
         <div className="personalDetailsLine">
           <div className="personalDetailsColumn">
-            {/* <InputField
+            <InputComponent
               type="text"
               validity={[1]}
               placeholder="Prénom *"
               state={firstName}
               setState={setFirstName}
-            /> */}
+            />
           </div>
           <div className="personalDetailsColumn">
-            {/* <InputField
+            <InputComponent
               type="text"
               validity={[1]}
               placeholder="Nom de famille * "
               state={lastName}
               setState={setLastName}
-            /> */}
+            />
           </div>
         </div>
         <div className="personalDetailsLine">
           <div className="personalDetailsColumn">
-            {/* <InputField
+            <InputComponent
               type="text"
               validity="email"
               placeholder="Adresse email *"
               state={email}
               setState={setEmail}
-            /> */}
+            />
           </div>
           <div className="personalDetailsColumn">
             <PersonalDetailsSelect
@@ -186,40 +186,40 @@ const PersonalDetails = () => {
               state={countryCode}
               setState={setCountryCode}
             />
-            {/* <InputField
+            <InputComponent
               type="number"
               validity={[100000000, 9999999999]}
               placeholder="Numéro de téléphone *"
               state={phoneNum}
               setState={setPhoneNum}
-            /> */}
+            />
           </div>
         </div>
         <div className="personalDetailsLine">
           <div className="personalDetailsColumn">
-            {/* <InputField
+            <InputComponent
               type="text"
               validity={[1]}
               placeholder="Rue *"
               state={street}
               setState={setStreet}
-            /> */}
+            />
           </div>
           <div className="personalDetailsColumn">
-            {/* <InputField
+            <InputComponent
               type="number"
               validity={[10000, 99999]}
               placeholder="Code Postal *"
               state={zipCode}
               setState={setZipCode}
             />
-            <InputField
+            <InputComponent
               type="text"
               validity={[1]}
               placeholder="Ville *"
               state={city}
               setState={setCity}
-            /> */}
+            />
           </div>
         </div>
         <div className="personalDetailsLine">
@@ -238,27 +238,27 @@ const PersonalDetails = () => {
         </div>
         <div className="personalDetailsLine">
           <div className="personalDetailsColumn">
-            {/* <InputField
+            <InputComponent
               type="number"
               validity={[1, 31]}
               placeholder="JJ *"
               state={dayDOB}
               setState={setDayDOB}
             />
-            <InputField
+            <InputComponent
               type="number"
               validity={[1, 12]}
               placeholder="MM *"
               state={monthDOB}
               setState={setMonthDOB}
             />
-            <InputField
+            <InputComponent
               type="number"
               validity={[1000, 3000]}
               placeholder="AAAA *"
               state={yearDOB}
               setState={setYearDOB}
-            /> */}
+            />
           </div>
         </div>
       </div>

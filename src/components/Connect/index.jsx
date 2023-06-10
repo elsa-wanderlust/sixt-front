@@ -2,7 +2,6 @@
 import { useState } from "react";
 import Cookies from "js-cookie";
 // import components
-// import InputField from "../../components/InputField";
 import InputComponent from "../InputComponent";
 import SelectButton from "../SelectButton";
 // import style
