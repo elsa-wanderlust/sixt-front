@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 // import components
-import InputField from "../components/InputField";
+import InputField from "../../src/components/InputField/index.jsx";
 import PersonalDetailsSelect from "../components/PersonalDetailsSelect";
 import SelectButton from "../components/SelectButton";
 import BookingAllDetails from "../components/BookingAllDetails.js";
