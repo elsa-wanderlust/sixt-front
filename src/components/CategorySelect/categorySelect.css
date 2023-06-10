@@ -1,0 +1,14 @@
+.categorySelect {
+  width: -moz-fit-content;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+}
+
+.categoryOptions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  color: black;
+}/*# sourceMappingURL=categorySelect.css.map */

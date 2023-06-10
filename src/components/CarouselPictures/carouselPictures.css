@@ -1,0 +1,16 @@
+.carouselAll {
+  width: 100%;
+  height: 100%;
+}
+
+.carouselOnePic {
+  width: 100%;
+}
+
+.carouselOnePicModal {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  z-index: 300;
+}/*# sourceMappingURL=carouselPictures.css.map */

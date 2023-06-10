@@ -1,0 +1,89 @@
+/* GENERAL */
+.container {
+  max-width: 1244px;
+  margin: 0 auto;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto"), url("../../src/fonts/Roboto-Regular.ttf");
+}
+@font-face {
+  font-family: "RC";
+  src: local("RC"), url("../../src/fonts/RobotoCondensed-Regular.ttf");
+}
+@font-face {
+  font-family: "RCB";
+  src: local("RCB"), url("../../src/fonts/RobotoCondensed-Bold.ttf");
+}
+@font-face {
+  font-family: "Rokkitt";
+  src: local("Rokkitt"), url("../../src/fonts/Rokkitt-Regular.ttf");
+}
+@font-face {
+  font-family: "Sixt";
+  src: local("Sixt"), url("../../src/icons/fonts/sixt.ttf");
+}
+.iconMedium {
+  font-family: "Sixt";
+  margin-right: 5px;
+  font-size: 25px;
+}
+
+.iconSmall {
+  font-family: "Sixt";
+  margin-right: 5px;
+  font-size: 18px;
+}
+
+.iconVerySmall {
+  font-family: "Sixt";
+  margin-right: 5px;
+  font-size: 12px;
+}
+
+.iconOrangeLarge {
+  font-family: "Sixt";
+  margin-right: 5px;
+  font-size: 25px;
+  color: #ff5f00;
+}
+
+.errorMessage {
+  font-size: 25px;
+  font-family: "RCB";
+  color: red;
+  padding: 10px;
+}
+
+/* remove arrows from input field type number - works for Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.allGroupInfo {
+  z-index: 15;
+  display: flex;
+  gap: 14px;
+  padding-left: 15px;
+}
+.allGroupInfo .modal {
+  border: red 40px solid;
+}
+
+.oneGroupInfo {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.allGroupInfo.groupInfoModal {
+  position: absolute;
+  top: 40px;
+}
+
+.offerConfig .oneGroupInfo p:nth-child(2) {
+  font-size: 14px;
+}/*# sourceMappingURL=carGroupInfo.css.map */

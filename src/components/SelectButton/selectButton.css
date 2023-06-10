@@ -1,0 +1,166 @@
+/* GENERAL */
+.container {
+  max-width: 1244px;
+  margin: 0 auto;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto"), url("../../src/fonts/Roboto-Regular.ttf");
+}
+@font-face {
+  font-family: "RC";
+  src: local("RC"), url("../../src/fonts/RobotoCondensed-Regular.ttf");
+}
+@font-face {
+  font-family: "RCB";
+  src: local("RCB"), url("../../src/fonts/RobotoCondensed-Bold.ttf");
+}
+@font-face {
+  font-family: "Rokkitt";
+  src: local("Rokkitt"), url("../../src/fonts/Rokkitt-Regular.ttf");
+}
+@font-face {
+  font-family: "Sixt";
+  src: local("Sixt"), url("../../src/icons/fonts/sixt.ttf");
+}
+.iconMedium {
+  font-family: "Sixt";
+  margin-right: 5px;
+  font-size: 25px;
+}
+
+.iconSmall {
+  font-family: "Sixt";
+  margin-right: 5px;
+  font-size: 18px;
+}
+
+.iconVerySmall {
+  font-family: "Sixt";
+  margin-right: 5px;
+  font-size: 12px;
+}
+
+.iconOrangeLarge {
+  font-family: "Sixt";
+  margin-right: 5px;
+  font-size: 25px;
+  color: #ff5f00;
+}
+
+.errorMessage {
+  font-size: 25px;
+  font-family: "RCB";
+  color: red;
+  padding: 10px;
+}
+
+/* remove arrows from input field type number - works for Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.orange {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: none;
+  border: none;
+  font-family: "RC";
+  font-size: 16px;
+  width: 200px;
+  height: 50px;
+  background-color: #ff5f00;
+}
+.orange :hover {
+  cursor: pointer;
+}
+
+.orangeLong {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: none;
+  border: none;
+  font-family: "RC";
+  font-size: 16px;
+  width: 400px;
+  height: 50px;
+  background-color: #ff5f00;
+}
+.orangeLong :hover {
+  cursor: pointer;
+}
+
+.orangeWhiteVeryLong {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: none;
+  border: none;
+  font-family: "RC";
+  font-size: 16px;
+  width: 100%;
+  height: 50px;
+  background-color: #ff5f00;
+  color: white;
+}
+.orangeWhiteVeryLong :hover {
+  cursor: pointer;
+}
+
+.whiteLong {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: none;
+  border: none;
+  font-family: "RC";
+  font-size: 16px;
+  width: 200px;
+  height: 50px;
+  background-color: white;
+  color: #ff5f00;
+  border: #ff5f00 1px solid;
+}
+.whiteLong :hover {
+  cursor: pointer;
+}
+
+.whiteVeryLong {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: none;
+  border: none;
+  font-family: "RC";
+  font-size: 16px;
+  width: 100%;
+  height: 50px;
+  background-color: white;
+  color: #ff5f00;
+}
+.whiteVeryLong :hover {
+  cursor: pointer;
+}
+
+.appDownloadButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: none;
+  border: none;
+  font-family: "RC";
+  font-size: 16px;
+  width: 200px;
+  height: 50px;
+  background-color: #ff5f00;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+.appDownloadButton :hover {
+  cursor: pointer;
+}/*# sourceMappingURL=selectButton.css.map */

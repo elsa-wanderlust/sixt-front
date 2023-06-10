@@ -1,0 +1,127 @@
+/* GENERAL */
+.container {
+  max-width: 1244px;
+  margin: 0 auto;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto"), url("../../src/fonts/Roboto-Regular.ttf");
+}
+@font-face {
+  font-family: "RC";
+  src: local("RC"), url("../../src/fonts/RobotoCondensed-Regular.ttf");
+}
+@font-face {
+  font-family: "RCB";
+  src: local("RCB"), url("../../src/fonts/RobotoCondensed-Bold.ttf");
+}
+@font-face {
+  font-family: "Rokkitt";
+  src: local("Rokkitt"), url("../../src/fonts/Rokkitt-Regular.ttf");
+}
+@font-face {
+  font-family: "Sixt";
+  src: local("Sixt"), url("../../src/icons/fonts/sixt.ttf");
+}
+.iconMedium {
+  font-family: "Sixt";
+  margin-right: 5px;
+  font-size: 25px;
+}
+
+.iconSmall {
+  font-family: "Sixt";
+  margin-right: 5px;
+  font-size: 18px;
+}
+
+.iconVerySmall {
+  font-family: "Sixt";
+  margin-right: 5px;
+  font-size: 12px;
+}
+
+.iconOrangeLarge {
+  font-family: "Sixt";
+  margin-right: 5px;
+  font-size: 25px;
+  color: #ff5f00;
+}
+
+.errorMessage {
+  font-size: 25px;
+  font-family: "RCB";
+  color: red;
+  padding: 10px;
+}
+
+/* remove arrows from input field type number - works for Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.bookingDetailsContainer {
+  width: 100%;
+}
+.bookingDetailsContainer h1 {
+  font-size: 50px;
+  font-family: "RCB";
+  margin-bottom: 40px;
+  text-align: center;
+}
+.bookingDetailsContainer h2 {
+  font-size: 35px;
+  font-family: "Roboto";
+  margin-top: 25px;
+  margin-bottom: 5px;
+}
+.bookingDetailsContainer h3 {
+  font-size: 25px;
+  font-family: "RCB";
+  margin: 15px 0;
+}
+.bookingDetailsContainer p {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.bookingDetailsContainer section {
+  display: flex;
+  align-items: start;
+}
+.bookingDetailsContainer section div {
+  width: 50%;
+}
+.bookingDetailsContainer section div img {
+  width: 250px;
+}
+.bookingDetailsContainer .includedOffers {
+  display: flex;
+}
+
+.totalSection {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+}
+.totalSection > div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  width: 100%;
+}
+.totalSection > div h3 {
+  margin-bottom: 5px;
+}
+.totalSection > div > div {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+}
+.totalSection .tax {
+  font-size: 12px;
+  width: 100%;
+  text-align: right;
+}/*# sourceMappingURL=bookingAllDetails.css.map */

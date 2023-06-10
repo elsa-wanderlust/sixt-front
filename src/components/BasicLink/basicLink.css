@@ -1,0 +1,168 @@
+/* GENERAL */
+.container {
+  max-width: 1244px;
+  margin: 0 auto;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto"), url("../../src/fonts/Roboto-Regular.ttf");
+}
+@font-face {
+  font-family: "RC";
+  src: local("RC"), url("../../src/fonts/RobotoCondensed-Regular.ttf");
+}
+@font-face {
+  font-family: "RCB";
+  src: local("RCB"), url("../../src/fonts/RobotoCondensed-Bold.ttf");
+}
+@font-face {
+  font-family: "Rokkitt";
+  src: local("Rokkitt"), url("../../src/fonts/Rokkitt-Regular.ttf");
+}
+@font-face {
+  font-family: "Sixt";
+  src: local("Sixt"), url("../../src/icons/fonts/sixt.ttf");
+}
+.iconMedium {
+  font-family: "Sixt";
+  margin-right: 5px;
+  font-size: 25px;
+}
+
+.iconSmall {
+  font-family: "Sixt";
+  margin-right: 5px;
+  font-size: 18px;
+}
+
+.iconVerySmall {
+  font-family: "Sixt";
+  margin-right: 5px;
+  font-size: 12px;
+}
+
+.iconOrangeLarge {
+  font-family: "Sixt";
+  margin-right: 5px;
+  font-size: 25px;
+  color: #ff5f00;
+}
+
+.errorMessage {
+  font-size: 25px;
+  font-family: "RCB";
+  color: red;
+  padding: 10px;
+}
+
+/* remove arrows from input field type number - works for Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.allLinks {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
+  margin-left: 20px;
+}
+
+.big_Lk_Or_Selec {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: "RCB";
+  gap: 10px;
+  font-size: 20px;
+  line-height: 17px;
+  color: #ff5f00;
+  text-decoration: underline;
+  text-underline-offset: 10px;
+}
+
+.big_Lk_Or_notSelec {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: "RCB";
+  gap: 10px;
+  font-size: 20px;
+  line-height: 17px;
+  color: #ff5f00;
+  text-decoration: none;
+}
+
+.big_Lk_Bl_notSelec {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: "RCB";
+  gap: 10px;
+  font-size: 20px;
+  line-height: 17px;
+  color: black;
+  text-decoration: none;
+}
+
+.med_Lk_Bl_notSelec {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: "RCB";
+  gap: 10px;
+  font-size: 16px;
+  line-height: 13px;
+  color: black;
+  text-decoration: none;
+}
+
+.big_Lk_Lg_notSelec {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: "RCB";
+  gap: 10px;
+  font-size: 20px;
+  line-height: 17px;
+  color: #b2b2b2;
+  text-decoration: none;
+}
+
+.sm_Lk_Wh_notSelec {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: "RCB";
+  gap: 10px;
+  font-size: 12px;
+  line-height: 10px;
+  color: white;
+  text-decoration: none;
+}
+
+.big_Lk_Or_notSelecNum {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: #ff5f00;
+}
+
+.big_Lk_Lg_notSelecNum {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: #b2b2b2;
+}/*# sourceMappingURL=basicLink.css.map */

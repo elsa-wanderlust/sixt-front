@@ -1,0 +1,168 @@
+/* GENERAL */
+.container {
+  max-width: 1244px;
+  margin: 0 auto;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto"), url("../../src/fonts/Roboto-Regular.ttf");
+}
+@font-face {
+  font-family: "RC";
+  src: local("RC"), url("../../src/fonts/RobotoCondensed-Regular.ttf");
+}
+@font-face {
+  font-family: "RCB";
+  src: local("RCB"), url("../../src/fonts/RobotoCondensed-Bold.ttf");
+}
+@font-face {
+  font-family: "Rokkitt";
+  src: local("Rokkitt"), url("../../src/fonts/Rokkitt-Regular.ttf");
+}
+@font-face {
+  font-family: "Sixt";
+  src: local("Sixt"), url("../../src/icons/fonts/sixt.ttf");
+}
+.iconMedium {
+  font-family: "Sixt";
+  margin-right: 5px;
+  font-size: 25px;
+}
+
+.iconSmall {
+  font-family: "Sixt";
+  margin-right: 5px;
+  font-size: 18px;
+}
+
+.iconVerySmall {
+  font-family: "Sixt";
+  margin-right: 5px;
+  font-size: 12px;
+}
+
+.iconOrangeLarge {
+  font-family: "Sixt";
+  margin-right: 5px;
+  font-size: 25px;
+  color: #ff5f00;
+}
+
+.errorMessage {
+  font-size: 25px;
+  font-family: "RCB";
+  color: red;
+  padding: 10px;
+}
+
+/* remove arrows from input field type number - works for Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.modal-container {
+  position: fixed;
+  z-index: 6;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: hidden;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-container .modal {
+  overflow-y: hidden;
+  background-color: #191919;
+  width: 100%;
+  height: 50%;
+  position: absolute;
+  top: 20%;
+  z-index: 10;
+  display: flex;
+  border-radius: 5px;
+  color: white;
+  font-family: "Roboto";
+}
+
+/* left section : carousel and description */
+.leftSection {
+  width: 70%;
+  height: 100%;
+  left: 0;
+}
+
+.carouselModal {
+  height: 100%;
+  width: 100%;
+}
+
+.carouselTitle {
+  z-index: 15;
+  position: absolute;
+  top: 10px;
+  color: white;
+  margin-bottom: 20px;
+  padding-left: 15px;
+  font-size: 20px;
+}
+
+/* right section : closing button, price, select button */
+.rightSection {
+  width: 30%;
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 15%;
+  justify-content: baseline;
+}
+
+.modal .closing-button {
+  color: white;
+  background-color: #191919;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  border: none;
+}
+.modal .closing-button :hover {
+  cursor: pointer;
+}
+
+.modal .pricingSection {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.modal .total {
+  font-size: 18px;
+}
+
+.currAndTotal {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.modal .pricing {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+.pricing .pricingBig {
+  font-size: 30px;
+}
+
+.modal .taxInfo {
+  font-size: 12px;
+  text-align: right;
+  padding: 5px 0 15px 0;
+}/*# sourceMappingURL=carDetailsModal.css.map */
