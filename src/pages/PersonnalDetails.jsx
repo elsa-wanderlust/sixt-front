@@ -125,7 +125,7 @@ const PersonalDetails = ({ setPage }) => {
   return (
     <div className="personalDetailsPage">
       <div>
-        <h1>INFORMATIONS PERSONNELS</h1>
+        <h1>INFORMATIONS PERSONNELLES</h1>
         <div className="MrMrs">
           <InputComponent
             type="radio"
@@ -262,7 +262,7 @@ const PersonalDetails = ({ setPage }) => {
           </div>
         </div>
       </div>
-      <h1>VERIFIER ET RESERVER</h1>
+      <h1>VÉRIFIER ET RÉSERVER</h1>
       <div className="bookingCheck">
         <BookingAllDetails
           page="personalDetails"
@@ -283,7 +283,7 @@ const PersonalDetails = ({ setPage }) => {
       </div>
       <div className="bottomSection">
         <p>
-          En cliquand sur le bouton, je confirme avec lu et accepté les{" "}
+          En cliquand sur le bouton, je confirme avoir lu et accepté les{" "}
           <span>informations de location</span> et les{" "}
           <span>termes et conditions</span>.
         </p>

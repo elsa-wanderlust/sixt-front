@@ -5,7 +5,9 @@
 * {
   box-sizing: border-box;
 }
-
+button {
+  cursor: pointer;
+}
 html,
 body,
 div,
@@ -135,4 +137,4 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
-}/*# sourceMappingURL=index.css.map */
+} /*# sourceMappingURL=index.css.map */

@@ -188,7 +188,7 @@ const OfferConfig = ({
                   setModalVisible(true);
                 }}
               >
-                Details du prix
+                Détails du prix
               </p>
             </div>
             <p>Taxes includes</p>

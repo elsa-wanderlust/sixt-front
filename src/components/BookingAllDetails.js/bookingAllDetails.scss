@@ -34,10 +34,14 @@
     }
     .vehiculeName {
       font-family: "RCB";
+      line-height: 25px;
     }
   }
   .includedOffers {
     display: flex;
+    p:first-child {
+      font-size: 12px;
+    }
   }
 }
 .totalSection {
