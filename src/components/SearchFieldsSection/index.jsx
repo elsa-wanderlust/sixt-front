@@ -68,7 +68,7 @@ const SearchFieldSection = ({
       const daysOfRental = calcRentalLength(pickUpDate, dropOffDate);
       try {
         const response = await axios.get(
-          `http://localhost:3000/agency/offer${query}`
+          `https://site--sixt-certification--7lpgx9xk8rh5.code.run/agency/offer${query}`
         );
         setErrorMessage("");
         setOffers(response.data);

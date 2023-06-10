@@ -99,7 +99,7 @@ const PersonalDetails = () => {
     } else {
       try {
         const response = await axios.post(
-          "http://localhost:3000/booking/create",
+          "https://site--sixt-certification--7lpgx9xk8rh5.code.run/booking/create",
           {
             firstName,
             lastName,

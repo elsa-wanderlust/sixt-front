@@ -34,7 +34,7 @@ const AutoComplete = ({ selectedLocation, setSelectedLocation, page }) => {
           }
         }
         const response = await axios.get(
-          `http://localhost:3000/agency/list?${query}`
+          `https://site--sixt-certification--7lpgx9xk8rh5.code.run/agency/list?${query}`
         );
         return response.data;
       } catch (error) {

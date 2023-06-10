@@ -27,7 +27,7 @@ const CarDetailsModal = ({
     const getOfferVeryDetails = async () => {
       try {
         const response = await axios.post(
-          `http://localhost:3000/agency/offerDetails`,
+          `https://site--sixt-certification--7lpgx9xk8rh5.code.run/agency/offerDetails`,
           { id: id }
         );
         setOfferVeryDetails(response.data);

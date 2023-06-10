@@ -18,7 +18,9 @@ const BackOffice = ({ setPage }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/booking/all");
+        const response = await axios.get(
+          "https://site--sixt-certification--7lpgx9xk8rh5.code.run/booking/all"
+        );
         setData(response.data);
         setIsLoading(false);
       } catch (error) {

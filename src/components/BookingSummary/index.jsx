@@ -57,7 +57,7 @@ const BookingSummary = ({ bookingDetails, setRefresh }) => {
   const handleDelete = async () => {
     try {
       const response = await axios.delete(
-        `http://localhost:3000/booking/delete/${_id}`
+        `https://site--sixt-certification--7lpgx9xk8rh5.code.run/booking/delete/${_id}`
       );
       setRefresh((current) => !current);
     } catch (error) {
