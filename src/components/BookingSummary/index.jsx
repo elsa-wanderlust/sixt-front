@@ -15,8 +15,9 @@ import calcAdditionalCharges from "../../utils/calcAdditionalCharges";
 import calcDailyPrice from "../../utils/calcDailyPrice";
 import calcTotal from "../../utils/calcTotal";
 
+// COMPONENT USAGE
+// displays summary of one booking (on backOffice page)
 const BookingSummary = ({ bookingDetails, setRefresh }) => {
-  console.log(bookingDetails);
   // declare variables for booking details
   const {
     client,

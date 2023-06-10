@@ -7,6 +7,8 @@ import fr from "date-fns/locale/fr";
 // import function(s)
 import calendarDateDisplay from "../../utils/calendarDateDisplay";
 
+// COMPONENT USAGE
+// allows user to choose start and end dates of rental (home and offerList pages)
 const DateSelect = ({ state, setState, minDate, maxDate, shownDate, page }) => {
   const [calendarDisplay, setCalendaryDisplay] = useState(false); // if the calendar is showing or not
   let dateDisplay = calendarDateDisplay(state); // date - always on display

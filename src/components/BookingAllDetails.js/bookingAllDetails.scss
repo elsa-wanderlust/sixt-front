@@ -17,7 +17,7 @@
   h3 {
     font-size: 25px;
     font-family: "RCB";
-    margin: 15px 0;
+    margin: 25px 0 15px 0;
   }
   p {
     font-size: 18px;
@@ -31,6 +31,9 @@
       img {
         width: 250px;
       }
+    }
+    .vehiculeName {
+      font-family: "RCB";
     }
   }
   .includedOffers {

@@ -7,6 +7,8 @@ import SelectButton from "../SelectButton";
 // import style
 import "./connect.scss";
 
+// COMPONENT USAGE
+// handle connection on backOffice page
 const Connect = ({ setisConnected }) => {
   const [password, setPassword] = useState(
     Cookies.get("password") ? Cookies.get("password") : ""
@@ -37,7 +39,7 @@ const Connect = ({ setisConnected }) => {
         type="orangeLong"
         disabled={!password ? true : false}
       />
-      {errorMessage && <p>{errorMessage}</p>}
+      {errorMessage && <p className="errorMessage">{errorMessage}</p>}
     </div>
   );
 };

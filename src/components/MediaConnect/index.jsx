@@ -3,6 +3,8 @@ import "./mediaConnect.scss";
 // import component
 import SelectButton from "../SelectButton";
 
+// COMPONENT USAGE
+// handle connection to socialMedias and app stores - links not set up
 const MediaConnect = () => {
   return (
     <div className="mediaConnectContainer">

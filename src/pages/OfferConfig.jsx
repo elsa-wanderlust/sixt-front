@@ -120,7 +120,7 @@ const OfferConfig = ({
             {offerVeryDetails.includedCharges.map((elem) => {
               return (
                 <div key={elem.title} className="mileage">
-                  <p className="icon iconSmall"></p>
+                  <p className="iconVerySmall"></p>
                   <p>{elem.title}</p>
                 </div>
               );
@@ -129,7 +129,7 @@ const OfferConfig = ({
               if (optionsSelected.indexOf(elem.id) !== -1) {
                 return (
                   <div key={elem.title} className="mileage">
-                    <p className="icon iconSmall"></p>
+                    <p className="iconVerySmall"></p>
                     <p>{elem.title}</p>
                   </div>
                 );
@@ -167,7 +167,7 @@ const OfferConfig = ({
         </section>
         <section className="rightColumn">
           <div>
-            <h3>TOTAL</h3>
+            <h4>TOTAL</h4>
             <div className="currAndTotal">
               <p>€</p>
               <div className="pricing">

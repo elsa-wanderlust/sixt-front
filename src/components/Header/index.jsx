@@ -1,5 +1,4 @@
 // import from react and package(s)
-import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 // import styles
@@ -8,7 +7,6 @@ import "./header.scss";
 import logo from "../../assets/img/sixt-logo.png";
 // import component(s)
 import HeaderLinks from "../HeaderLinks";
-import BasicLink from "../BasicLink";
 import NavigationTrack from "../NavigationTrack";
 import SelectButton from "../SelectButton";
 
@@ -31,12 +29,14 @@ const Header = ({ page, setPage }) => {
     <>
       <div className="headerContainer">
         <div className="headerLeftSection">
-          <img
-            src={logo}
-            alt="sixt logo noir sur fond blanc"
-            className="logo"
-            onClick={navHome}
-          />
+          <div className="logoContainer">
+            <img
+              src={logo}
+              alt="sixt logo noir sur fond blanc"
+              className="logo"
+              onClick={navHome}
+            />
+          </div>
           {(page === "home" || page === "backOffice") && (
             <HeaderLinks page={page} setPage={setPage} />
           )}
@@ -61,12 +61,6 @@ const Header = ({ page, setPage }) => {
             />
           )}
           {page === "backOffice" && !Cookies.get("password") && (
-            // <BasicLink
-            //   title="BACKOFFICE"
-            //   style="med_Lk_Bl_notSelec"
-            //   navigate="/backoffice"
-            //   icon="world"
-            // />
             <SelectButton
               func={navBackOffice}
               title="BACKOFFICE"

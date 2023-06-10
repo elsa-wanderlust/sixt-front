@@ -2,6 +2,7 @@
 
 .backOfficeContainer {
   width: 100%;
+  min-height: calc(100vh - 160px);
   padding: 30px 5px;
   display: flex;
   h1 {

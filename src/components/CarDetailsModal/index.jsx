@@ -9,6 +9,8 @@ import CarouselPictures from "../CarouselPictures";
 import SelectButton from "../SelectButton";
 import CarGroupInfo from "../CarGroupInfo";
 
+// COMPONENT USAGE
+// modal called from offerList page, only one not included in AllModals components, due to different display type
 const CarDetailsModal = ({
   setModalVisible,
   offerDetails,

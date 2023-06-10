@@ -1,6 +1,8 @@
 // import component(s)
 import BasicLink from "../BasicLink";
 
+// COMPONENT USAGE
+// contains links on display in header when on home and backOffice pages only
 const HeaderLinks = ({ page }) => {
   return (
     <div className="allLinks">

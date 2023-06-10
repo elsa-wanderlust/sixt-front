@@ -3,9 +3,10 @@ import BookingCostItem from "../BookingCostItem";
 // import style
 import "./bookingAllDetails.scss";
 
+// COMPONENT USAGE
+// display all booking details and varies slightly between pages (offerConfig, personalDetails or BackOffice page)
 const BookingAllDetails = ({
   page, // which page do we come from? OfferConfig // PersonalDetails // BackOffice
-  setModalVisible,
   rentalLength,
   optionsSelected,
   extraFees,
@@ -26,7 +27,8 @@ const BookingAllDetails = ({
       {page !== "offerConfig" && (
         <section>
           <div>
-            <p>{vehiculeName}</p> <p>{agency}</p>{" "}
+            <p className="vehiculeName">{vehiculeName}</p>
+            <p>{agency}</p>
             <p>
               {pickUpDateDisplay} - {dropOffDateDisplay}
             </p>
@@ -36,18 +38,19 @@ const BookingAllDetails = ({
           </div>
         </section>
       )}
+      {/* CHARGES INCLUDE AND MIN DRIVER AGE - if on personalDetails page */}
       {page === "personalDetails" && (
         <>
           <h3>VOTRE OFFRE INCLUT</h3>
           {includedCharges.map((elem) => {
             return (
               <div className="includedOffers">
-                <p className="iconSmall"></p>
+                <p className="iconVerySmall"></p>
                 <p key={elem.title}>{elem.title}</p>
               </div>
             );
           })}
-          <h3>VOTRE OFFRE INCLUT</h3>
+          <h3>EXIGENCES POUR LES CONDUCTEURS</h3>
           <p>Conducteur d'âgé au minimum {minAge} ans</p>
         </>
       )}

@@ -1,6 +1,8 @@
 // import style
 import "./selectButton.scss";
 
+// COMPONENT USAGE
+// handles all buttons on the site
 const SelectButton = ({ func, title, type, disabled, icon }) => {
   return (
     <button onClick={func} className={type} disabled={disabled}>

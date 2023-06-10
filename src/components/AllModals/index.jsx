@@ -1,9 +1,12 @@
+// import from react and package(s)
+import { useNavigate } from "react-router-dom";
 // import style
 import "./allModals.scss";
 // import components
 import BookingAllDetails from "../BookingAllDetails.js";
-import CarDetailsModal from "../CarDetailsModal";
 
+// COMPONENT USAGE
+// container for most modals (bookings details (offerConfig & backOffice pages) + confirmation code (personalDetails page))
 const AllModals = ({
   page,
   setModalVisible,
@@ -20,14 +23,20 @@ const AllModals = ({
   dropOffDateDisplay,
   confCode,
 }) => {
+  // declare variables and function
+  const navigate = useNavigate();
+  const handleCloseModal = () => {
+    if (page === "personalDetails") {
+      setModalVisible(false);
+      navigate("/");
+    } else {
+      setModalVisible(false);
+    }
+  };
+
   return (
     <>
-      <div
-        className="defaultModal-container"
-        onClick={() => {
-          setModalVisible(false);
-        }}
-      >
+      <div className="defaultModal-container" onClick={handleCloseModal}>
         <div
           className={
             page === "offerConfig" || page === "backOffice" ? "middle" : "small"
@@ -36,12 +45,7 @@ const AllModals = ({
             event.stopPropagation();
           }}
         >
-          <button
-            className="closing-button"
-            onClick={() => {
-              setModalVisible(false);
-            }}
-          >
+          <button className="closing-button" onClick={handleCloseModal}>
             <p className="iconMedium"></p>
           </button>
           {(page === "offerConfig" || page === "backOffice") && (

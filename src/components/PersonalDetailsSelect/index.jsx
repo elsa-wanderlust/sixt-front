@@ -7,6 +7,8 @@ import customStylePersonalDetails from "../../utils/selectCustomStyle_PersonalDe
 // import function
 customStylePersonalDetails;
 
+// COMPONENT USAGE
+// handles dropdown menus for country and country code on personalDetails page
 const PersonalDetailsSelect = ({ type, state, setState }) => {
   const handleSelect = (selection) => {
     setState(selection);

@@ -1,5 +1,5 @@
 // import from react and package(s)
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 // import style
@@ -14,6 +14,8 @@ import dateTimeFormat from "../../utils/dateTimeFormat";
 import calcRentalLength from "../../utils/calcRentalLength";
 import compareStartEndDate from "../../utils/compareStartEndDate";
 
+// COMPONENT USAGE
+// display all input fiels (agency, dates and times) on home, offerList and offerConfig pages
 const SearchFieldSection = ({
   errorMessage,
   setErrorMessage,
@@ -76,6 +78,8 @@ const SearchFieldSection = ({
         setRentalLength(daysOfRental);
       } catch (error) {
         setErrorMessage(error.response.data.message);
+        // setOffers("");
+        // setIsLoading(false);
         setPage("home");
         navigate("/");
       }
@@ -88,8 +92,8 @@ const SearchFieldSection = ({
     <div>
       <div>
         <>
-          {errorMessage && page === "home" && (
-            <p className="errorMessage">{errorMessage}</p>
+          {errorMessage && (
+            <p className="errorMessage errorZombies">{errorMessage}</p>
           )}
         </>
       </div>

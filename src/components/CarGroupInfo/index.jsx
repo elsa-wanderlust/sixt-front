@@ -1,6 +1,8 @@
 // import style
 import "./carGroupInfo.scss";
 
+// COMPONENT USAGE
+// display info about  doors, seats, transmission, min age, AC and luggages (both carDetailsModal and offerConfig page)
 const CarGroupInfo = ({ carGroupInfo, type }) => {
   const {
     automatic,

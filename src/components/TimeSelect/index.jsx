@@ -6,11 +6,12 @@ import "../../styles/general.scss";
 // import function
 import customStyleAgencyTime from "../../utils/selectCustomStyle_AgencyTime";
 
+// COMPONENT USAGE
+// allows user to choose start and end times of rental (home and offerList pages)
 const TimeSelect = ({ state, setState, page }) => {
   const handleSelect = (time) => {
     setState(time);
   };
-
   const timeOptions = [
     { value: "T08:00:00", label: "8:00" },
     { value: "T08:30:00", label: "8:30" },

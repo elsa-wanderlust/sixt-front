@@ -33,54 +33,9 @@
 }
 // BOOKING SUMMARY
 .bookingCheck {
-  width: 50%;
-  h2 {
-    font-size: 22px;
-    font-family: "RCB";
-    margin: 20px 0;
-  }
-  h3 {
-    font-size: 18px;
-    font-family: "RCB";
-    margin-bottom: 15px;
-  }
-  h4 {
-    font-size: 22px;
-    font-family: "RCB";
-    margin-top: 20px;
-    // margin-bottom: 5px;
-  }
-  p {
-    font-size: 15px;
-    font-family: "RC";
-    margin-bottom: 10px;
-  }
-  .taxes {
-    font-size: 15px;
-    text-align: right;
-  }
-  // top part with image
-  section {
-    display: flex;
-    align-items: start;
-    div {
-      width: 50%;
-      img {
-        width: 250px;
-      }
-    }
-  }
-  .total {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    div {
-      display: flex;
-      align-items: baseline;
-      gap: 10px;
-    }
-  }
+  width: 60%;
 }
+// CONDITIONS AND CONFIRM
 .personalDetailsPage {
   .bottomSection {
     border-top: $lgrey 2px solid;

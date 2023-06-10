@@ -3,6 +3,8 @@ import BasicLink from "../BasicLink";
 // import style
 import "./navigationTrack.scss";
 
+// COMPONENT USAGE
+// display navigation steps in header when on offerList, offerConfig and personalDetails pages only
 const NavigationTrack = ({ page }) => {
   return (
     <>

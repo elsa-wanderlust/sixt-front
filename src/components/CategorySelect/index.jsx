@@ -1,12 +1,13 @@
 // import from react and package(s)
 import React from "react";
 import Select from "react-select";
-// import { components } from "react-select";
 // import from style
 import "./categorySelect.scss";
 // import function
 import customStyleCategory from "../../utils/selectCustomStyle_Category";
 
+// COMPONENT USAGE
+// filter results per category on offerList page
 const CategorySelect = ({ setCategory }) => {
   const handleSelect = (selection) => {
     const categoryCopy = [];
@@ -34,7 +35,6 @@ const CategorySelect = ({ setCategory }) => {
         onChange={handleSelect}
         isMulti
         styles={style}
-        // components={{ Option }}
         ClearIndicator="supp"
         components={{
           IndicatorSeparator: () => null,

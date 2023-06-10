@@ -11,6 +11,9 @@
 .allSearchFields {
   display: flex;
 }
+.errorZombies {
+  background-color: $black;
+}
 
 @mixin eachField {
   border-bottom: 2px white solid;

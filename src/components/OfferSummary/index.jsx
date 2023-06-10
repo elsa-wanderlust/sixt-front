@@ -5,8 +5,10 @@ import CarDetailsModal from "../CarDetailsModal";
 // import style
 import "./offerSummary.scss";
 
+// COMPONENT USAGE
+// display one offer available from offerList page
 const OfferSummary = ({ offerDetails, rentalLength, setPage }) => {
-  const { id, headlines, images, carGroupInfo, prices } = offerDetails;
+  const { headlines, images, prices } = offerDetails;
   const [modalVisible, setModalVisible] = useState(false);
 
   const handleCarSelect = () => {

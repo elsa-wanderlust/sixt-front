@@ -6,6 +6,8 @@ import AsyncSelect from "react-select/async";
 // import function
 import customStyleAgencyTime from "../../utils/selectCustomStyle_AgencyTime";
 
+// COMPONENT USAGE
+// input field for the rental agency selection
 const AutoComplete = ({ selectedLocation, setSelectedLocation, page }) => {
   const [inputValue, setInputValue] = useState("");
 

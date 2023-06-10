@@ -3,6 +3,8 @@ import { useState } from "react";
 // import style
 import "./inputComponent.scss";
 
+// COMPONENT USAGE
+// manage input fields from personalDetails and backOffice connect pages
 const InputComponent = ({
   type,
   placeholder,
@@ -49,7 +51,7 @@ const InputComponent = ({
   return (
     <>
       {!label ? (
-        <div className={{ connect } ? "connect" : "inputFields"}>
+        <div className={connect ? "connect" : "inputFields"}>
           <input
             className={error ? "errorInput" : "inputField"}
             type={type}

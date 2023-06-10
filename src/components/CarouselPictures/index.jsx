@@ -4,6 +4,8 @@ import "react-multi-carousel/lib/styles.css";
 // import style
 import "./carouselPictures.scss";
 
+// COMPONENT USAGE
+// handle carousel of pictures (both home page and carDetailsModal)
 const CarouselPictures = ({ pictures, type }) => {
   const responsive = {
     superLargeDesktop: {

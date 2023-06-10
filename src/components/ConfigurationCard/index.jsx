@@ -1,6 +1,8 @@
 // import style
 import "./configurationCard.scss";
 
+// COMPONENT USAGE
+// displays one option available on offerConfig page
 const ConfigurationCard = ({
   optionDetails,
   optionsSelected,

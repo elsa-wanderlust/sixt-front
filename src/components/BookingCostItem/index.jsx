@@ -1,6 +1,8 @@
 // import style
 import "./bookingCostItem.scss";
 
+// COMPONENT USAGE
+// called from BookingAllDetails components, displays one line of with description and cost
 const BookingCostItem = ({ title, amount, unit, rentalLength }) => {
   const totalCalc = () => {
     let total = 0;
