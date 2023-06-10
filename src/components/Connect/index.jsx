@@ -3,6 +3,7 @@ import { useState } from "react";
 import Cookies from "js-cookie";
 // import components
 // import InputField from "../../components/InputField";
+import InputComponent from "../InputComponent";
 import SelectButton from "../SelectButton";
 // import style
 import "./connect.scss";
@@ -24,13 +25,13 @@ const Connect = ({ setisConnected }) => {
   return (
     <div className="connection">
       <p>CONNECTION AU BACKOFFICE</p>
-      {/* <InputField
+      <InputComponent
         type="password"
         placeholder={!Cookies.get("password") ? "mot de passe" : ""}
         state={password}
         setState={setPassword}
         connect={true}
-      /> */}
+      />
       <SelectButton
         func={handleConnect}
         title="SE CONNECTER"
