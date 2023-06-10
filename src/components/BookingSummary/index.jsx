@@ -3,7 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import style
-import "./BookingSummary.scss";
+import "./bookingSummary.scss";
 // import components
 import AllModals from "../AllModals";
 // import functions
