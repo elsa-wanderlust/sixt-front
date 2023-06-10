@@ -4,7 +4,7 @@ import Select from "react-select";
 // import style
 import "../../styles/general.scss";
 // import function
-import customStyleOne from "../../utils/selectCustomStyle_One";
+import customStyleAgencyTime from "../../utils/selectCustomStyle_AgencyTime";
 
 const TimeSelect = ({ state, setState, page }) => {
   const handleSelect = (time) => {
@@ -34,7 +34,7 @@ const TimeSelect = ({ state, setState, page }) => {
     { value: "T17:30:00", label: "17:30" },
     { value: "T18:00:00", label: "18:00" },
   ];
-  const style = customStyleOne();
+  const style = customStyleAgencyTime();
   return (
     <Select
       value={state && state}

@@ -1,9 +1,9 @@
 // styling function used for the agency and the time selections
 
-const customStyleOne = () => {
+const customStyleAgencyTime = () => {
   // function for styling
   const customStyles = {
-    // the entry field
+    // the input field
     control: (base) => ({
       ...base,
       fontFamily: "RC",
@@ -56,4 +56,4 @@ const customStyleOne = () => {
   return customStyles;
 };
 
-export default customStyleOne;
+export default customStyleAgencyTime;

@@ -14,7 +14,7 @@ const BackOffice = ({ setPage }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [refresh, setRefresh] = useState(true); // to provoke a refresh when a booking is deleted
   const [isConnected, setisConnected] = useState(false);
-  setPage("backOffice");
+
   useEffect(() => {
     const fetchData = async () => {
       try {

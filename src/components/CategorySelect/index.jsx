@@ -5,7 +5,7 @@ import Select from "react-select";
 // import from style
 import "./categorySelect.scss";
 // import function
-import customStyleTwo from "../../utils/selectCustomStyle_Two";
+import customStyleCategory from "../../utils/selectCustomStyle_Category";
 
 const CategorySelect = ({ setCategory }) => {
   const handleSelect = (selection) => {
@@ -24,7 +24,7 @@ const CategorySelect = ({ setCategory }) => {
     { value: "Pick-up", label: "PICK-UP", icon: "" },
   ];
 
-  const style = customStyleTwo();
+  const style = customStyleCategory();
 
   return (
     <div className="categorySelect">

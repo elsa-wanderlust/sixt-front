@@ -4,7 +4,7 @@ import { useState } from "react";
 import axios from "axios";
 import AsyncSelect from "react-select/async";
 // import function
-import customStyleOne from "../../utils/selectCustomStyle_One";
+import customStyleAgencyTime from "../../utils/selectCustomStyle_AgencyTime";
 
 const AutoComplete = ({ selectedLocation, setSelectedLocation, page }) => {
   const [inputValue, setInputValue] = useState("");
@@ -43,7 +43,7 @@ const AutoComplete = ({ selectedLocation, setSelectedLocation, page }) => {
     }
   };
 
-  const style = customStyleOne();
+  const style = customStyleAgencyTime();
 
   return (
     <AsyncSelect

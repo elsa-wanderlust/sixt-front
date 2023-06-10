@@ -46,10 +46,10 @@ const Header = ({ page, setPage }) => {
         </div>
         <div className="headerRightSection">
           {page !== "backOffice" && (
-            <BasicLink
+            <SelectButton
+              func={navBackOffice}
               title="BACKOFFICE"
-              style="med_Lk_Bl_notSelec"
-              navigate="/backoffice"
+              type="whiteLong"
               icon="world"
             />
           )}

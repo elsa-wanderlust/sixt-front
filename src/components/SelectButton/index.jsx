@@ -2,12 +2,12 @@
 import "./selectButton.scss";
 
 const SelectButton = ({ func, title, type, disabled, icon }) => {
-  const iconList = [{ appStore: "", googleStore: "", world: "" }];
-
   return (
     <button onClick={func} className={type} disabled={disabled}>
       <>
-        {icon && <p className="iconMedium">{iconList[icon]}</p>}
+        {icon === "appStore" && <p className="iconMedium"></p>}
+        {icon === "googleStore" && <p className="iconMedium"></p>}
+        {icon === "world" && <p className="iconMedium"></p>}
         {title}
       </>
     </button>

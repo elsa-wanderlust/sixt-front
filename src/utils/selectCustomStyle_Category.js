@@ -1,9 +1,9 @@
 // styling function used for the category filter (offerList page)
 
-const customStyleTwo = () => {
+const customStyleCategory = () => {
   // function for styling
   const customStyles = {
-    // the entry field
+    // the input field
     control: (base) => ({
       ...base,
       fontFamily: "RC",
@@ -70,4 +70,4 @@ const customStyleTwo = () => {
   return customStyles;
 };
 
-export default customStyleTwo;
+export default customStyleCategory;
