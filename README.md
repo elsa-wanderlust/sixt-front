@@ -44,6 +44,6 @@ Web app reproduction of the Sixt (former) website with React and Sass for the fr
 
 - access the backoffice (pw: HelloWorld!) to see all bookings
 
-  ![back office](../sixt-front/src/icons/images/backoffice.png)
+  ![back office](../sixt-front/src/icons/images/backoffice.jpg)
 
 Reach out [here](https://github.com/elsa-wanderlust/sixt-front/issues) if any question!
