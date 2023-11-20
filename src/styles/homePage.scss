@@ -9,3 +9,23 @@
 .homeBg {
   background-color: $black;
 }
+
+@media (max-width: 768px) {
+  .worldMapBg {
+    width: calc(100vw - 20px);
+  }
+  .worldMapBg > img {
+    object-fit: contain;
+  }
+  .carouselContainer {
+    display: none;
+  }
+}
+@media (max-width: 1024px) {
+  .worldMapBg {
+    max-width: calc(100vw - 20px);
+  }
+  .carouselContainer {
+    width: calc(100vw - 20px);
+  }
+}

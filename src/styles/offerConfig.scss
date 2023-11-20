@@ -64,7 +64,6 @@
     font-family: "RCB";
     color: $black;
     margin-bottom: 5px;
-    // margin: 45px 0 35px 0;
   }
 }
 .offerConfigContainer .leftColumn {
@@ -104,4 +103,16 @@
 .moreDetailsTaxes {
   font-size: 12px;
   margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .blackBand {
+    height: 80px;
+  }
+  .blackBand > div > p {
+    font-size: 12px;
+  }
+  .offerConfigContainer .leftColumn > div > h2 {
+    font-size: 20px;
+  }
 }

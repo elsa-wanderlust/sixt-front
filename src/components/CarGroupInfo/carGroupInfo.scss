@@ -21,14 +21,26 @@
   position: absolute;
   top: 40px;
 }
-// .modal p:nth-child(2) {
-//   font-size: 10px;
-// }
 // in offerConfig Page
 .offerConfig {
   .oneGroupInfo {
     p:nth-child(2) {
       font-size: 14px;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .groupInfoModal {
+    display: flex;
+    flex-direction: column;
+    border: blueviolet 2px solid;
+  }
+  .offerConfig {
+    .oneGroupInfo {
+      p:nth-child(2) {
+        font-size: 8px;
+      }
     }
   }
 }

@@ -49,3 +49,13 @@
     }
   }
 }
+
+@media (max-width: 1024px) {
+  .bookingSummary {
+    .clickableArea {
+      flex-direction: column;
+      border-left: 3px solid darkgray;
+      padding-left: 5px;
+    }
+  }
+}

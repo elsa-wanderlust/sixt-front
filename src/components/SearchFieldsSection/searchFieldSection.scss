@@ -70,3 +70,61 @@
   flex: 1;
   align-items: end;
 }
+
+@media (max-width: 1200px) {
+  .agencySearch {
+    flex: 3;
+  }
+}
+
+@media (max-width: 1024px) {
+  .searchFieldSection {
+    flex-direction: column;
+    height: fit-content;
+  }
+  @mixin eachField {
+    border-bottom: NONE;
+    display: flex;
+  }
+  .label {
+    padding-left: 8px;
+  }
+  // AGENCY
+  .agencySearch {
+    @include eachField;
+    border-bottom: 2px white solid;
+    display: flex;
+    flex: 5;
+    justify-content: space-between;
+  }
+  .autoComplete {
+    background-color: black;
+    color: white;
+  }
+
+  // DATE
+  .dateSelect {
+    @include eachField;
+    min-height: 30px;
+    display: flex;
+    position: relative;
+    margin-bottom: 10px;
+  }
+  .calendarContainer {
+    z-index: 100;
+    position: absolute;
+    top: 0px;
+  }
+  .dateSelected {
+    color: white;
+    z-index: 0;
+    padding-left: 8px;
+  }
+
+  // TIME
+  .timeSelect {
+    @include eachField;
+    margin-top: 10px;
+    border-bottom: 2px white solid;
+  }
+}

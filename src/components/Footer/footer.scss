@@ -7,6 +7,18 @@
   background-color: black;
   display: flex;
   gap: 15px;
-  align-items: end;
+  justify-content: center;
   font-size: 12px;
+}
+.footerContainerSection {
+  display: flex;
+  gap: 15px;
+  align-items: end;
+}
+
+@media (max-width: 1024px) {
+  .footerContainer {
+    flex-direction: column;
+    align-items: center;
+  }
 }

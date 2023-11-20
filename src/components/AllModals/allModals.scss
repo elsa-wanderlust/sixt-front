@@ -51,3 +51,10 @@
   font-family: "RC";
   padding: 70px 40px;
 }
+
+@media (max-width: 768px) {
+  .defaultModal-container .middle {
+    width: 80%;
+    left: 10%;
+  }
+}

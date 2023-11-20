@@ -104,3 +104,22 @@
   @include number;
   background-color: $lgrey;
 }
+
+@media (max-width: 1024px) {
+  .abonnement {
+    display: none;
+  }
+  .allLinks {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 5px;
+    margin-left: 60px;
+  }
+}
+@media (max-width: 768px) {
+  .allLinks {
+    margin-left: 20px;
+  }
+}

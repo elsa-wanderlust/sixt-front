@@ -15,7 +15,7 @@ const HeaderLinks = ({ page }) => {
       <BasicLink
         title="SIXT+"
         subtitle="ABONNEMENT AUTO"
-        style="big_Lk_Bl_notSelec"
+        style="big_Lk_Bl_notSelec abonnement"
       />
     </div>
   );

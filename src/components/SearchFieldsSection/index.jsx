@@ -1,18 +1,19 @@
-// import from react and package(s)
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
 // import style
 import "./searchFieldSection.scss";
+
 // import component(s)
 import AutoComplete from "../AutoComplete";
 import DateSelect from "../DateSelect";
-import TimeSelect from "../TimeSelect";
 import SelectButton from "../SelectButton";
-// import function(s)
-import dateTimeFormat from "../../utils/dateTimeFormat";
+import TimeSelect from "../TimeSelect";
+import axios from "axios";
 import calcRentalLength from "../../utils/calcRentalLength";
 import compareStartEndDate from "../../utils/compareStartEndDate";
+// import function(s)
+import dateTimeFormat from "../../utils/dateTimeFormat";
+// import from react and package(s)
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 // COMPONENT USAGE
 // display all input fiels (agency, dates and times) on home, offerList and offerConfig pages

@@ -72,3 +72,9 @@
   border: 2px solid black;
   border-radius: 5px;
 }
+
+@media (max-width: 768px) {
+  .whiteLong {
+    font-size: 20px;
+  }
+}
