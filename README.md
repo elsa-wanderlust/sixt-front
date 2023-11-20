@@ -26,11 +26,11 @@ Web app reproduction of the Sixt (former) website with React and Sass for the fr
 
 - On the home page : select your agency, day and time for both pick up and return.
 
-  ![home page](../sixt-front/src/icons/images/homePage.png)
+  ![home page](/sixt-front/src/icons/images/homePage.png)
 
 - Select a type of car, of modify the original parameters - the offers and prices get updated automatically. Select your car
 
-  ![car selection page](../sixt-front/src/icons/images/carSelect.png)
+  ![car selection page](/sixt-front/src/icons/images/carSelect.png)
 
 - Select amongst few options (per day, per rental), the total prices get updated, and a modal is accessible with the pricing details
 
