@@ -26,24 +26,24 @@ Web app reproduction of the Sixt (former) website with React and Sass for the fr
 
 - On the home page : select your agency, day and time for both pick up and return.
 
-  ![home page](/sixt-front/src/icons/images/homePage.png)
+  ![home page](./src/assets/img/homePage.png)
 
 - Select a type of car, of modify the original parameters - the offers and prices get updated automatically. Select your car
 
-  ![car selection page](/sixt-front/src/icons/images/carSelect.png)
+  ![car selection page](./src/assets/img/carSelect.png)
 
 - Select amongst few options (per day, per rental), the total prices get updated, and a modal is accessible with the pricing details
 
-  ![options selection page](../sixt-front/src/icons/images/options.png)
+  ![options selection page](./src/assets/img/options.png)
 
-  ![pricing summary modal](../sixt-front/src/icons/images/oneModal.png)
+  ![pricing summary modal](./src/assets/img/oneModal.png)
 
 - fill up the booking booking
 
-  ![personal details page](../sixt-front/src/icons/images/bookingDetails.png)
+  ![personal details page](./src/assets/img/bookingDetails.png)
 
 - access the backoffice (pw: HelloWorld!) to see all bookings
 
-  ![back office](../sixt-front/src/icons/images/backoffice.jpg)
+  ![back office](./src/assets/img/backoffice.jpg)
 
 Reach out [here](https://github.com/elsa-wanderlust/sixt-front/issues) if any question!
