@@ -1,8 +1,22 @@
-## LOCAL SET UP 👨‍💻
+## SET UP 👨‍💻
 
-`npm install ` or `npm i` to add the pkgs
+```bash
+npm install
+```
 
-`npm run dev` to start the project
+or
+
+```bash
+npm i
+```
+
+to install all the packages
+
+```bash
+npm run dev
+```
+
+to start the project
 
 open `http://localhost:5173/` in your browser, and start booking cars!
 
