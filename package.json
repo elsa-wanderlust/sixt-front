@@ -25,6 +25,7 @@
     "sass": "^1.62.1"
   },
   "devDependencies": {
+    "@babel/traverse": "^7.23.4",
     "@types/react": "^18.0.37",
     "@types/react-dom": "^18.0.11",
     "@vitejs/plugin-react": "^4.0.0",
