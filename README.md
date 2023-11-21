@@ -1,28 +1,36 @@
-## SET UP 👨‍💻
+# SET UP 👨‍💻
 
-```bash
+**1. clone the project**
+
+```
+git clone https://github.com/elsa-wanderlust/sixt-front.git
+```
+
+**2. install packages and their dependencies**
+
+```
 npm install
 ```
 
 or
 
-```bash
+```
 npm i
 ```
 
-to install all the packages
+**3. start the project**
 
 ```bash
 npm run dev
 ```
 
-to start the project
+**4. open the project in the browser**
 
 open `http://localhost:5173/` in your browser, and start booking cars!
 
 The backend repo is available [here](https://github.com/elsa-wanderlust/sixt-backend)
 
-## ONLINE 🌏
+# ONLINE 🌏
 
 deployed via Netlify [here](https://elsa-letallieur-sixt.netlify.app/)
 
@@ -30,7 +38,7 @@ deployed via Netlify [here](https://elsa-letallieur-sixt.netlify.app/)
 
 server hosted on Northflank
 
-## PROJECT 🚘 🚙 🏎
+# PROJECT 🚘 🚙 🏎
 
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)

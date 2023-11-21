@@ -94,7 +94,10 @@ const SearchFieldSection = ({
       <div>
         <>
           {errorMessage && (
-            <p className="errorMessage errorZombies">{errorMessage}</p>
+            <p className="errorMessage errorZombies">
+              C&apos;est une agence fictive qui n&apos;a pas de véhicules
+              disponibles.
+            </p>
           )}
         </>
       </div>
